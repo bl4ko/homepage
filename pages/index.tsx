@@ -18,10 +18,8 @@ export default function Home() {
         <ArticleLayout>
             <Container>
 
-                <Box borderRadius="lg" mb="{6}" p={3} textAlign="center" bg={useColorModeValue('whiteAlpha.500', 'whiteAlpha.200')} css={{ backdropFilter: 'blur(10px)' }}>
-                    Hello, I&apos;m a dev ops guy from Slovenia, passionate about iot and
-                    finding elegant solutions to real-world problems using modern
-                    technologies.
+                <Box className="my-4 rounded-lg p-3 text-center" bg={useColorModeValue('whiteAlpha.500', 'whiteAlpha.200')} css={{ backdropFilter: 'blur(10px)' }}>
+                    Hello, I&apos;m a dev ops guy from Slovenia
                 </Box>
 
                 <Box display={{ md: "flex" }}>

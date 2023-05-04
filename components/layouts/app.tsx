@@ -31,9 +31,10 @@ export default function AppLayout({ children, router }: LayoutProps) {
                 {/* viewport meta tags should not be used in _document.js's <Head>. https://nextjs.org/docs/messages/no-document-viewport-meta */}
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
             </Head>
+
             <NavBar path={router.asPath} />
 
-            <Container maxW="container.md" pt={14}>
+            <Container className="max-w-lg pt-14">
                 <div className="relative z-0">
                     <EarthCanvas />
                     {/* <StarsCanvas /> */}
