@@ -16,7 +16,7 @@ import { IotIcon } from "@/components/icons";
 export default function Home() {
     return (
         <ArticleLayout>
-            <Container>
+            <div>
 
                 <Box className="my-4 rounded-lg p-3 text-center" bg={useColorModeValue('whiteAlpha.500', 'whiteAlpha.200')} css={{ backdropFilter: 'blur(10px)' }}>
                     Hello, I&apos;m a dev ops guy from Slovenia
@@ -88,7 +88,7 @@ export default function Home() {
                     </IndentedParagraph>
                 </Section>
 
-            </Container>
+            </div>
         </ArticleLayout >
     );
 }

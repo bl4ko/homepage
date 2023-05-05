@@ -5,8 +5,6 @@ import {
     Box,
     Link,
     Stack,
-    Heading,
-    Flex,
     Menu,
     MenuItem,
     MenuList,
@@ -17,7 +15,6 @@ import {
 } from "@chakra-ui/react";
 import { HamburgerIcon } from "@chakra-ui/icons";
 import Logo from "./icons/logo";
-import { IoLogoGithub } from "react-icons/io5";
 import ThemeToggleButton from "./icons/theme-toggle-button";
 import { GithubIcon } from "./icons";
 

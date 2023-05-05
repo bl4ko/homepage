@@ -11,7 +11,6 @@
 */
 import Head from "next/head";
 import NavBar from "../navbar";
-import { Box, Container } from "@chakra-ui/react";
 import { ReactNode } from "react";
 import { NextRouter } from "next/router";
 import Footer from "../footer";
@@ -24,7 +23,7 @@ interface LayoutProps {
 
 export default function AppLayout({ children, router }: LayoutProps) {
     return (
-        <Box as="main" pb={8}>
+        <main className="pb-8">
             <Head>
                 {/* title has to be defined on component level:  https://nextjs.org/docs/messages/no-title-in-document-head*/}
                 <title>Bl4ko</title>
@@ -34,7 +33,8 @@ export default function AppLayout({ children, router }: LayoutProps) {
 
             <NavBar path={router.asPath} />
 
-            <Container className="max-w-lg pt-14">
+            <div className="max-w-2xl pt-14 mx-auto text-sm sm:text-text-sm md:text-text-base lg:text-lg xl:text-xl lg:px-8 sm:px-6 xs:px-4">
+
                 <div className="relative z-0">
                     <EarthCanvas />
                     {/* <StarsCanvas /> */}
@@ -43,7 +43,7 @@ export default function AppLayout({ children, router }: LayoutProps) {
                 {children}
 
                 <Footer />
-            </Container>
-        </Box>
+            </div>
+        </main>
     );
 }
