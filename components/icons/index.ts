@@ -1,4 +1,11 @@
-export { default as Logo } from './logo';
-export { default as ThemeToggleButton } from './theme-toggle-button';
-export { default as GithubIcon } from './github';
-export { default as IotIcon } from './iot';
+// import CloseIcon from "./Close";
+// import LogoIcon from "./Logo";
+// import MenuIcon from "./Menu";
+import MoonIcon from "./Moon";
+import SunIcon from "./Sun";
+import HamburgerIcon from "./Hamburger";
+import GithubIcon from "./github";
+import IotIcon from "./iot";
+
+
+export { IotIcon, GithubIcon, MoonIcon, SunIcon, HamburgerIcon };

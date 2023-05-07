@@ -1,46 +1,22 @@
-import { forwardRef } from "react";
-import NextLink from "next/link";
-import {
-    Container,
-    Box,
-    Link,
-    Stack,
-    Menu,
-    MenuItem,
-    MenuList,
-    MenuButton,
-    IconButton,
-    useColorModeValue,
-    LinkProps,
-} from "@chakra-ui/react";
-import { HamburgerIcon } from "@chakra-ui/icons";
-import Logo from "./icons/logo";
-import ThemeToggleButton from "./icons/theme-toggle-button";
+import { useState } from "react";
+import Link from "next/link";
+import { HamburgerIcon } from "@/components/icons";
 import { GithubIcon } from "./icons";
+import ThemeToggleButton from "./icons/theme-toggle-button";
 
-interface LinkItemProps extends LinkProps {
+interface LinkItemProps {
     href: string;
     path: string;
+    children: React.ReactNode;
+    target?: string;
+    className?: string;
 }
 
-const LinkItem = ({
-    href,
-    path,
-    target,
-    children,
-    ...props
-}: LinkItemProps) => {
+function LinkItem({ href, path, children, className, ...props }: LinkItemProps) {
     const active = path === href;
-    const inactiveColor = useColorModeValue("gray.800", "whiteAlpha.900");
     return (
-        <Link
-            as={NextLink}
+        <Link className={`${active ? 'bg-grassTeal text-[#202023]' : 'text-white '} px-2 py-1 transition-colors duration-200 ${className}`}
             href={href}
-            scroll={false}
-            p={2}
-            bg={active ? "grassTeal" : undefined}
-            color={active ? "#202023" : inactiveColor}
-            target={target}
             {...props}
         >
             {children}
@@ -48,47 +24,16 @@ const LinkItem = ({
     );
 };
 
-const MenuLink = forwardRef<HTMLAnchorElement, LinkProps>((props, ref) => (
-    <Link ref={ref} as={NextLink} {...props} />
-));
-
-MenuLink.displayName = 'MenuLink';
-
 export default function Navbar(props: any) {
     const { path } = props;
+    const [isOpen, setIsOpen] = useState(false);
+
+    const toggleMenu = () => setIsOpen(!isOpen);
 
     return (
-        <Box
-            position="fixed"
-            as="nav"
-            w="100%"
-            bg={useColorModeValue("#ffffff40", "#20202380")}
-            css={{ backdropFilter: "blur(10px)" }}
-            zIndex={2}
-            {...props}
-        >
-            <Container
-                display="flex"
-                p={2}
-                maxW="container.md"
-                flexWrap="wrap"
-                alignItems="center"
-                justifyContent="space-between"
-            >
-                {/* <Flex align="center" mr={5}>
-                    <Heading as="h1" size="lg" letterSpacing={"tighter"}>
-                        <Logo />
-                    </Heading>
-                </Flex> */}
-
-                <Stack
-                    direction={{ base: "column", md: "row" }}
-                    display={{ base: "none", md: "flex" }}
-                    width={{ base: "full", md: "auto" }}
-                    alignItems="center"
-                    flexGrow={1}
-                    mt={{ base: 4, md: 0 }}
-                >
+        <nav className="items-center fixed w-full dark:bg-[#20202380] bg-[ffffff40] z-10 backdrop-blur py-3">
+            <div className="w-full flex justify-between mx-auto items-center px-4 max-w-2xl">
+                <div className="hidden sm:flex flex-1 space-x-4 md:mt-0">
                     <LinkItem href="/" path={path}>
                         Home
                     </LinkItem>
@@ -105,51 +50,59 @@ export default function Navbar(props: any) {
                         target="_blank"
                         href="https://github.com/bl4ko/homepage"
                         path={path}
-                        display="inline-flex"
-                        alignItems="center"
-                        style={{ gap: 4 }}
-                        pl={2}
+                        className="inline-flex items-center gap-1 pl-1"
                     >
                         <GithubIcon />
                         Code
                     </LinkItem>
-                </Stack>
+                </div>
 
-                <Box flex={1} alignItems="right">
+                <div className="flex flex-wrap justify-end items-center w-full">
                     <ThemeToggleButton />
-
-                    <Box ml={2} display={{ base: "inline-block", md: "none" }}>
-                        <Menu isLazy id="navbar-menu">
-                            <MenuButton
-                                as={IconButton}
-                                icon={<HamburgerIcon />}
-                                variant="outline"
-                                aria-label="Options"
-                            />
-                            <MenuList>
-                                <MenuItem as={MenuLink} href="/">
-                                    Home
-                                </MenuItem>
-                                <MenuItem as={MenuLink} href="/">
-                                    Projects
-                                </MenuItem>
-                                <MenuItem as={MenuLink} href="/works">
-                                    Blog
-                                </MenuItem>
-                                <MenuItem as={MenuLink} href="/posts">
-                                    Contacts
-                                </MenuItem>
-                                <MenuItem
-                                    as={Link}
-                                    href="https://github.com/crafthttps://github.com/bl4ko/homepage"
-                                >
-                                    Code
-                                </MenuItem>
-                            </MenuList>
-                        </Menu>
-                    </Box>
-                </Box>
-            </Container>
-        </Box>
+                    <div className="ml-2 sm:hidden">
+                        <button onClick={toggleMenu} className="focus:outline none" aria-label="Options">
+                            <HamburgerIcon />
+                        </button>
+                        {isOpen && (
+                            <div className="absolute right-0 mt-2 w-48 bg-white dark:bg-gray-800 rounded-md shadow-lg mr-2 border-2">
+                                <ul>
+                                    <li className="px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-700">
+                                        <LinkItem href="/" path={path}>
+                                            Home
+                                        </LinkItem>
+                                    </li>
+                                    <li className="px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-700">
+                                        <LinkItem href="/projects" path={path}>
+                                            Projects
+                                        </LinkItem>
+                                    </li>
+                                    <li className="px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-700">
+                                        <LinkItem href="/blog" path={path}>
+                                            Blog
+                                        </LinkItem>
+                                    </li>
+                                    <li className="px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-700">
+                                        <LinkItem href="/contact" path={path}>
+                                            Contact
+                                        </LinkItem>
+                                    </li>
+                                    <li className="px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-700">
+                                        <LinkItem
+                                            target="_blank"
+                                            href="https://github.com/bl4ko/homepage"
+                                            path={path}
+                                            className="inline-flex items-center gap-1 pl-1"
+                                        >
+                                            <GithubIcon />
+                                            Code
+                                        </LinkItem>
+                                    </li>
+                                </ul>
+                            </div>
+                        )}
+                    </div>
+                </div>
+            </div>
+        </nav>
     );
 }

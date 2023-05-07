@@ -1,6 +1,6 @@
 export default function IotIcon() {
     return (
-        <svg xmlns="http://www.w3.org/2000/svg" width="30px" height="30px" viewBox="0 0 24 24">
+        <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 24 24" fill="white">
             <g data-name="Product Icons">
                 <g>
                     <path className="cls-1" d="M12.54,12.43V8h0a1.14,1.14,0,1,0-1,0v4.42H7.27V9.6a1.14,1.14,0,0,0-.53-2.15A1.14,1.14,0,0,0,6.22,9.6v2.83H6a3.82,3.82,0,1,1,1.4-7.38A5.22,5.22,0,0,1,16.84,5a4,4,0,0,1,1.23-.2h0a3.83,3.83,0,0,1,0,7.66h-.25V9.6a1.14,1.14,0,1,0-1.06,0v2.83Z" />
