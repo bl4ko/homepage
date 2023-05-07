@@ -14,10 +14,11 @@ module.exports = {
                 grey: "#a4b1cd",
                 black: "#141d2b",
                 dark: "#1a2332",
-                darker: "$111927",
-                yellow: "ffaf00",
+                darker: "#111927",
+                yellow: "#ffaf00",
                 red: "#ff3e3e",
                 aqua: "#2ee7b6",
+                purple: "#9f00ff",
                 grassTeal: "#88ccca",
             },
             backgroundColor: {

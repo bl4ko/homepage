@@ -1,7 +1,7 @@
-export default function MoonIcon(height: string = "1em", width: string = "1em", viewBox: string = "0 0 24 24"): JSX.Element {
+export default function MoonIcon(): JSX.Element {
     return (
-        <svg height={height} width={width} version="1.1" id="_x34_" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink"
-            viewBox={viewBox} xmlSpace="preserve">
+        <svg height="1em" width="1em" version="1.1" id="_x34_" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink"
+            viewBox="0 0 24 24" xmlSpace="preserve">
             <g>
                 <g>
                     <path style={{ fill: "#F4F4F5" }} d="M426.655,444.491c-85.064,74.278-206.9,83.839-299.319,29.581

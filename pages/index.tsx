@@ -2,16 +2,35 @@
  * This is the index page of the website.
  */
 
-import NextLink from "next/link";
+import Link from "next/link";
 import Image from "next/image";
 import ContentLayout from "../components/layouts/content";
 import { IotIcon } from "@/components/icons";
 
+interface BioSectionProps {
+    children: React.ReactNode;
+}
 
-import Section from "../components/section"
-import { BioSection, BioYear } from "@/components/bio";
-import { Box, Button, Heading, Link } from "@chakra-ui/react";
+function BioSection({ children }: BioSectionProps): JSX.Element {
+    return (
+        <div className="pl-20 indent-[-3.5rem]">
+            {children}
+        </div>
+    );
+}
 
+interface BioYearProps {
+    children: React.ReactNode;
+}
+
+function BioYear({ children }: BioSectionProps): JSX.Element {
+    return (
+        <span className="font-bold mr-4"
+        >
+            {children}
+        </span>
+    );
+}
 
 export default function Home() {
     return (
@@ -37,10 +56,10 @@ export default function Home() {
                     </div>
                 </div>
 
-                <Section delay={0.1}>
-                    <Heading as="h3" variant="section-title">
+                <div>
+                    <h3 className="section-title">
                         Work
-                    </Heading>
+                    </h3>
                     <p className="text-justify indent-5 hyphens-auto">
                         Bl4ko is a computer science student at the University Of Ljubljana. He is
                         currently working on machine learning projects and working as a dev ops developer. When not working,
@@ -55,17 +74,19 @@ export default function Home() {
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, recusandae. Repellendus laboriosam, veritatis, sapiente quidem inventore dolore voluptatum sequi ipsa recusandae cupiditate ipsam ducimus eveniet quisquam odit delectus autem maxime.
                     </p>
 
-                    <Box display="flex" justifyContent="center" my={4}>
-                        <Button as={NextLink} href="/portfolio" colorScheme="teal">
-                            My portfolio
-                        </Button>
-                    </Box>
-                </Section>
+                    <div className="flex justify-center my-4">
+                        <Link href="/404">
+                            <button className="font-bold py-3 px-5 rounded transition duration-200 ease-in-out hover:bg-tertiary hover:underline">
+                                My portfolio
+                            </button>
+                        </Link>
+                    </div>
+                </div>
 
-                <Section delay={0.2}>
-                    <Heading as="h3" variant="section-title">
+                <div>
+                    <h3 className="section-title">
                         Bio
-                    </Heading>
+                    </h3>
                     <BioSection>
                         <BioYear>2001</BioYear>
                         Born in Slovenia 🇸🇮, Ljubljana.
@@ -82,19 +103,19 @@ export default function Home() {
                         <BioYear>2023</BioYear>
                         Completed the Bachelor&apos;s Artificial Intelligence Program at the University of Ljubljana Faculty of Computer and Information Science.
                     </BioSection>
-                </Section>
+                </div>
 
-                <Section delay={0.3}>
+                <div>
 
-                    <Heading as="h3" variant="section-title">
+                    <h3 className="section-title">
                         Hobbies
-                    </Heading>
+                    </h3>
                     <p className="text-justify indent-1 hyphens-auto">
                         Bl4ko enjoys sports including cycling, tennis, boxing and fitness.
                     </p>
-                </Section>
+                </div>
 
-            </div>
+            </div >
         </ContentLayout >
     );
 }

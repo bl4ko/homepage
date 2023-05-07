@@ -34,7 +34,7 @@ export default function AppLayout({ children, router }: LayoutProps) {
 
             <div className="text-base max-w-2xl pt-14 mx-auto xs:px-4 xss:px-3">
 
-                <div className="relative z-0">
+                <div className="relative z-0 my-6">
                     <EarthCanvas />
                     {/* <StarsCanvas /> */}
                 </div>

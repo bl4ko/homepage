@@ -5,41 +5,69 @@
 @tailwind utilities;
 
 html[data-theme="light"] {
-    --background-primary: #141d2b;
-    --background-secondary: #1a2332;
-    --background-tertiary: #111927;
-    --color-primary: #cd1313;
-    --color-secondary: #a4b1cd;
-    --color-tertiary: #cad2e2;
     --color-green: #9fef00;
-    --color-grey: #a4b1cd;
-    --color-black: #141d2b;
+    --color-gray: #4b4b4b;
+    --color-black: #ffffff;
+    --color-blue: #0086ff;
+    --color-yellow: #ffaf00;
     --color-red: #ff3e3e;
+    --color-purple: #9f00ff;
     --color-aqua: #2ee7b6;
-    --link-color: #3d7aed;
+    --background-primary: #ffffff;
+    --background-secondary: #f0f0f0;
+    --background-tertiary: #e6e6e6;
+    --text-primary: #141d2b;
+    --text-secondary: #4b4b4b;
+    --text-tertiary: #9f9f9f;
 }
 
 html[data-theme="dark"] {
+    --color-green: #9fef00;
+    --color-gray: #a4b1cd;
+    --color-black: #141d2b;
+    --color-blue: #0086ff;
+    --color-yellow: #ffaf00;
+    --color-red: #ff3e3e;
+    --color-purple: #9f00ff;
+    --color-aqua: #2ee7b6;
     --background-primary: #141d2b;
     --background-secondary: #1a2332;
     --background-tertiary: #111927;
-    --color-primary: #fff;
-    --color-secondary: #a4b1cd;
-    --color-tertiary: #cad2e2;
-    --color-green: #9fef00;
-    --color-grey: #a4b1cd;
-    --color-black: #141d2b;
-    --color-red: #ff3e3e;
-    --color-aqua: #2ee7b6;
-    --link-color: #ff63c3;
+    --text-primary: #fff;
+    --text-secondary: #a4b1cd;
+    --text-tertiary: #cad2e2;
+}
+
+nav {
+    background-color: var(--background-secondary);
 }
 
 body {
-    font-family: 'JetBrains Mono', monospace !important;
-    background-color: var(--background-primary) !important;
+    font-family: 'JetBrains Mono', monospace;
+    background-color: var(--background-primary);
+    color: var(--text-primary);
 }
 
 a {
-    color: var(--link-color) !important;
-    text-underline-offset: 3px !important;
+    color: var(--color-green);
+    text-underline-offset: 3px;
+}
+
+button {
+    background-color: var(--background-secondary);
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.section-title {
+    font-weight: bold;
+    font-size: 22px;
+    text-underline-offset: 6px;
+    margin-top: 0.75rem;
+    margin-bottom: 0.75rem;
+    text-decoration: underline;
+    text-decoration-color: #525252;
+    text-decoration-thickness: 4px;
 }

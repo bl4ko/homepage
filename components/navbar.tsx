@@ -31,7 +31,7 @@ export default function Navbar(props: any) {
     const toggleMenu = () => setIsOpen(!isOpen);
 
     return (
-        <nav className="items-center fixed w-full dark:bg-[#20202380] bg-[ffffff40] z-10 backdrop-blur py-3">
+        <nav className="items-center fixed w-full z-10 backdrop-blur py-3">
             <div className="w-full flex justify-between mx-auto items-center px-4 max-w-2xl">
                 <div className="hidden sm:flex flex-1 space-x-4 md:mt-0">
                     <LinkItem href="/" path={path}>

@@ -1,9 +1,7 @@
-import { Box } from "@chakra-ui/react";
-
 export default function Footer() {
     return (
-        <Box textAlign="center" opacity={0.4} fontSize="sm">
+        <div className="text-center opacity-[0.4] text-sm mt-5">
             © {new Date().getFullYear()} Bl4ko. Copy as much as you want.
-        </Box>
+        </div>
     );
 }

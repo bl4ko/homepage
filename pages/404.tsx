@@ -1,24 +1,21 @@
 import NextLink from "next/link";
-import {
-    Box,
-    Heading,
-    Text,
-    Container,
-    Divider,
-    Button,
-} from "@chakra-ui/react";
+import ContentLayout from "@/components/layouts/content";
 
 export default function NotFound() {
     return (
-        <Container>
-            <Heading as="h1">404 - Page not found</Heading>
-            <Text my={6}>Sorry, we couldn&apos;t find the page you were looking for.</Text>
-            <Divider my={6} />
-            <Box my={6} textAlign="center">
-                <Button as={NextLink} href="/" colorScheme="teal">
-                    Return to homepage
-                </Button>
-            </Box>
-        </Container>
+        <ContentLayout>
+            <div className="container mx-auto px-4">
+                <h1 className="text-2xl font-bold">404 - Page not found</h1>
+                <p className="my-6">Sorry, we couldn&apos;t find the page you were looking for.</p>
+                <hr className="my-6" />
+                <div className="my-6 text-center">
+                    <NextLink href="/" passHref>
+                        <button className="bg-teal-500 hover:bg-teal-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                            Return to homepage
+                        </button>
+                    </NextLink>
+                </div>
+            </div>
+        </ContentLayout>
     );
 }
