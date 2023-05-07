@@ -4,44 +4,44 @@
 
 import NextLink from "next/link";
 import Image from "next/image";
-import { Flex, Container, Box, Button, useColorModeValue, Heading, Link } from "@chakra-ui/react";
 import ContentLayout from "../components/layouts/content";
-import Section from "../components/section"
-import IndentedParagraph from "../components/paragraph"
-import { BioSection, BioYear } from "@/components/bio";
 import { IotIcon } from "@/components/icons";
+
+
+import Section from "../components/section"
+import { BioSection, BioYear } from "@/components/bio";
+import { Box, Button, Heading, Link } from "@chakra-ui/react";
+
 
 export default function Home() {
     return (
         <ContentLayout>
             <div>
-                <Box className="my-4 rounded-lg p-3 text-center" bg={useColorModeValue('whiteAlpha.500', 'whiteAlpha.200')} css={{ backdropFilter: 'blur(10px)' }}>
+                <div className="my-4 rounded-xl p-3 text-center bg-white bg-opacity-50 backdrop-blur-md dark:bg-dark">
                     Hello, I&apos;m a dev ops guy from Slovenia
-                </Box>
+                </div>
 
-                <Box display={{ md: "flex" }}>
-                    <Box flexGrow={1}>
-                        <Heading as="h2" variant="page-title">
-                            Bl4ko
-                        </Heading>
-                        <Flex alignItems="center" justifyContent={"left"}>
-                            <IndentedParagraph>IoT enthusiast</IndentedParagraph>
-                            <Box marginLeft="1rem">
-                                <IotIcon />
-                            </Box>
-                        </Flex>
-                    </Box>
+                <div className="md:flex items-center">
+                    <div className="flex-grow">
+                        <h2 className="text-4xl font-bold">Bl4ko</h2>
+                        <div className="flex items-center">
+                            <p>IoT enthusiast</p>
+                            <IotIcon />
+                        </div>
+                    </div>
 
-                    <Box borderColor="white.Alpha.800" borderWidth={2} borderStyle="solid" w="100px" h="100px" display="inline-block" borderRadius="full" overflow="hidden">
-                        <Image src="/images/profile.png" alt="Bl4ko" width={100} height={100} />
-                    </Box>
-                </Box>
+                    <div className="shrink-0 mt-3 md:ml-6 text-center">
+                        <div className="border-white border-opacity-100 border-2 w-24 h-24 rounded-full overflow-hidden inline-block">
+                            <Image src="/images/profile.png" alt="Bl4ko" width={100} height={100} />
+                        </div>
+                    </div>
+                </div>
 
                 <Section delay={0.1}>
                     <Heading as="h3" variant="section-title">
                         Work
                     </Heading>
-                    <IndentedParagraph>
+                    <p className="text-justify indent-5 hyphens-auto">
                         Bl4ko is a computer science student at the University Of Ljubljana. He is
                         currently working on machine learning projects and working as a dev ops developer. When not working,
                         he enjoys sports and spending time playing chess.
@@ -53,7 +53,8 @@ export default function Home() {
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, quam corrupti necessitatibus aliquam id sapiente quia tempora doloribus, dolores ipsa commodi consectetur, fugit ut. Laboriosam iure beatae voluptatibus hic earum?
 
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, recusandae. Repellendus laboriosam, veritatis, sapiente quidem inventore dolore voluptatum sequi ipsa recusandae cupiditate ipsam ducimus eveniet quisquam odit delectus autem maxime.
-                    </IndentedParagraph>
+                    </p>
+
                     <Box display="flex" justifyContent="center" my={4}>
                         <Button as={NextLink} href="/portfolio" colorScheme="teal">
                             My portfolio
@@ -88,9 +89,9 @@ export default function Home() {
                     <Heading as="h3" variant="section-title">
                         Hobbies
                     </Heading>
-                    <IndentedParagraph>
+                    <p className="text-justify indent-1 hyphens-auto">
                         Bl4ko enjoys sports including cycling, tennis, boxing and fitness.
-                    </IndentedParagraph>
+                    </p>
                 </Section>
 
             </div>
