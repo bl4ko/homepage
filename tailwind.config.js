@@ -18,9 +18,14 @@ module.exports = {
                 yellow: "ffaf00",
                 red: "#ff3e3e",
                 aqua: "#2ee7b6",
+                grassTeal: "#88ccca",
+            },
+            backgroundColor: {
+                'grassTeal': '#88ccca',
             },
             screens: {
-                'xs': '450px',
+                xss: '320px',
+                xs: '450px',
             },
         },
     },

@@ -3,11 +3,9 @@
  */
 
 import NextLink from "next/link";
-import Head from "next/head";
 import Image from "next/image";
-import styles from "@/styles/Home.module.css";
 import { Flex, Container, Box, Button, useColorModeValue, Heading, Link } from "@chakra-ui/react";
-import ArticleLayout from "../components/layouts/article";
+import ContentLayout from "../components/layouts/content";
 import Section from "../components/section"
 import IndentedParagraph from "../components/paragraph"
 import { BioSection, BioYear } from "@/components/bio";
@@ -15,9 +13,8 @@ import { IotIcon } from "@/components/icons";
 
 export default function Home() {
     return (
-        <ArticleLayout>
+        <ContentLayout>
             <div>
-
                 <Box className="my-4 rounded-lg p-3 text-center" bg={useColorModeValue('whiteAlpha.500', 'whiteAlpha.200')} css={{ backdropFilter: 'blur(10px)' }}>
                     Hello, I&apos;m a dev ops guy from Slovenia
                 </Box>
@@ -48,6 +45,14 @@ export default function Home() {
                         Bl4ko is a computer science student at the University Of Ljubljana. He is
                         currently working on machine learning projects and working as a dev ops developer. When not working,
                         he enjoys sports and spending time playing chess.
+
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, quam corrupti necessitatibus aliquam id sapiente quia tempora doloribus, dolores ipsa commodi consectetur, fugit ut. Laboriosam iure beatae voluptatibus hic earum?
+
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, recusandae. Repellendus laboriosam, veritatis, sapiente quidem inventore dolore voluptatum sequi ipsa recusandae cupiditate ipsam ducimus eveniet quisquam odit delectus autem maxime.
+
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, quam corrupti necessitatibus aliquam id sapiente quia tempora doloribus, dolores ipsa commodi consectetur, fugit ut. Laboriosam iure beatae voluptatibus hic earum?
+
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, recusandae. Repellendus laboriosam, veritatis, sapiente quidem inventore dolore voluptatum sequi ipsa recusandae cupiditate ipsam ducimus eveniet quisquam odit delectus autem maxime.
                     </IndentedParagraph>
                     <Box display="flex" justifyContent="center" my={4}>
                         <Button as={NextLink} href="/portfolio" colorScheme="teal">
@@ -89,6 +94,6 @@ export default function Home() {
                 </Section>
 
             </div>
-        </ArticleLayout >
+        </ContentLayout >
     );
 }

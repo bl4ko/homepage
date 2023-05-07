@@ -21,29 +21,17 @@ const variants: Variants = {
     exit: { opacity: 0, x: -0, y: 20 },
 };
 
-export default function ArticleLayout({ children, title }: LayoutProps) {
-    const t = `${title} - Bl4ko`;
+export default function ContentLayout({ children, title }: LayoutProps) {
     return (
         <motion.article
             initial="hidden"
             animate="enter"
             exit="exit"
             variants={variants}
-            transition={{ duration: 0.4, type: "easeInOut" }}
-            style={{ position: "relative" }}
-        >
-            <>
-                {title && (
-                    <Head>
-                        <title>{t}</title>
-                        <meta name="twitter:title" content={t} />
-                        <meta property="og:title" content={t} />
-                    </Head>
-                )}
-                {children}
+            transition={{ duration: 0.5, type: "easeInOut" }}
+            style={{ position: "relative" }}>
 
-                <GridItemStyle />
-            </>
-        </motion.article>
+            {children}
+        </ motion.article >
     );
 }

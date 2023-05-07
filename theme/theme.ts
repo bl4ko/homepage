@@ -27,19 +27,6 @@ const theme = extendTheme({
                 },
             },
         },
-        Link: {
-            baseStyle: (props: any) => ({
-                color: mode("#3d7aed", "#ff63c3")(props),
-                textUnderlineOffset: 3,
-            }),
-        },
-    },
-    fonts: {
-        heading: "'Jetbrains Mono', monospace",
-        body: "'Jetbrains Mono', monospace"
-    },
-    colors: {
-        grassTeal: "#88ccca",
     },
 });
 

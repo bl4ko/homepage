@@ -11,13 +11,13 @@ function Earth() {
     const earth = useGLTF("/models/planet/scene.gltf");
 
     return (
-        <primitive object={earth.scene} scale={2.5} position-y={0} rotation-y={0} />
+        <primitive object={earth.scene} scale={3} position-y={0} rotation-y={0} />
     );
 };
 
 export default function EarthCanvas() {
     return (
-        <div className="min-h-fit">
+        <div className="h-52">
             <Canvas
                 shadows
                 frameloop='always'
