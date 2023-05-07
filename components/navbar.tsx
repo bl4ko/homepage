@@ -40,11 +40,11 @@ export default function Navbar(props: any) {
                     <LinkItem href="/works" path={path}>
                         Projects
                     </LinkItem>
-                    <LinkItem href="/blog" path={path}>
-                        Blog
+                    <LinkItem href="/experience" path={path}>
+                        Experience
                     </LinkItem>
-                    <LinkItem href="/contact" path={path}>
-                        Contact
+                    <LinkItem href="/tech" path={path}>
+                        Tech
                     </LinkItem>
                     <LinkItem
                         target="_blank"
@@ -77,13 +77,13 @@ export default function Navbar(props: any) {
                                         </LinkItem>
                                     </li>
                                     <li className="px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-700">
-                                        <LinkItem href="/blog" path={path}>
-                                            Blog
+                                        <LinkItem href="/experience" path={path}>
+                                            Experience
                                         </LinkItem>
                                     </li>
                                     <li className="px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-700">
-                                        <LinkItem href="/contact" path={path}>
-                                            Contact
+                                        <LinkItem href="/tech" path={path}>
+                                            Tech
                                         </LinkItem>
                                     </li>
                                     <li className="px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-700">
