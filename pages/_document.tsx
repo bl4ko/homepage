@@ -11,7 +11,7 @@ export default function Document() {
     return (
         <Html lang="en">
             <Head>
-                <link rel="icon" href="/images/tesseract.png" />
+                <link rel="icon" href="/images/profile_no_background.png" />
 
                 <meta charSet="UTF-8" />
                 <meta name="description" content="Bl4ko's homepage" />
