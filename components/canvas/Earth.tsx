@@ -17,7 +17,7 @@ function Earth() {
 
 export default function EarthCanvas() {
     return (
-        <div className="h-52">
+        <div className="h-80">
             <Canvas
                 shadows
                 frameloop='always'

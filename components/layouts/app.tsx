@@ -14,6 +14,8 @@ import { ReactNode } from "react";
 import { NextRouter } from "next/router";
 import Footer from "../footer";
 import EarthCanvas from "../canvas/Earth";
+import StarsCanvas from "../canvas/Stars";
+import { Stars } from "@react-three/drei";
 
 interface LayoutProps {
     children: ReactNode;
@@ -22,7 +24,8 @@ interface LayoutProps {
 
 export default function AppLayout({ children, router }: LayoutProps) {
     return (
-        <main className="pb-8">
+        <main className="relative pb-8 h-full">
+
             <Head>
                 {/* title has to be defined on component level:  https://nextjs.org/docs/messages/no-title-in-document-head*/}
                 <title>Bl4ko</title>
@@ -30,14 +33,14 @@ export default function AppLayout({ children, router }: LayoutProps) {
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
             </Head>
 
+            <StarsCanvas />
+
             <NavBar path={router.asPath} />
 
             <div className="text-base max-w-2xl pt-14 mx-auto xs:px-4 xss:px-3">
 
-                <div className="relative z-0 my-6">
-                    <EarthCanvas />
-                    {/* <StarsCanvas /> */}
-                </div>
+                <EarthCanvas />
+
 
                 {children}
 

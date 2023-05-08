@@ -58,7 +58,7 @@ export default function Home() {
 
                 <div>
                     <h3 className="section-title">
-                        Work
+                        About
                     </h3>
                     <p className="text-justify indent-5 hyphens-auto">
                         Bl4ko is a computer science student at the University Of Ljubljana. He is
