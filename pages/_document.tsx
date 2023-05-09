@@ -18,7 +18,7 @@ export default function Document() {
                 <meta name="robots" content="index, follow" />
                 <meta name="keywords" content="Bl4ko, Bl4ko's homepage" />
             </Head>
-            <body>
+            <body className="h-full">
                 <Main />
                 <NextScript />
             </body>

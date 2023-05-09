@@ -15,7 +15,6 @@ import { NextRouter } from "next/router";
 import Footer from "../footer";
 import EarthCanvas from "../canvas/Earth";
 import StarsCanvas from "../canvas/Stars";
-import { Stars } from "@react-three/drei";
 
 interface LayoutProps {
     children: ReactNode;
@@ -40,7 +39,6 @@ export default function AppLayout({ children, router }: LayoutProps) {
             <div className="text-base max-w-2xl pt-14 mx-auto xs:px-4 xss:px-3">
 
                 <EarthCanvas />
-
 
                 {children}
 

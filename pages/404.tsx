@@ -1,7 +1,7 @@
 import NextLink from "next/link";
 import ContentLayout from "@/components/layouts/content";
 
-export default function NotFound() {
+export default function NotFound(): JSX.Element {
     return (
         <ContentLayout>
             <div className="container mx-auto px-4">
@@ -10,7 +10,7 @@ export default function NotFound() {
                 <hr className="my-6" />
                 <div className="my-6 text-center">
                     <NextLink href="/" passHref>
-                        <button className="bg-teal-500 hover:bg-teal-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                        <button className="bg-aqua hover:bg-teal-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
                             Return to homepage
                         </button>
                     </NextLink>

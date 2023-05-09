@@ -20,6 +20,7 @@ module.exports = {
                 aqua: "var(--color-aqua)",
                 purple: "var(--color-purple)",
                 grassTeal: "var(--color-grass-teal)",
+                textPrimary: "var(--text-primary)",
             },
             screens: {
                 xss: '320px',

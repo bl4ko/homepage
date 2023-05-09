@@ -15,12 +15,12 @@ interface LinkItemProps {
 function LinkItem({ href, path, children, className, ...props }: LinkItemProps) {
     const active = path === href;
     return (
-        <Link className={`${active ? 'bg-grassTeal text-[#202023]' : 'text-white '} px-2 py-1 transition-colors duration-200 ${className}`}
+        <Link className={`${active ? 'bg-aqua' : ''} px-2 py-1 text-textPrimary transition-colors duration-200 ${className}`}
             href={href}
             {...props}
         >
             {children}
-        </Link>
+        </Link >
     );
 };
 
@@ -37,7 +37,7 @@ export default function Navbar(props: any) {
                     <LinkItem href="/" path={path}>
                         Home
                     </LinkItem>
-                    <LinkItem href="/works" path={path}>
+                    <LinkItem href="/projects" path={path}>
                         Projects
                     </LinkItem>
                     <LinkItem href="/experience" path={path}>

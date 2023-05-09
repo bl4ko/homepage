@@ -36,7 +36,7 @@ export default function Home() {
     return (
         <ContentLayout>
             <div>
-                <div className="my-4 rounded-xl p-3 text-center bg-white bg-opacity-50 backdrop-blur-md dark:bg-dark">
+                <div className="my-4 rounded-xl p-3 text-center bg-secondary bg-opacity-50 backdrop-blur-md">
                     Hello, I&apos;m a dev ops guy from Slovenia
                 </div>
 
