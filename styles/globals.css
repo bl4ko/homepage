@@ -4,6 +4,43 @@
 @tailwind components;
 @tailwind utilities;
 
+
+/* Change scrollbar https: //stackoverflow.com/a/65776078 */
+/* Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-green) var(--background-secondary);
+}
+
+*::-webkit-scrollbar {
+    width: 18px;
+}
+
+*::-webkit-scrollbar-track {
+    /* color of the tracking area */
+    background: var(--background-secondary);
+}
+
+*::-webkit-scrollbar-thumb {
+    /* color of the scroll thumb */
+    background-color: var(--color-green);
+    /* roundness of the scroll thumb */
+    border-radius: 20px;
+    /* creates padding around scroll thumb */
+    border: 6px solid var(--background-secondary);
+}
+
+/* ------------------------------------------------------- */
+
+
+/* Make all element take full screen https://stackoverflow.com/a/58465587 */
+html,
+body,
+#__next {
+    height: 100%;
+}
+
+
 html[data-theme="light"] {
     --color-green: #9fef00;
     --color-gray: #4b4b4b;
