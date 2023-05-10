@@ -13,6 +13,7 @@ module.exports = {
                 green: "var(--color-green)",
                 grey: "var(--color-grey)",
                 black: "var(--color-black)",
+                blue: "var(--color-blue)",
                 dark: "var(--color-dark)",
                 darker: "var(--color-darker)",
                 yellow: "var(--color-yellow)",
@@ -21,6 +22,8 @@ module.exports = {
                 purple: "var(--color-purple)",
                 grassTeal: "var(--color-grass-teal)",
                 textPrimary: "var(--text-primary)",
+                textSecondary: "var(--text-secondary)",
+                textTertiary: "var(--text-tertiary)",
             },
             screens: {
                 xss: '320px',

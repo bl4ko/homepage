@@ -36,7 +36,7 @@ export default function AppLayout({ children, router }: LayoutProps) {
 
             <NavBar path={router.asPath} />
 
-            <div className="text-base max-w-2xl pt-14 mx-auto xs:px-4 xss:px-3">
+            <div className="text-base max-w-6xl pt-14 mx-auto xs:px-4 xss:px-3">
 
                 <EarthCanvas />
 
