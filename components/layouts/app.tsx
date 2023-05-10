@@ -41,6 +41,7 @@ export default function AppLayout({ children, router }: LayoutProps) {
                 <EarthCanvas />
 
                 {children}
+                {/* <div className="h-[1300px] w-full bg-yellow"></div> */}
 
                 <Footer />
             </div>

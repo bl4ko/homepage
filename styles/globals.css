@@ -34,8 +34,6 @@
 
 
 /* Make all element take full screen https://stackoverflow.com/a/58465587 */
-html,
-body,
 #__next {
     height: 100%;
 }
