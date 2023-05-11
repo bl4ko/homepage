@@ -17,6 +17,8 @@ export default function Document() {
                 {/* Meta tags for webcrawlers */}
                 <meta name="robots" content="index, follow" />
                 <meta name="keywords" content="Bl4ko, Bl4ko's homepage" />
+                {/* Material Ymbols */}
+                <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0&display=swap" />
             </Head>
             <body className="h-full">
                 <Main />

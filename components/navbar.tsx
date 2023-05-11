@@ -1,6 +1,5 @@
 import { useState } from "react";
 import Link from "next/link";
-import { HamburgerIcon } from "@/components/icons";
 import { GithubIcon } from "./icons";
 import ThemeToggleButton from "./icons/theme-toggle-button";
 
@@ -59,12 +58,14 @@ export default function Navbar(props: any) {
 
                 <div className="flex flex-wrap justify-end items-center w-full">
                     <ThemeToggleButton />
-                    <div className="ml-2 sm:hidden">
+                    <div className="ml-1 sm:hidden">
                         <button onClick={toggleMenu} className="focus:outline none" aria-label="Options">
-                            <HamburgerIcon />
+                            <span className="material-symbols-outlined text-3xl">
+                                menu
+                            </span>
                         </button>
                         {isOpen && (
-                            <div className="absolute right-0 mt-2 w-48 bg-white dark:bg-gray-800 rounded-md shadow-lg mr-2 border-2">
+                            <div className="absolute right-0 mt-2 w-48 bg-tertiary rounded-md shadow-lg mr-2 border-2">
                                 <ul>
                                     <li className="px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-700">
                                         <LinkItem href="/" path={path}>
