@@ -12,11 +12,8 @@ import Head from "next/head";
 import NavBar from "../navbar";
 import { ReactNode } from "react";
 import { NextRouter } from "next/router";
-import Footer from "../footer";
 import EarthCanvas from "../canvas/Earth";
 import StarsCanvas from "../canvas/Stars";
-import ContentLayout from "./content";
-import { AnimatePresence } from "framer-motion";
 
 interface LayoutProps {
     children: ReactNode;

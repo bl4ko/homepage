@@ -1,27 +1,6 @@
 import Tilt from "react-parallax-tilt";
 import { projects } from "@/constants";
 
-const fadeIn = (direction, type, delay, duration) => {
-    return {
-        hidden: {
-            x: direction === "left" ? 100 : direction === "right" ? -100 : 0,
-            y: direction === "up" ? 100 : direction === "down" ? -100 : 0,
-            opacity: 0,
-        },
-        show: {
-            x: 0,
-            y: 0,
-            opacity: 1,
-            transition: {
-                type: type,
-                delay: delay,
-                duration: duration,
-                ease: "easeOut",
-            },
-        },
-    };
-};
-
 interface Project {
     name: string;
     description: string;
@@ -35,7 +14,7 @@ interface Tag {
     color: string;
 }
 
-function ProjectCard({ index, project }: { index: number, project: Project }): JSX.Element {
+function ProjectCard({ project }: { project: Project }): JSX.Element {
     return (
         <Tilt options={{ max: 45, scale: 1, speed: 450 }} className="bg-secondary p-4 rounded-2xl sm:w-[360px] w-full">
             <div className="relative w-full h-[200px]">
@@ -75,7 +54,7 @@ export default function Projects(): JSX.Element {
 
             <div className="mt-20 flex flex-wrap gap-5">
                 {projects.map((project, index) => (
-                    <ProjectCard key={`poject-${index}`} index={index} project={project} />
+                    <ProjectCard key={`poject-${index}`} project={project} />
                 ))}
             </div>
         </>

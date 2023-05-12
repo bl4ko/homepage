@@ -4,7 +4,6 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import ContentLayout from "../components/layouts/content";
 import { IotIcon } from "@/components/icons";
 
 interface BioSectionProps {
@@ -17,10 +16,6 @@ function BioSection({ children }: BioSectionProps): JSX.Element {
             {children}
         </div>
     );
-}
-
-interface BioYearProps {
-    children: React.ReactNode;
 }
 
 function BioYear({ children }: BioSectionProps): JSX.Element {
