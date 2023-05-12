@@ -3,6 +3,8 @@ import type { AppProps } from "next/app";
 import { AnimatePresence } from "framer-motion";
 import AppLayout from "../components/layouts/app";
 import { createContext, useEffect, useState } from "react";
+import ContentLayout from "@/components/layouts/content";
+import Footer from "@/components/footer";
 
 // Disable scroll restoration
 if (typeof window !== "undefined") {
@@ -28,8 +30,7 @@ export default function App({ Component, pageProps, router }: AppProps) {
         <ThemeContext.Provider value={{ theme, setTheme }}>
             <AppLayout router={router}>
                 <AnimatePresence
-                    mode="wait" // Wait for the exit animation to complete before unmounting the component
-                    initial={true} // Animate the initial mount
+                    mode='wait'
                     onExitComplete={() => {
                         // Scroll to the top of the page when the route changes
                         if (typeof window !== "undefined") {
@@ -37,9 +38,14 @@ export default function App({ Component, pageProps, router }: AppProps) {
                         }
                     }}
                 >
-                    <Component {...pageProps} key={router.route} />
+                    <ContentLayout key={router.route}>
+                        <Component {...pageProps} />
+                    </ContentLayout>
+                </AnimatePresence>
+                <AnimatePresence mode='wait'>
+                    <Footer key={router.route} />
                 </AnimatePresence>
             </AppLayout>
-        </ThemeContext.Provider>
+        </ThemeContext.Provider >
     );
 }

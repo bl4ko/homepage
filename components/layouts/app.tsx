@@ -15,6 +15,8 @@ import { NextRouter } from "next/router";
 import Footer from "../footer";
 import EarthCanvas from "../canvas/Earth";
 import StarsCanvas from "../canvas/Stars";
+import ContentLayout from "./content";
+import { AnimatePresence } from "framer-motion";
 
 interface LayoutProps {
     children: ReactNode;
@@ -41,9 +43,9 @@ export default function AppLayout({ children, router }: LayoutProps) {
                 <EarthCanvas />
 
                 {children}
-                {/* <div className="h-[1300px] w-full bg-yellow"></div> */}
 
-                <Footer />
+                {/* <Footer /> */}
+
             </div>
         </main>
     );

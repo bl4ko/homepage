@@ -1,8 +1,5 @@
-import { motion } from "framer-motion";
 import Tilt from "react-parallax-tilt";
-import ContentLayout from "@/components/layouts/content";
 import { projects } from "@/constants";
-import Image from "next/image";
 
 const fadeIn = (direction, type, delay, duration) => {
     return {
@@ -67,7 +64,7 @@ function ProjectCard({ index, project }: { index: number, project: Project }): J
 
 export default function Projects(): JSX.Element {
     return (
-        <ContentLayout>
+        <>
             <div className="w-full flex">
                 Following projects showcases my skills and experience through
                 real-world examples of my work. Each project is briefly described with
@@ -81,6 +78,6 @@ export default function Projects(): JSX.Element {
                     <ProjectCard key={`poject-${index}`} index={index} project={project} />
                 ))}
             </div>
-        </ContentLayout>
+        </>
     )
 }
