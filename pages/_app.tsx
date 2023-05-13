@@ -24,7 +24,7 @@ export default function App({ Component, pageProps, router }: AppProps) {
         if (typeof window !== "undefined") {
             document.documentElement.setAttribute("data-theme", theme);
         }
-    })
+    });
 
     return (
         <ThemeContext.Provider value={{ theme, setTheme }}>

@@ -2,6 +2,12 @@ import { useState } from "react";
 import Link from "next/link";
 import { GithubIcon } from "./icons";
 import ThemeToggleButton from "./icons/theme-toggle-button";
+import { motion } from "framer-motion";
+
+const mobileMenuVariants = {
+    open: { opacity: 1, x: 0 },
+    closed: { opacity: 0, x: "100%" },
+};
 
 interface LinkItemProps {
     href: string;
@@ -9,14 +15,23 @@ interface LinkItemProps {
     children: React.ReactNode;
     target?: string;
     className?: string;
+    toggleMenu?: () => void;
 }
 
-function LinkItem({ href, path, children, className, ...props }: LinkItemProps) {
+function LinkItem({ href, path, children, className, toggleMenu, ...props }: LinkItemProps) {
     const active = path === href;
+
+    function handleClick() {
+        if (toggleMenu) {
+            toggleMenu();
+        }
+    }
+
     return (
         <Link className={`${active ? 'bg-aqua' : ''} px-2 py-1 text-textPrimary transition-colors duration-200 ${className}`}
             href={href}
             {...props}
+            onClick={handleClick}
         >
             {children}
         </Link >
@@ -27,7 +42,10 @@ export default function Navbar(props: any) {
     const { path } = props;
     const [isOpen, setIsOpen] = useState(false);
 
-    const toggleMenu = () => setIsOpen(!isOpen);
+    function toggleMenu() {
+        setIsOpen(!isOpen);
+        console.log(isOpen);
+    }
 
     return (
         <nav className="items-center fixed w-full z-10 backdrop-blur py-3">
@@ -59,48 +77,53 @@ export default function Navbar(props: any) {
                 <div className="flex flex-wrap justify-end items-center w-full">
                     <ThemeToggleButton />
                     <div className="ml-1 sm:hidden">
-                        <button onClick={toggleMenu} className="focus:outline none" aria-label="Options">
+                        <button onClick={toggleMenu} className="focus:outline-none" aria-label="Options">
                             <span className="material-symbols-outlined text-3xl">
                                 menu
                             </span>
                         </button>
-                        {isOpen && (
-                            <div className="absolute right-0 mt-2 w-48 bg-tertiary rounded-md shadow-lg mr-2 border-2">
-                                <ul>
-                                    <li className="px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-700">
-                                        <LinkItem href="/" path={path}>
-                                            Home
-                                        </LinkItem>
-                                    </li>
-                                    <li className="px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-700">
-                                        <LinkItem href="/projects" path={path}>
-                                            Projects
-                                        </LinkItem>
-                                    </li>
-                                    <li className="px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-700">
-                                        <LinkItem href="/experience" path={path}>
-                                            Experience
-                                        </LinkItem>
-                                    </li>
-                                    <li className="px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-700">
-                                        <LinkItem href="/tech" path={path}>
-                                            Tech
-                                        </LinkItem>
-                                    </li>
-                                    <li className="px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-700">
-                                        <LinkItem
-                                            target="_blank"
-                                            href="https://github.com/bl4ko/homepage"
-                                            path={path}
-                                            className="inline-flex items-center gap-1 pl-1"
-                                        >
-                                            <GithubIcon />
-                                            Code
-                                        </LinkItem>
-                                    </li>
-                                </ul>
-                            </div>
-                        )}
+                        <motion.div
+                            initial="closed"
+                            animate={isOpen ? "open" : "closed"}
+                            variants={mobileMenuVariants}
+                            transition={{ duration: 0.5 }}
+                            className="absolute right-0 mt-2 w-48 bg-tertiary rounded-md shadow-lg mr-1 border-2 text-sm"
+                        >
+                            <ul>
+                                <li className="px-4 py-2">
+                                    <LinkItem href="/" path={path} toggleMenu={toggleMenu}>
+                                        Home
+                                    </LinkItem>
+                                </li>
+                                <li className="px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-700">
+                                    <LinkItem href="/projects" path={path} toggleMenu={toggleMenu}>
+                                        Projects
+                                    </LinkItem>
+                                </li>
+                                <li className="px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-700">
+                                    <LinkItem href="/experience" path={path} toggleMenu={toggleMenu}>
+                                        Experience
+                                    </LinkItem>
+                                </li>
+                                <li className="px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-700">
+                                    <LinkItem href="/tech" path={path} toggleMenu={toggleMenu}>
+                                        Tech
+                                    </LinkItem>
+                                </li>
+                                <li className="px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-700">
+                                    <LinkItem
+                                        target="_blank"
+                                        href="https://github.com/bl4ko/homepage"
+                                        path={path}
+                                        className="inline-flex items-center gap-1 pl-1"
+                                        toggleMenu={toggleMenu}
+                                    >
+                                        <GithubIcon />
+                                        Code
+                                    </LinkItem>
+                                </li>
+                            </ul>
+                        </motion.div>
                     </div>
                 </div>
             </div>
