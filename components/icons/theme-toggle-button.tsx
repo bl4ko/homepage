@@ -9,18 +9,18 @@ export default function ThemeToggleButton() {
     return (
         <AnimatePresence mode="wait" initial={false}>
             <motion.div
-                style={{ display: "inline-block" }}
+                className="inline-block"
                 key={theme}
-                initial={{ y: -20, opacity: 0 }}
+                initial={{ y: -25, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
-                exit={{ y: 20, opacity: 0 }}
-                transition={{ duration: 0.2 }}
+                exit={{ y: 25, opacity: 0 }}
+                transition={{ duration: 0.5 }}
             >
                 <button
                     aria-label="Toggle theme"
                     className={`rounded p-2 focus:outline-none focus:ring-2 focus:ring-offset-2 ${theme === "light"
-                        ? "bg-purple hover:bg-purple"
-                        : "bg-yellow hover:bg-orange"
+                        ? "bg-purple hover:bg-[#9333ea]"
+                        : "bg-yellow hover:bg-orange-400"
                         }`}
                     onClick={() => setTheme(theme === "light" ? "dark" : "light")}
                 >
