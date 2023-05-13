@@ -1,32 +1,3 @@
-// import {
-//     mobile,
-//     backend,
-//     creator,
-//     web,
-//     javascript,
-//     typescript,
-//     html,
-//     css,
-//     reactjs,
-//     redux,
-//     tailwind,
-//     nodejs,
-//     mongodb,
-//     git,
-//     figma,
-//     docker,
-//     meta,
-//     starbucks,
-//     tesla,
-//     shopify,
-//     carrent,
-//     jobit,
-//     tripguide,
-//     threejs,
-// } from "../assets";
-
-// import tesseract from "/images/tesseract.png";
-
 // const services = [
 //     {
 //         title: "Web Developer",
@@ -185,9 +156,9 @@
 
 const projects = [
     {
-        name: "Car Rent",
+        name: "Project1",
         description:
-            "Web-based platform that allows users to search, book, and manage car rentals from various providers, providing a convenient and efficient solution for transportation needs.",
+            "Web application that enables users to search for job openings, view estimated salary ranges for positions, and locate available jobs based on their current location.",
         tags: [
             {
                 name: "react",
@@ -206,20 +177,20 @@ const projects = [
         source: "https://github.com/",
     },
     {
-        name: "Job IT",
+        name: "Project2",
         description:
-            "Web application that enables users to search for job openings, view estimated salary ranges for positions, and locate available jobs based on their current location.",
+            "Project2 lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
         tags: [
             {
-                name: "react",
+                name: "python",
                 color: "blue",
             },
             {
-                name: "restapi",
+                name: "postgresql",
                 color: "green",
             },
             {
-                name: "scss",
+                name: "django",
                 color: "purple",
             },
         ],
@@ -227,21 +198,17 @@ const projects = [
         source: "https://github.com/",
     },
     {
-        name: "Trip Guide",
+        name: "Project3",
         description:
-            "A comprehensive travel booking platform that allows users to book flights, hotels, and rental cars, and offers curated recommendations for popular destinations.",
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
         tags: [
             {
-                name: "nextjs",
+                name: "c++",
                 color: "blue",
             },
             {
-                name: "supabase",
+                name: "python",
                 color: "green",
-            },
-            {
-                name: "css",
-                color: "purple",
             },
         ],
         image: "tesseract.png",
