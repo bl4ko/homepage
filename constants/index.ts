@@ -154,7 +154,79 @@
 //     },
 // ];
 
-const projects = [
+export type Experience = {
+    position: string;
+    company: string;
+    companyLink: string;
+    time: string;
+    address: string;
+    work: string[];
+}
+
+const experiences: Experience[] = [
+    {
+        position: "Software Engineer",
+        company: "Google",
+        companyLink: "https://www.google.com/",
+        time: "June 2021 - Present",
+        address: "Mountain View, CA",
+        work: [
+            "Developed and maintained web applications using React.js and other related technologies.",
+            "Collaborated with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
+            "Implemented responsive design and ensured cross-browser compatibility.",
+        ] 
+    },
+        {
+        position: "Software Engineer",
+        company: "Google",
+        companyLink: "https://www.google.com/",
+        time: "June 2021 - Present",
+        address: "Mountain View, CA",
+        work: [
+            "Developed and maintained web applications using React.js and other related technologies.",
+            "Collaborated with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
+            "Implemented responsive design and ensured cross-browser compatibility.",
+        ] 
+    },
+        {
+        position: "Software Engineer",
+        company: "Google",
+        companyLink: "https://www.google.com/",
+        time: "June 2021 - Present",
+        address: "Mountain View, CA",
+        work: [
+            "Developed and maintained web applications using React.js and other related technologies.",
+            "Collaborated with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
+            "Implemented responsive design and ensured cross-browser compatibility.",
+        ] 
+    },
+        {
+        position: "Software Engineer",
+        company: "Google",
+        companyLink: "https://www.google.com/",
+        time: "June 2021 - Present",
+        address: "Mountain View, CA",
+        work: [
+            "Developed and maintained web applications using React.js and other related technologies.",
+            "Collaborated with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
+            "Implemented responsive design and ensured cross-browser compatibility.",
+        ] 
+    },
+    
+];
+
+export type Project = {
+    name: string;
+    description: string;
+    tags: {
+        name: string;
+        color: string;
+    }[];
+    image: string;
+    source: string;
+}
+
+const projects: Project[] = [
     {
         name: "Project1",
         description:
@@ -217,4 +289,4 @@ const projects = [
 ];
 
 // export { services, technologies, experiences, testimonials, projects };
-export { projects };
+export { projects, experiences };

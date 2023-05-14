@@ -14,7 +14,7 @@ export default function ThemeToggleButton() {
                 initial={{ y: -25, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 exit={{ y: 25, opacity: 0 }}
-                transition={{ duration: 0.5 }}
+                transition={{ duration: 0.3 }}
             >
                 <button
                     aria-label="Toggle theme"
