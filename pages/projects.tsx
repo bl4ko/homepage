@@ -20,9 +20,9 @@ function ProjectCard({ index, project }: { index: number, project: Project }): J
 
     return (
         <motion.div transition={{ delay: 1 + 1 * index, type: "spring", duration: 1 }} initial={{ opacity: 0, x: 0, y: 100 }} animate={{ x: 0, opacity: 1, y: 0 }}>
-            <Tilt className="bg-secondary p-4 rounded-2xl sm:w-[360px] w-full">
+            <Tilt className="bg-secondary p-4 rounded-2xl sm:w-[360px] w-full h-full">
                 <div className="relative w-full h-[200px]">
-                    <img src={`/images/tesseract.png`} alt={project.name} className="w-full h-full object-cover rounded-2xl" />
+                    <img src={`/images/placeholder.png`} alt={project.name} className="w-full h-full object-cover rounded-2xl" />
                 </div>
 
                 <div className="absolute inset-0 flex justify-end">
