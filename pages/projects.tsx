@@ -1,23 +1,14 @@
 import Tilt from "react-parallax-tilt";
-import { projects } from "@/constants";
+import { projects, Project } from "@/constants";
 import { motion } from "framer-motion";
 
-
-interface Project {
-    name: string;
-    description: string;
-    tags: Tag[];
-    image: string;
-    source: string;
+interface ProjectCardProps {
+    key: string;
+    index: number;
+    project: Project;
 }
 
-interface Tag {
-    name: string;
-    color: string;
-}
-
-function ProjectCard({ index, project }: { index: number, project: Project }): JSX.Element {
-
+function ProjectCard({ index, project }: ProjectCardProps): JSX.Element {
     return (
         <motion.div transition={{ delay: 1 + 1 * index, type: "spring", duration: 1 }} initial={{ opacity: 0, x: 0, y: 100 }} animate={{ x: 0, opacity: 1, y: 0 }} className="lg:w-[30%] sm:w-[45%] w-[90%] xs:w-[70%]">
             <Tilt className="bg-secondary p-4 rounded-2xl w-full h-full">
