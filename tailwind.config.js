@@ -26,10 +26,10 @@ module.exports = {
                 textSecondary: "var(--text-secondary)",
                 textTertiary: "var(--text-tertiary)",
             },
-            screens: {
-                xss: '320px',
-                xs: '450px',
-            },
+            // screens: {
+            //     xss: '320px',
+            //     xs: '450px',
+            // },
             boxShadow: {
                 '3xl': '0 15px 15px 1px rgba(80, 230, 217, 0.4)',
             }

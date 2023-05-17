@@ -9,7 +9,7 @@ function Details({ experience }: { experience: ExperienceType }) {
     return (
         <li ref={ref} className="my-8 first:mt-0 last:mb-0 w-[60%] mx-auto flex flex-col items-center justify-between">
             <LiIcon reference={ref} />
-            <motion.div initial={{ y: 50 }} whileInView={{ y: 0 }} transition={{ duration: 0.5, type: "spring" }}>
+            <motion.div initial={{ y: 50 }} whileInView={{ y: 0 }} transition={{ duration: 1, type: "spring" }}>
                 <h3 className='capitalize font-bold text-2xl'>{experience.position}&nbsp;
                     <a className="text-cyan capitalize" target="_blank" href={experience.companyLink}>
                         @{experience.company}
@@ -31,23 +31,25 @@ export default function Experience(): JSX.Element {
     const { scrollYProgress } = useScroll(
         {
             target: ref,
-            offset: ["start end", "center start"]
+            // Start animation when the top of the element is 50% in viewport
+            // End animation when bottom of the element is above the end of the viewport
+            offset: ["start center", "end end"]
         }
     );
 
     return (
         <div className="my-5">
-            <h2 className="font-bold text-5xl mb-7 w-full text-center">
+            <h2 className="font-bold text-5xl mb-10 w-full text-center sm:text-4xl">
                 Experience
             </h2>
-            <div ref={ref} className="w-[75%] mx-auto relative">
+            <div className="w-[75%] mx-auto relative">
                 <motion.div style={{ scaleY: scrollYProgress }} className="absolute left-9 top-0 w-[4px] h-full bg-cyan origin-top shadow-3xl" />
-                <ul className="w-full flex flex-col items-start justify-between ml-4">
+                <ul ref={ref} className="w-full flex flex-col items-start justify-between ml-4">
                     {experiences.map((experience: ExperienceType, index: number) => (
                         <Details key={index} experience={experience} />
                     ))}
                 </ul>
             </div>
-        </div>
+        </div >
     );
 }
