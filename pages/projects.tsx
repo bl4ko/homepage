@@ -19,8 +19,8 @@ interface Tag {
 function ProjectCard({ index, project }: { index: number, project: Project }): JSX.Element {
 
     return (
-        <motion.div transition={{ delay: 1 + 1 * index, type: "spring", duration: 1 }} initial={{ opacity: 0, x: 0, y: 100 }} animate={{ x: 0, opacity: 1, y: 0 }}>
-            <Tilt className="bg-secondary p-4 rounded-2xl sm:w-[360px] w-full h-full">
+        <motion.div transition={{ delay: 1 + 1 * index, type: "spring", duration: 1 }} initial={{ opacity: 0, x: 0, y: 100 }} animate={{ x: 0, opacity: 1, y: 0 }} className="lg:w-[30%] sm:w-[45%] w-[90%] xs:w-[70%]">
+            <Tilt className="bg-secondary p-4 rounded-2xl w-full h-full">
                 <div className="relative w-full h-[200px]">
                     <img src={`/images/placeholder.png`} alt={project.name} className="w-full h-full object-cover rounded-2xl" />
                 </div>
@@ -57,9 +57,9 @@ export default function Projects(): JSX.Element {
                 and manage projects effectively.
             </div>
 
-            <div className="mt-20 flex flex-wrap gap-5">
+            <div className="mt-10 flex flex-wrap gap-7 justify-between">
                 {projects.map((project, index) => (
-                    < ProjectCard key={`poject-${index}`} index={index} project={project} />
+                    < ProjectCard key={`project-${index}`} index={index} project={project} />
                 ))}
             </div>
         </>
