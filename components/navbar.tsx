@@ -60,8 +60,8 @@ export default function Navbar(props: any) {
                     <LinkItem href="/experience" path={path}>
                         Experience
                     </LinkItem>
-                    <LinkItem href="/tech" path={path}>
-                        Tech
+                    <LinkItem href="/technologies" path={path}>
+                        Technologies
                     </LinkItem>
                     <LinkItem
                         target="_blank"
@@ -106,8 +106,8 @@ export default function Navbar(props: any) {
                                     </LinkItem>
                                 </li>
                                 <li className="px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-700">
-                                    <LinkItem href="/tech" path={path} toggleMenu={toggleMenu}>
-                                        Tech
+                                    <LinkItem href="/technologies" path={path} toggleMenu={toggleMenu}>
+                                        Technologies
                                     </LinkItem>
                                 </li>
                                 <li className="px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-700">

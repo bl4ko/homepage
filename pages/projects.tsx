@@ -1,6 +1,16 @@
 import Tilt from "react-parallax-tilt";
-import { projects, Project } from "@/constants";
+import { projects, Project, Color } from "@/constants";
 import { motion } from "framer-motion";
+
+type ColorClassesType = Record<Color, string>;
+
+const colorClasses: ColorClassesType = {
+    blue: 'text-blue',
+    green: 'text-green',
+    purple: 'text-purple',
+    yellow: 'text-yellow',
+    red: 'text-red',
+};
 
 interface ProjectCardProps {
     key: string;
@@ -13,7 +23,7 @@ function ProjectCard({ index, project }: ProjectCardProps): JSX.Element {
         <motion.div transition={{ delay: 1 + 1 * index, type: "spring", duration: 1 }} initial={{ opacity: 0, x: 0, y: 100 }} animate={{ x: 0, opacity: 1, y: 0 }} className="lg:w-[30%] sm:w-[45%] w-[90%] xs:w-[70%]">
             <Tilt className="bg-secondary p-4 rounded-2xl w-full h-full">
                 <div className="relative w-full h-[200px]">
-                    <img src={`/images/placeholder.png`} alt={project.name} className="w-full h-full object-cover rounded-2xl" />
+                    <img src={`/images/${project.image}`} alt={project.name} className="w-full h-full object-cover rounded-2xl" />
                 </div>
 
                 <div className="absolute inset-0 flex justify-end">
@@ -28,7 +38,7 @@ function ProjectCard({ index, project }: ProjectCardProps): JSX.Element {
 
                 <div className="flex flex-wrap mt-4 gap-2">
                     {project.tags.map((tag) => (
-                        <p key={tag.name} className={`text-[14px] text-${tag.color}`}>#{tag.name}</p>
+                        <p key={tag.name} className={`text-[14px] ${colorClasses[tag.color]}`}>#{tag.name}</p>
                     ))}
                 </div>
             </Tilt>
@@ -43,9 +53,8 @@ export default function Projects(): JSX.Element {
             <div className="w-full flex">
                 Following projects showcases my skills and experience through
                 real-world examples of my work. Each project is briefly described with
-                links to code repositories and live demos in it. It reflects my
-                ability to solve complex problems, work with different technologies,
-                and manage projects effectively.
+                links to code repositories. I have made projects in various fields like
+                Web Development, Machine Learning and dev ops.
             </div>
 
             <div className="mt-10 flex flex-wrap gap-7 justify-between">

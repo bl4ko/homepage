@@ -215,38 +215,39 @@ const experiences: Experience[] = [
     
 ];
 
+
+export type Color = "blue" | "green" | "red" | "yellow" | "purple";
+
+export type Tag = {
+    name: string;
+    color: Color;
+};
+
 export type Project = {
     name: string;
     description: string;
-    tags: {
-        name: string;
-        color: string;
-    }[];
+    tags: Tag[];
     image: string;
     source: string;
 }
 
 const projects: Project[] = [
     {
-        name: "Project1",
+        name: "Turtlebot Rescuer",
         description:
-            "Web application that enables users to search for job openings, view estimated salary ranges for positions, and locate available jobs based on their current location.",
+            "Programming turtlebot to perform various tasks in real time. These tasks include system setup, autonomous navigation and advanced perception and cognitive capabilities.",
         tags: [
             {
-                name: "react",
+                name: "python",
                 color: "blue",
             },
             {
-                name: "mongodb",
+                name: "c++",
                 color: "green",
             },
-            {
-                name: "tailwind",
-                color: "purple",
-            },
         ],
-        image: "tesseract.png",
-        source: "https://github.com/",
+        image: "turtlebot.png",
+        source: "https://github.com/bl4ko/ROS",
     },
     {
         name: "Project2",
