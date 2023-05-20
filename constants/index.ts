@@ -250,25 +250,22 @@ const projects: Project[] = [
         source: "https://github.com/bl4ko/ROS",
     },
     {
-        name: "Project2",
+        name: "Simple chat app",
         description:
-            "Project2 lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            "Simple server-client tls communication app in python using custom messages protocol. App is able to send public and private messages, between peers.",
         tags: [
             {
                 name: "python",
                 color: "blue",
             },
             {
-                name: "postgresql",
+                name: "bash",
                 color: "green",
             },
-            {
-                name: "django",
-                color: "purple",
-            },
+            
         ],
-        image: "tesseract.png",
-        source: "https://github.com/",
+        image: "tls_communication.png",
+        source: "https://github.com/bl4ko/SSL-TLS-Communication",
     },
     {
         name: "Project3",
