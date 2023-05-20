@@ -14,6 +14,7 @@ import { ReactNode } from "react";
 import { NextRouter } from "next/router";
 import EarthCanvas from "../canvas/Earth";
 import StarsCanvas from "../canvas/Stars";
+import CustomCursor from "../CustomCursor";
 
 interface LayoutProps {
     children: ReactNode;
@@ -30,6 +31,8 @@ export default function AppLayout({ children, router }: LayoutProps) {
                 {/* viewport meta tags should not be used in _document.js's <Head>. https://nextjs.org/docs/messages/no-document-viewport-meta */}
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
             </Head>
+
+            <CustomCursor />
 
             <StarsCanvas />
 

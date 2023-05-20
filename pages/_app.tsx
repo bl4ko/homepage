@@ -1,4 +1,5 @@
 import "@/styles/globals.css";
+import '@/styles/CustomCursor.css'; // Import the CSS you provided in your question
 import type { AppProps } from "next/app";
 import { AnimatePresence } from "framer-motion";
 import AppLayout from "../components/layouts/app";
