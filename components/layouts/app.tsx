@@ -32,7 +32,7 @@ export default function AppLayout({ children, router }: LayoutProps) {
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
             </Head>
 
-            <CustomCursor />
+            {/* <CustomCursor /> */}
 
             <StarsCanvas />
 

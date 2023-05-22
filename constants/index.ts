@@ -125,6 +125,10 @@ const projects: Project[] = [
                 color: "blue",
             },
             {
+                name: "ros",
+                color: "yellow",
+            },
+            {
                 name: "c++",
                 color: "green",
             },

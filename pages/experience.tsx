@@ -38,10 +38,7 @@ export default function Experience(): JSX.Element {
     );
 
     return (
-        <div className="my-5">
-            <h2 className="font-bold text-5xl mb-10 w-full text-center sm:text-4xl">
-                Experience
-            </h2>
+        <div className="my-12">
             <div className="w-[75%] mx-auto relative">
                 <motion.div style={{ scaleY: scrollYProgress }} className="absolute left-9 top-0 w-[4px] h-full bg-cyan origin-top shadow-3xl" />
                 <ul ref={ref} className="w-full flex flex-col items-start justify-between ml-4">
