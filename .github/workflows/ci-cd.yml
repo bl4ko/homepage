@@ -69,8 +69,8 @@ jobs:
 
       - name: Add key from variable
         run: |
-          "echo ${{ secrets.SSH_PRIVATE_KEY }} > ~/.ssh/id_rsa"
+          echo "${{ secrets.DEPLOY_KEY }}" > ./key && chmod 600 ./key
 
       - name: Connect to host and update
         run: |
-          "ssh -i ~/.ssh/id_rsa -p ${{ secrets.DEPLOY_PORT }} ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }} 'cd ~/homepage && docker compose pull && docker compose up -d'"
+          ssh -o StrictHostKeyChecking=no -i ./key -p ${{ secrets.DEPLOY_PORT }} ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }} 'cd ~/homepage && docker compose pull && docker compose up -d'
