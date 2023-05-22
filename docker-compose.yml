@@ -1,0 +1,31 @@
+services:
+  nginx:
+    image: lscr.io/linuxserver/swag:latest
+    container_name: nginx
+    cap_add:
+      - NET_ADMIN
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+      - URL=about.bl4ko.com
+      - VALIDATION=http
+      # - SUBDOMAINS=www, #optional
+      - STAGING=true #optional
+    volumes:
+      - ./docker/swag:/config
+    ports:
+      - 443:443
+      - 80:80 #optional
+    restart: unless-stopped
+    depends_on: 
+      - next
+
+  next:
+    container_name: nextjs
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    expose:
+      - 3000
+  
