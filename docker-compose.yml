@@ -22,10 +22,8 @@ services:
       - next
 
   next:
-    container_name: nextjs
-    build: 
-      context: .
-      dockerfile: Dockerfile
+    image: bl4ko/homepage:latest
+    container_name: next
     expose:
       - 3000
   
