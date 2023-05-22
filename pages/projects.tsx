@@ -50,6 +50,7 @@ function ProjectCard({ index, project }: ProjectCardProps): JSX.Element {
 export default function Projects(): JSX.Element {
     return (
         <>
+            <h1 className="text-3xl underline text-center my-5 capitalize text-yellow hover:scale-125">Projects</h1>
             <div className="w-full flex">
                 Following projects showcases my skills and experience through
                 real-world examples of my work. Each project is briefly described with
