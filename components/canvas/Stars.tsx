@@ -2,7 +2,7 @@ import { useState, useRef, Suspense } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Points, PointMaterial, Preload } from "@react-three/drei";
 
-const randomInSphere = (numPoints, radius) => {
+const randomInSphere = (numPoints: number, radius: number) => {
     const positions = new Float32Array(numPoints * 3);
     for (let i = 0; i < numPoints; i++) {
         let r = radius * Math.cbrt(Math.random());
@@ -16,13 +16,15 @@ const randomInSphere = (numPoints, radius) => {
     return positions;
 };
 
-const Stars = (props) => {
-    const ref = useRef();
+const Stars = (props: any) => {
+    const ref = useRef<THREE.Points>();
     const [sphere] = useState(() => randomInSphere(5000, 1.2));
 
     useFrame((state, delta) => {
-        ref.current.rotation.x -= delta / 10;
-        ref.current.rotation.y -= delta / 15;
+        if (ref.current) {
+            ref.current.rotation.x -= delta / 10;
+            ref.current.rotation.y -= delta / 15;
+        }
     });
 
     return (

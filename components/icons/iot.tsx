@@ -8,5 +8,5 @@ export default function IotIcon() {
                 </g>
             </g>
         </svg>
-    )
+    );
 }

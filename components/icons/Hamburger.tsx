@@ -23,5 +23,5 @@ export default function HamburgerIcon({ height = "40", width = "40", viewBox = "
                 </g>
             </g>
         </svg>
-    )
+    );
 }
