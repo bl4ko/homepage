@@ -11,12 +11,12 @@ services:
       - URL=about.bl4ko.com
       - VALIDATION=http
       # - SUBDOMAINS=www, #optional
-      - STAGING=true #optional
+      - STAGING=false #optional
     volumes:
       - ./docker/swag:/config
     ports:
       - 443:443
-      - 80:80 #optional
+      - 80:80 #Required for certbot validation
     restart: unless-stopped
     depends_on: 
       - next
