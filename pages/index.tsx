@@ -31,7 +31,7 @@ export default function Home() {
     return (
         <div>
             <div className="my-4 rounded-xl p-3 text-center bg-secondary bg-opacity-50 backdrop-blur-md">
-                Hello, I&apos;m a dev ops guy from Slovenia
+                Hello, I&apos;m a tech enthusiast from Slovenia
             </div>
 
             <div className="md:flex items-center">
@@ -55,26 +55,16 @@ export default function Home() {
                     About
                 </h3>
                 <p className="text-justify indent-5 hyphens-auto">
-                    Bl4ko is a computer science student at the University Of Ljubljana. He is
-                    currently working on machine learning projects and working as a dev ops developer. When not working,
-                    he enjoys sports and spending time playing chess.
-
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, quam corrupti necessitatibus aliquam id sapiente quia tempora doloribus, dolores ipsa commodi consectetur, fugit ut. Laboriosam iure beatae voluptatibus hic earum?
-
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, recusandae. Repellendus laboriosam, veritatis, sapiente quidem inventore dolore voluptatum sequi ipsa recusandae cupiditate ipsam ducimus eveniet quisquam odit delectus autem maxime.
-
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, quam corrupti necessitatibus aliquam id sapiente quia tempora doloribus, dolores ipsa commodi consectetur, fugit ut. Laboriosam iure beatae voluptatibus hic earum?
-
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, recusandae. Repellendus laboriosam, veritatis, sapiente quidem inventore dolore voluptatum sequi ipsa recusandae cupiditate ipsam ducimus eveniet quisquam odit delectus autem maxime.
+                    I&apos;m a Computer Science student at the University of Ljubljana, studying aspects of Artificial Intelligence such as Machine Perception, Intelligent Systems, and Data Mining. Concurrently, I&apos;m gaining real-world experience in Cloud Engineering, Automation, and DevOps.
+                </p>
+                <p className="text-justify indent-5 hyphens-auto mt-6">
+                    In addition to my academic and professional pursuits, I spend time on IoT projects, automating and improving home processes. This hands-on engagement broadens my understanding of the current tech landscape.
                 </p>
 
-                <div className="flex justify-center my-4">
-                    <Link href="/404">
-                        <button className="font-bold py-3 px-5 rounded transition duration-200 ease-in-out hover:bg-tertiary hover:underline">
-                            My portfolio
-                        </button>
-                    </Link>
-                </div>
+                <p className="text-justify indent-5 hyphens-auto mt-6">
+                    On a personal level, I maintain physical health through sports like tennis, cycling, and fitness training. For mental fitness, I enjoy strategic games like chess, which aid in refining my problem-solving skills.
+                </p>
+
             </div>
 
             <div>
@@ -91,7 +81,7 @@ export default function Home() {
                 </BioSection>
                 <BioSection>
                     <BioYear>2022</BioYear>
-                    Started working as dev ops engineer at <Link href="https://src.si/" target="_blank">SRC</Link>.
+                    Started working as a cloud engineer at <Link href="https://src.si/" target="_blank">SRC</Link>.
                 </BioSection>
                 <BioSection>
                     <BioYear>2023</BioYear>
