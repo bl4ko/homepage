@@ -77,7 +77,7 @@ export default function Home() {
                 </BioSection>
                 <BioSection>
                     <BioYear>2016</BioYear>
-                    Runner up slovenian tennis national championship U16.
+                    Runner up in the Slovenian National U16 Tennis Championship.
                 </BioSection>
                 <BioSection>
                     <BioYear>2022</BioYear>
@@ -85,7 +85,7 @@ export default function Home() {
                 </BioSection>
                 <BioSection>
                     <BioYear>2023</BioYear>
-                    Completed the Bachelor&apos;s Artificial Intelligence Program at the University of Ljubljana Faculty of Computer and Information Science.
+                    Completed the Bachelor&apos;s degree in Artificial Intelligence from the University of Ljubljana Faculty of Computer and Information Science.
                 </BioSection>
             </div>
 
@@ -95,7 +95,7 @@ export default function Home() {
                     Hobbies
                 </h3>
                 <p className="text-justify indent-1 hyphens-auto">
-                    Bl4ko enjoys sports including cycling, tennis, boxing and fitness.
+                    Bl4ko enjoys sports including cycling, chess, cue sports, tennis, boxing and fitness.
                 </p>
             </div>
 

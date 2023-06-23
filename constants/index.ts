@@ -155,17 +155,17 @@ const projects: Project[] = [
         source: "https://github.com/bl4ko/SSL-TLS-Communication",
     },
     {
-        name: "Project3",
+        name: "Cloud Native Dashboard",
         description:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            "Cloud native dashboard for monitoring deployed applications.",
         tags: [
             {
-                name: "c++",
+                name: "python",
                 color: "blue",
             },
             {
-                name: "python",
-                color: "green",
+                name: "react",
+                color: "yellow",
             },
         ],
         image: "tesseract.png",
