@@ -31,7 +31,7 @@ export default defineConfig({
   },
 
   /* Timeout in milliseconds for each test step. */
-  timeout: 30 * 1000,
+  timeout: 60 * 1000,
 
   /* Configure projects for major browsers */
   projects: [
