@@ -24,7 +24,7 @@ function ProjectCard({ index, project }: ProjectCardProps): JSX.Element {
       transition={{ delay: 1 + 1 * index, type: "spring", duration: 1 }}
       initial={{ opacity: 0, x: 0, y: 100 }}
       animate={{ x: 0, opacity: 1, y: 0 }}
-      className="lg:w-[30%] sm:w-[45%] w-[90%] xs:w-[70%]"
+      className="lg:w-[30%] sm:w-[45%] w-[90%] xs:w-[70%] playwright-card"
     >
       <Tilt className="bg-secondary p-4 rounded-2xl w-full h-full hover">
         <div className="relative w-full h-[200px]">
