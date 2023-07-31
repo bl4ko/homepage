@@ -19,7 +19,7 @@
     "react-parallax-tilt": "^1.7.137",
     "sharp": "^0.32.4",
     "three": "^0.155.0",
-    "typescript": "5.0.2"
+    "typescript": "5.1.6"
   },
   "devDependencies": {
     "@playwright/test": "^1.36.2",
