@@ -63,7 +63,7 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        run: git clone https://github.com/bl4ko/homepage.git
 
       - name: Add key from variable
         run: |
