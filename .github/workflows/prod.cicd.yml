@@ -62,9 +62,6 @@ jobs:
     needs: build
 
     steps:
-      - name: Checkout code
-        run: git clone https://github.com/bl4ko/homepage.git
-
       - name: Add key from variable
         run: |
           echo "${{ secrets.DEPLOY_KEY }}" > ./key && chmod 600 ./key
