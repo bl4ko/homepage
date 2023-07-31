@@ -8,7 +8,7 @@ on:
 jobs:
   tests_e2e:
     name: "Playwright Tests"
-    runs-on: ubuntu-latest
+    runs-on: [rocky, balboa]
     container:
       image: mcr.microsoft.com/playwright:v1.36.0-jammy
     steps:
@@ -30,7 +30,7 @@ jobs:
 
   build:
     name: Build and push Docker image
-    runs-on: ubuntu-latest
+    runs-on: [rocky, balboa]
     needs: tests_e2e
 
     steps:
@@ -58,7 +58,7 @@ jobs:
 
   deploy:
     name: Deploy application to server
-    runs-on: ubuntu-latest
+    runs-on: [rocky, balboa]
     needs: build
 
     steps:
