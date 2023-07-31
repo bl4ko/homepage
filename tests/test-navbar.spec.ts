@@ -34,8 +34,8 @@ test("Test projects page displays all projects, has canvas and has footer", asyn
 
 test("Code link redirects to github", async ({ page }) => {
   await page.goto("http://localhost:3000/");
-  await page.getByRole("link", { name: "Code" }).click();
   const page2Promise = page.waitForEvent("popup");
+  await page.getByRole("link", { name: "Code" }).click();
   const page2 = await page2Promise;
   await expect(page2.url()).toBe("https://github.com/bl4ko/homepage");
 });
@@ -44,8 +44,8 @@ test("Test experience page", async ({ page }) => {
   await page.goto("http://localhost:3000/");
   await page.getByRole("link", { name: "Experience" }).click();
   await page.getByRole("heading", { name: "Experience" });
-  await page.getByRole("link", { name: "@SRC D.O.O" }).click();
   const page2Promise = page.waitForEvent("popup");
+  await page.getByRole("link", { name: "@SRC D.O.O" }).click();
   const page2 = await page2Promise;
   await expect(page2.url()).toBe("https://www.src.si/");
 });
