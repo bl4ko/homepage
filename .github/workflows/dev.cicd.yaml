@@ -3,8 +3,23 @@ on:
   push:
     branches: [develop]
   pull_request:
-    branches: [develop]
+    branches: [develop, main]
 jobs:
+  eslint:
+    name: "Run ESLint"
+    runs-on: [rocky, balboa]
+    container:
+      image: node:20.5.0
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 20
+      - name: Install dependencies
+        run: npm ci
+      - name: Run ESLint
+        run: npm run lint
+
   playwright:
     name: "Playwright Tests"
     runs-on: [rocky, balboa]
