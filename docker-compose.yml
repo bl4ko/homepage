@@ -18,7 +18,7 @@ services:
       - 443:443
       - 80:80 #Required for certbot validation
     restart: unless-stopped
-    depends_on: 
+    depends_on:
       - next
 
   next:
@@ -26,4 +26,3 @@ services:
     container_name: next
     expose:
       - 3000
-  
