@@ -19,8 +19,8 @@ jobs:
         run: npm ci
       - name: Run ESLint
         run: npm run lint
-      - name: Clean the workspace
-        run: rm -rf $GITHUB_WORKSPACE/*
+      - name: Clean the permissions from container
+        run: chown -R 1000:1000 $GITHUB_WORKSPACE
 
   playwright:
     name: "Playwright Tests"
@@ -44,8 +44,8 @@ jobs:
           name: playwright-report
           path: playwright-report/
           retention-days: 30
-      - name: Clean the workspace
-        run: rm -rf $GITHUB_WORKSPACE/*
+      - name: Clean the permissions from container
+        run: chown -R 1000:1000 $GITHUB_WORKSPACE
 
   trivy:
     name: Trivy Scan
