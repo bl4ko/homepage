@@ -44,4 +44,4 @@ jobs:
 
       - name: Connect to host and update
         run: |
-          ssh -o StrictHostKeyChecking=no -i ./key -p ${{ secrets.DEPLOY_PORT }} ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }} 'cd ~/homepage && docker compose pull && docker compose up -d'
+          ssh -o StrictHostKeyChecking=no -i ./key -p ${{ secrets.DEPLOY_PORT }} ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }} 'kubectl rollout restart deployment/portfolio -n portfolio'
