@@ -40,6 +40,8 @@ jobs:
         run: npm run build:standalone
       - name: Run end-to-end tests
         run: npm run test:e2e
+      - name: Setting debug env variable
+        run: export DEBUG=pw:webserver
       - name: Upload test results
         uses: actions/upload-artifact@v3
         if: always()
