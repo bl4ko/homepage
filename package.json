@@ -5,8 +5,9 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "build:standalone": "next build && cp -r public .next/standalone/public && cp -r .next/static .next/standalone/.next/static",
     "start": "next start",
-    "start:standalone": "cp -r public .next/standalone/public && cp -r .next/static .next/standalone/.next/static && node .next/standalone/server.js",
+    "start:standalone": "node .next/standalone/server.js",
     "lint": "next lint",
     "test:e2e": "playwright test"
   },
