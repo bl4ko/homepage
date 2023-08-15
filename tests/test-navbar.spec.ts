@@ -53,11 +53,16 @@ test("Test experience page", async ({ page }) => {
 // Test theme toggle button
 test("Test theme toggle button", async ({ page }) => {
   await page.goto("http://localhost:3000/");
+
+  await expect(page.locator("html")).toHaveAttribute("data-theme", "dark");
+  // Click the button
   await page.getByLabel("Toggle theme").click();
+  await page.waitForTimeout(1000);
   // Check that the html[data-theme] attribute is set to light
   await expect(page.locator("html")).toHaveAttribute("data-theme", "light");
   // Click the button again
   await page.getByLabel("Toggle theme").click();
+  await page.waitForTimeout(1000);
   // Check that the html[data-theme] attribute is set to dark
   await expect(page.locator("html")).toHaveAttribute("data-theme", "dark");
 });
