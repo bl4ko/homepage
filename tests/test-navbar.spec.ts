@@ -2,7 +2,7 @@ import { test, expect } from "@playwright/test";
 import { projects } from "../constants";
 
 test("Test index page", async ({ page }) => {
-  await page.goto("http://localhost:3000/projects");
+  await page.goto("/projects");
   await page.getByRole("link", { name: "Home" }).click();
   await page.waitForSelector("canvas");
   const canvasElement = await page.$("canvas");
@@ -21,7 +21,7 @@ test("Test index page", async ({ page }) => {
 test("Test projects page displays all projects, has canvas and has footer", async ({
   page,
 }) => {
-  await page.goto("http://localhost:3000/");
+  await page.goto("/");
   await page.getByRole("link", { name: "Projects" }).click();
   await page.getByRole("heading", { name: "Projects" });
   await page.waitForSelector(".playwright-card");
@@ -33,7 +33,7 @@ test("Test projects page displays all projects, has canvas and has footer", asyn
 });
 
 test("Code link redirects to github", async ({ page }) => {
-  await page.goto("http://localhost:3000/");
+  await page.goto("/");
   const page2Promise = page.waitForEvent("popup");
   await page.getByRole("link", { name: "Code" }).click();
   const page2 = await page2Promise;
@@ -41,7 +41,7 @@ test("Code link redirects to github", async ({ page }) => {
 });
 
 test("Test experience page", async ({ page }) => {
-  await page.goto("http://localhost:3000/");
+  await page.goto("/");
   await page.getByRole("link", { name: "Experience" }).click();
   await page.getByRole("heading", { name: "Experience" });
   const page2Promise = page.waitForEvent("popup");
@@ -52,7 +52,7 @@ test("Test experience page", async ({ page }) => {
 
 // Test theme toggle button
 test("Test theme toggle button", async ({ page }) => {
-  await page.goto("http://localhost:3000/");
+  await page.goto("/");
 
   await expect(page.locator("html")).toHaveAttribute("data-theme", "dark");
   // Click the button
