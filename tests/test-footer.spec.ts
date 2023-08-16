@@ -1,7 +1,7 @@
 import { test, expect } from "@playwright/test";
 
 test("Footer is on the index page", async ({ page }) => {
-  await page.goto("http://localhost:3000/"); // change this to your web app's URL
+  await page.goto("/"); // change this to your web app's URL
 
   // Get the current year
   const currentYear = new Date().getFullYear();
