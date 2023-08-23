@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "build:standalone": "next build && cp -r public .next/standalone/public && cp -r .next/static .next/standalone/.next/static",
-    "start:standalone": "node .next/standalone/server.js",
+    "start:standalone": "node .next/standalone/server.js 0.0.0.0:3000",
     "lint": "next lint",
     "test:e2e": "playwright test"
   },
