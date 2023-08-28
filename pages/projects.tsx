@@ -1,6 +1,7 @@
 import Tilt from "react-parallax-tilt";
 import { projects, Project, Color } from "@/constants";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 type ColorClassesType = Record<Color, string>;
 
@@ -28,22 +29,24 @@ function ProjectCard({ index, project }: ProjectCardProps): JSX.Element {
     >
       <Tilt className="bg-secondary p-4 rounded-2xl w-full h-full hover">
         <div className="relative w-full h-[200px]">
-          <img
+          <Image
             src={`/images/${project.image}`}
             alt={project.name}
-            className="w-full h-full object-cover rounded-2xl"
+            fill={true}
+            className="w-full h-full object-contain rounded-2xl"
           />
         </div>
 
         <div className="absolute inset-0 flex justify-end hover">
           <div
             onClick={() => window.open(project.source, "_blank")}
-            className="black-gradient w-20 h-20 rounded-full flex justify-center items-center cursor-pointer"
+            className="fixed w-16 h-16 rounded-full flex justify-center items-center cursor-pointer"
           >
-            <img
+            <Image
               src="/images/github.png"
               alt="github"
-              className="w-1/2 h-1/2 object-contain"
+              className="object-cover w-1/2 h-1/2 static"
+              fill={true}
             />
           </div>
         </div>
