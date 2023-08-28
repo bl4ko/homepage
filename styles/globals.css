@@ -91,13 +91,14 @@ a {
     text-underline-offset: 3px;
 }
 
+a:hover {
+    text-decoration: underline;
+}
+
 button {
     background-color: var(--background-secondary);
 }
 
-a:hover {
-    text-decoration: underline;
-}
 
 .section-title {
     font-weight: bold;
