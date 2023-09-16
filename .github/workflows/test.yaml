@@ -11,7 +11,7 @@ jobs:
     container:
       image: node:20.6.1
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: actions/setup-node@v3
         with:
           node-version: 20
@@ -30,7 +30,7 @@ jobs:
     container:
       image: mcr.microsoft.com/playwright:v1.37.1-jammy
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: actions/setup-node@v3
         with:
           node-version: 18
@@ -61,7 +61,7 @@ jobs:
     needs: [playwright]
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Get latest trivy version from github
         run: |
           TRIVY_VERSION=$(curl --silent "https://api.github.com/repos/aquasecurity/trivy/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
