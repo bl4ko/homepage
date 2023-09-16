@@ -28,7 +28,7 @@ jobs:
     needs: [eslint]
     runs-on: ubuntu-latest
     container:
-      image: mcr.microsoft.com/playwright:v1.37.1-jammy
+      image: mcr.microsoft.com/playwright:v1.38.0-jammy
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v3
