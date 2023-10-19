@@ -1,3 +1,5 @@
+"use client";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
 import Link from "next/link";
 import { GithubIcon } from "./icons";
@@ -48,8 +50,8 @@ function LinkItem({
   );
 }
 
-export default function Navbar(props: any) {
-  const { path } = props;
+export default function Navbar() {
+  const path = usePathname();
   const [isOpen, setIsOpen] = useState(false);
 
   function toggleMenu() {
@@ -70,8 +72,8 @@ export default function Navbar(props: any) {
           <LinkItem href="/experience" path={path}>
             Experience
           </LinkItem>
-          <LinkItem href="/technologies" path={path}>
-            Technologies
+          <LinkItem href="https://blog.bl4ko.com" path={path}>
+            Blog
           </LinkItem>
           <LinkItem
             target="_blank"
@@ -127,7 +129,7 @@ export default function Navbar(props: any) {
                 </li>
                 <li className="px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-700">
                   <LinkItem
-                    href="/technologies"
+                    href="https://blog.bl4ko.com"
                     path={path}
                     toggleMenu={toggleMenu}
                   >
