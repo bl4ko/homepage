@@ -1,5 +1,5 @@
 import { test, expect } from "@playwright/test";
-import { projects } from "../constants";
+import { projects } from "../src/constants";
 
 test("Test index page", async ({ page }) => {
   await page.goto("/projects");
