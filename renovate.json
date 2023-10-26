@@ -12,5 +12,7 @@
   "lockFileMaintenance": {
     "enabled": true,
     "automerge": true
-  }
+  },
+  "timezone": "Etc/UTC",
+  "schedule": ["30 4 */3 * *"]
 }
