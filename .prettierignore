@@ -1,0 +1,7 @@
+vscode
+public
+node_modules
+playwright-report
+docker
+test-results
+.next

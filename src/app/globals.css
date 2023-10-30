@@ -1,112 +1,110 @@
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-
 /* Change scrollbar https: //stackoverflow.com/a/65776078 */
 /* Firefox */
 * {
-    scrollbar-width: thin;
-    scrollbar-color: var(--color-green) var(--background-secondary);
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-green) var(--background-secondary);
+
+  /* Disable built in cursor, we use separate component */
+  cursor: none !important;
 }
 
 *::-webkit-scrollbar {
-    width: 18px;
+  width: 18px;
 }
 
 *::-webkit-scrollbar-track {
-    /* color of the tracking area */
-    background: var(--background-secondary);
+  /* color of the tracking area */
+  background: var(--background-secondary);
 }
 
 *::-webkit-scrollbar-thumb {
-    /* color of the scroll thumb */
-    background-color: var(--color-green);
-    /* roundness of the scroll thumb */
-    border-radius: 20px;
-    /* creates padding around scroll thumb */
-    border: 6px solid var(--background-secondary);
+  /* color of the scroll thumb */
+  background-color: var(--color-green);
+  /* roundness of the scroll thumb */
+  border-radius: 20px;
+  /* creates padding around scroll thumb */
+  border: 6px solid var(--background-secondary);
 }
 
 /* ------------------------------------------------------- */
 
-
 /* Make all element take full screen https://stackoverflow.com/a/58465587 */
 #__next {
-    height: 100%;
+  height: 100%;
 }
 
-
-
 html[data-theme="light"] {
-    --color-green: #9fef00;
-    --color-gray: #4b4b4b;
-    --color-black: #ffffff;
-    --color-blue: #0086ff;
-    --color-yellow: #ffaf00;
-    --color-red: #ff3e3e;
-    --color-purple: #9f00ff;
-    --color-aqua: #2ee7b6;
-    --color-cyan: #00cfc1;
-    --background-primary: #ffffff;
-    --background-secondary: #f0f0f0;
-    --background-tertiary: #e6e6e6;
-    --text-primary: #141d2b;
-    --text-secondary: #4b4b4b;
-    --text-tertiary: #9f9f9f;
+  --color-green: #9fef00;
+  --color-gray: #4b4b4b;
+  --color-black: #ffffff;
+  --color-blue: #0086ff;
+  --color-yellow: #ffaf00;
+  --color-red: #ff3e3e;
+  --color-purple: #9f00ff;
+  --color-aqua: #2ee7b6;
+  --color-cyan: #00cfc1;
+  --background-primary: #ffffff;
+  --background-secondary: #f0f0f0;
+  --background-tertiary: #e6e6e6;
+  --text-primary: #141d2b;
+  --text-secondary: #4b4b4b;
+  --text-tertiary: #9f9f9f;
 }
 
 html[data-theme="dark"] {
-    --color-green: #9fef00;
-    --color-gray: #a4b1cd;
-    --color-black: #141d2b;
-    --color-blue: #0086ff;
-    --color-yellow: #ffaf00;
-    --color-red: #ff3e3e;
-    --color-purple: #9f00ff;
-    --color-aqua: #2ee7b6;
-    --color-cyan: #58E6D9;
-    --background-primary: #141d2b;
-    --background-secondary: #1a2332;
-    --background-tertiary: #111927;
-    --text-primary: #fff;
-    --text-secondary: #a4b1cd;
-    --text-tertiary: #cad2e2;
+  --color-green: #9fef00;
+  --color-gray: #a4b1cd;
+  --color-black: #141d2b;
+  --color-blue: #0086ff;
+  --color-yellow: #ffaf00;
+  --color-red: #ff3e3e;
+  --color-purple: #9f00ff;
+  --color-aqua: #2ee7b6;
+  --color-cyan: #58e6d9;
+  --background-primary: #141d2b;
+  --background-secondary: #1a2332;
+  --background-tertiary: #111927;
+  --text-primary: #fff;
+  --text-secondary: #a4b1cd;
+  --text-tertiary: #cad2e2;
 }
 
 nav {
-    background-color: var(--background-secondary);
+  background-color: var(--background-secondary);
 }
 
 body {
-    font-family: 'JetBrains Mono', monospace;
-    background-color: var(--background-primary);
-    color: var(--text-primary);
+  font-family: "JetBrains Mono", monospace;
+  background-color: var(--background-primary);
+  color: var(--text-primary);
 }
 
 a {
-    color: var(--color-green);
-    text-underline-offset: 3px;
+  color: var(--color-green);
+  text-underline-offset: 3px;
 }
 
 a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 button {
-    background-color: var(--background-secondary);
+  background-color: var(--background-secondary);
 }
 
-
 .section-title {
-    font-weight: bold;
-    font-size: 22px;
-    text-underline-offset: 6px;
-    margin-top: 0.75rem;
-    margin-bottom: 0.75rem;
-    text-decoration: underline;
-    text-decoration-color: #525252;
-    text-decoration-thickness: 4px;
+  font-weight: bold;
+  font-size: 22px;
+  text-underline-offset: 6px;
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
+  text-decoration: underline;
+  text-decoration-color: #525252;
+  text-decoration-thickness: 4px;
 }
