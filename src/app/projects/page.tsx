@@ -34,6 +34,7 @@ function ProjectCard({ index, project }: ProjectCardProps): JSX.Element {
             src={`/images/${project.image}`}
             alt={project.name}
             fill={true}
+            sizes="(max-width: 640px) 70vw, (max-width: 1024px) 45vw, 30vw"
             className="w-full h-full object-contain rounded-2xl"
           />
         </div>
@@ -48,6 +49,7 @@ function ProjectCard({ index, project }: ProjectCardProps): JSX.Element {
               alt="github"
               className="object-cover w-1/2 h-1/2 static"
               fill={true}
+              sizes="5vw"
             />
           </div>
         </div>
@@ -59,9 +61,9 @@ function ProjectCard({ index, project }: ProjectCardProps): JSX.Element {
         </div>
 
         <div className="flex flex-wrap mt-4 gap-2">
-          {project.tags.map((tag) => (
+          {project.tags.map((tag, index) => (
             <p
-              key={tag.name}
+              key={`${tag.name}-${index}`}
               className={`text-[14px] ${colorClasses[tag.color]}`}
             >
               #{tag.name}
@@ -86,7 +88,7 @@ export default function Projects(): JSX.Element {
         Development, Machine Learning and dev ops.
       </div>
 
-      <div className="mt-10 flex flex-wrap gap-7 justify-between">
+      <div className="mt-10 flex flex-wrap gap-7 justify-around">
         {projects.map((project, index) => (
           <ProjectCard
             key={`project-${index}`}
