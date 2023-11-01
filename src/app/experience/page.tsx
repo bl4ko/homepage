@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useScroll } from "framer-motion";
-import { Experience as ExperienceType, experiences } from "@/src/constants";
+import { Experience as ExperienceType, experiences } from "@/constants";
 import { useRef } from "react";
 
 function LiIcon({ reference }: { reference: any }) {

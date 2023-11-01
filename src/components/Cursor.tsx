@@ -1,23 +1,25 @@
 "use client";
 
-import { ThemeContext } from "@/src/context/ThemeProvider";
+import { ThemeContext } from "@/context/ThemeProvider";
 import { useContext, useEffect, useState } from "react";
 
 export default function Cursor({
   cursorColors = { dark: "#00FFAD", light: "#000000" },
-  initialCursorSize = 10,
-  initialBorderWidth = 2,
+  cursorSizeSmall = "10px",
+  cursorSizeLarge = "40px",
+  initialBorderWidth = "2px",
 }: {
   cursorColors?: { dark: string; light: string };
-  initialCursorSize?: number;
-  initialBorderWidth?: number;
+  cursorSizeSmall?: string;
+  cursorSizeLarge?: string;
+  initialBorderWidth?: string;
 }): JSX.Element {
   const { theme } = useContext(ThemeContext);
   const [mousePosition, setMousePosition] = useState<{ x: Number; y: Number }>({
     x: 0,
     y: 0,
   });
-  const [cursorSize, setCursorSize] = useState<Number>(initialCursorSize);
+  const [cursorSize, setCursorSize] = useState<string>(cursorSizeSmall);
   const [cursorFill, setCursorFill] = useState<boolean>(true);
 
   useEffect(() => {
@@ -26,11 +28,11 @@ export default function Cursor({
       setMousePosition({ x: clientX, y: clientY });
     }
     function handleMouseOver() {
-      setCursorSize(initialCursorSize + 30);
+      setCursorSize(cursorSizeLarge);
       setCursorFill(false);
     }
     function handleMouseOut() {
-      setCursorSize(initialCursorSize);
+      setCursorSize(cursorSizeSmall);
       setCursorFill(true);
     }
 
@@ -114,16 +116,16 @@ export default function Cursor({
         link.removeEventListener("mouseout", handleMouseOut);
       });
     };
-  }, [initialCursorSize, theme, cursorColors]);
+  }, [cursorSizeSmall, theme, cursorSizeLarge, cursorColors]);
 
   // Effects for mouse presses
   useEffect(() => {
     const handleMouseDown = () => {
-      setCursorSize(initialCursorSize + 30);
+      setCursorSize(cursorSizeLarge);
       setCursorFill(false);
     };
     const handleMouseUp = () => {
-      setCursorSize(initialCursorSize);
+      setCursorSize(cursorSizeSmall);
       setCursorFill(true);
     };
     document.addEventListener("mousedown", handleMouseDown);
@@ -133,18 +135,19 @@ export default function Cursor({
       document.removeEventListener("mousedown", handleMouseDown);
       document.removeEventListener("mouseup", handleMouseUp);
     };
-  }, [initialCursorSize, theme, cursorColors]);
+  }, [cursorSizeSmall, cursorSizeLarge, theme, cursorColors]);
 
   return (
     <div
+      data-testid="cursor"
       style={{
         position: "fixed",
         top: `${mousePosition.y}px`,
         left: `${mousePosition.x}px`,
-        height: `${cursorSize}px`,
-        width: `${cursorSize}px`,
+        height: cursorSize,
+        width: cursorSize,
         background: cursorFill ? cursorColors[theme] : "transparent",
-        borderWidth: `${initialBorderWidth}px`,
+        borderWidth: initialBorderWidth,
         borderColor: cursorColors[theme],
         borderStyle: "solid",
         borderRadius: "100%",

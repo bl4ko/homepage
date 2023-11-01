@@ -1,16 +1,17 @@
-import EarthCanvas from "@/src/components/canvas/Earth";
-import { ThemeProvider } from "@/src/context/ThemeProvider";
-import SlideShow from "@/src/components/transitions/SlideShow";
+import EarthCanvas from "@/components/canvas/Earth";
+import { ThemeProvider } from "@/context/ThemeProvider";
+import SlideShow from "@/components/transitions/SlideShow";
 
-import Footer from "@/src/components/footer";
-import Navbar from "@/src/components/navbar";
-import Cursor from "@/src/components/Cursor";
+import Footer from "@/components/footer";
+import Navbar from "@/components/navbar";
+import Cursor from "@/components/Cursor";
 
 import { Metadata } from "next";
-import StarsCanvas from "@/src/components/canvas/Stars";
+import StarsCanvas from "@/components/canvas/Stars";
 
 import "./globals.css";
 
+// Meta API for Head element
 export const metadata: Metadata = {
   title: "Bl4ko",
   description: "Bl4ko's homepage",
@@ -19,6 +20,12 @@ export const metadata: Metadata = {
   robots: "index, follow",
   icons: "/images/profile_no_background.png",
 };
+
+// Cursor customization
+export const cursorColors = { dark: "#00FFAD", light: "#000000" };
+export const cursorSizeS = "10px";
+export const cursorSizeL = "40px";
+export const cursorBorderW = "2px";
 
 export default function RootLayout({
   // Layouts must accept a children prop.
@@ -34,7 +41,12 @@ export default function RootLayout({
           <ThemeProvider>
             <StarsCanvas />
             <Navbar />
-            <Cursor />
+            <Cursor
+              cursorColors={cursorColors}
+              cursorSizeSmall={cursorSizeS}
+              cursorSizeLarge={cursorSizeL}
+              initialBorderWidth={cursorBorderW}
+            />
             <div className="text-base md:text-lg max-w-6xl pt-14 mx-auto xl:px-16 lg:px-12 md:px-10 xs:px-8 px-4">
               <EarthCanvas />
               <SlideShow>{children}</SlideShow>

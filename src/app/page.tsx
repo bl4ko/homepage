@@ -4,7 +4,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { IotIcon } from "@/src/components/icons";
+import { IotIcon } from "@/components/icons";
 
 interface BioSectionProps {
   children: React.ReactNode;

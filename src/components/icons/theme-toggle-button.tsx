@@ -1,8 +1,8 @@
 "use client";
 import { AnimatePresence, motion } from "framer-motion";
-import { SunIcon, MoonIcon } from "@/src/components/icons"; // Import your custom icons
+import { SunIcon, MoonIcon } from "@/components/icons"; // Import your custom icons
 import { useContext } from "react";
-import { ThemeContext } from "@/src/context/ThemeProvider";
+import { ThemeContext } from "@/context/ThemeProvider";
 
 export default function ThemeToggleButton() {
   const { theme, setTheme } = useContext(ThemeContext);
