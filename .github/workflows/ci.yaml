@@ -31,7 +31,7 @@ jobs:
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
       - name: Build standalone nextjs server
-        run: npm run build:standalone
+        run: npm run build
       - name: Set IP for Playwright webServer inside container
         run: |
           IP=$(hostname -I | awk '{print $1}')
