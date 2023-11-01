@@ -22,6 +22,21 @@ export default function Cursor({
   const [cursorSize, setCursorSize] = useState<string>(cursorSizeSmall);
   const [cursorFill, setCursorFill] = useState<boolean>(true);
 
+  // Throttle function to reduce the number of times we update the cursor: #https://jsfiddle.net/jonathansampson/m7G64/
+  // eslint-disable-next-line no-unused-vars
+  function throttle(callback: (event: MouseEvent) => void, limit: number) {
+    var wait = false;
+    return function (event: MouseEvent) {
+      if (!wait) {
+        callback(event);
+        wait = true;
+        setTimeout(function () {
+          wait = false;
+        }, limit);
+      }
+    };
+  }
+
   useEffect(() => {
     function mouseMoveHandler(event: MouseEvent) {
       const { clientX, clientY } = event;
@@ -37,7 +52,8 @@ export default function Cursor({
     }
 
     // Add event listener for moving mouse, so we can calculate its position
-    document.addEventListener("mousemove", mouseMoveHandler);
+    const throttledMouseMoveHandler = throttle(mouseMoveHandler, 10);
+    document.addEventListener("mousemove", throttledMouseMoveHandler);
 
     // Attach to all links on the page
     const startingLinks = document.querySelectorAll("a");
@@ -109,7 +125,7 @@ export default function Cursor({
     });
 
     return () => {
-      document.removeEventListener("mousemove", mouseMoveHandler);
+      document.removeEventListener("mousemove", throttledMouseMoveHandler);
       observer.disconnect();
       startingLinks.forEach((link) => {
         link.removeEventListener("mouseover", handleMouseOver);
