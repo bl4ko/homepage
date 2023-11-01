@@ -1,14 +1,15 @@
-import EarthCanvas from "../components/canvas/Earth";
+import EarthCanvas from "@/src/components/canvas/Earth";
 import { ThemeProvider } from "@/src/context/ThemeProvider";
 import SlideShow from "@/src/components/transitions/SlideShow";
 
 import Footer from "@/src/components/footer";
 import Navbar from "@/src/components/navbar";
-import Cursor from "@/src/components/cursor/Cursor";
-import "./globals.css";
+import Cursor from "@/src/components/Cursor";
 
 import { Metadata } from "next";
-import StarsCanvas from "../components/canvas/Stars";
+import StarsCanvas from "@/src/components/canvas/Stars";
+
+import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Bl4ko",
