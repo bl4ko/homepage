@@ -43,7 +43,7 @@ test("Custom cursor changes on mouse events", async ({ page }) => {
   await page.hover("a");
 
   // Ensure that the cursor size increases on the hover and the fill is transparent
-  await expect(cursorSelector).toHaveCSS("height", "40px");
+  await expect(cursorSelector).toHaveCSS("height", cursorSizeL);
   await expect(cursorSelector).toHaveCSS(
     "background",
     "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box",
@@ -51,7 +51,7 @@ test("Custom cursor changes on mouse events", async ({ page }) => {
 
   // Also hover random entry in navbar (blog) and check that the cursor size increases
   await page.getByRole("link", { name: "Projects" }).hover();
-  await expect(cursorSelector).toHaveCSS("height", "40px");
+  await expect(cursorSelector).toHaveCSS("height", cursorSizeL);
   await expect(cursorSelector).toHaveCSS(
     "background",
     "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box",
@@ -59,7 +59,7 @@ test("Custom cursor changes on mouse events", async ({ page }) => {
 
   // // Move away from the link and ensure that the cursor size and fill return to initial values
   await page.mouse.move(10, 10);
-  await expect(cursorSelector).toHaveCSS("height", "10px");
+  await expect(cursorSelector).toHaveCSS("height", cursorSizeS);
   await expect(cursorSelector).toHaveCSS(
     "background",
     `${hexToRgb(
