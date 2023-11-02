@@ -1,3 +1,5 @@
+# This actions is used for debugging purposes
+# It is maintained on the branch github-actions
 name: Debuging action
 on:
   workflow_dispatch:
