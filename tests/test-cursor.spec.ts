@@ -6,6 +6,16 @@ import {
   cursorSizeL,
 } from "../src/app/layout";
 
+function hexToRgb(hex: string): string {
+  var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+  return result
+    ? `rgb(${parseInt(result[1], 16)}, ${parseInt(result[2], 16)}, ${parseInt(
+        result[3],
+        16,
+      )})`
+    : "null";
+}
+
 test("Custom cursor changes on mouse events", async ({ page }) => {
   await page.goto("/");
   await page.waitForLoadState(); // Waits for 'load' state by default.
@@ -40,7 +50,7 @@ test("Custom cursor changes on mouse events", async ({ page }) => {
   );
 
   // Also hover random entry in navbar (blog) and check that the cursor size increases
-  await page.hover("a[href='/blog']");
+  await page.getByRole("link", { name: "Projects" }).hover();
   await expect(cursorSelector).toHaveCSS("height", "40px");
   await expect(cursorSelector).toHaveCSS(
     "background",
@@ -52,28 +62,8 @@ test("Custom cursor changes on mouse events", async ({ page }) => {
   await expect(cursorSelector).toHaveCSS("height", "10px");
   await expect(cursorSelector).toHaveCSS(
     "background",
-    cursorColors[currentTheme],
+    `${hexToRgb(
+      cursorColors[currentTheme],
+    )} none repeat scroll 0% 0% / auto padding-box border-box`,
   );
-
-  // // Check the cursor style after moving away from the link
-  // const cursorAfterLink = await page.$eval(cursorSelector, (el) => ({
-  //   size: el.style.height,
-  //   background: el.style.background,
-  // }));
-
-  // // Verify that cursor size and fill return to initial values
-  // expect(cursorAfterLink.size).toBe("10px");
-  // // Replace 'light' or 'dark' with the actual value depending on the theme
-  // expect(cursorAfterLink.background).toBe("rgba(0, 255, 173, 1)"); // or the appropriate color
-
-  // // Simulate mouse down and up to check cursor fill
-  // await page.mouse.down();
-  // await page.mouse.up();
-
-  // // Verify the cursor fill after mouse down and up
-  // const cursorAfterClick = await page.$eval(
-  //   cursorSelector,
-  //   (el) => el.style.background,
-  // );
-  // expect(cursorAfterClick).toBe("transparent");
 });
