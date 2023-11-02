@@ -25,66 +25,16 @@ on:
     #       - prod
 
 jobs:
-  eslint:
-    name: "Run ESLint"
+  deploy:
+    name: Deploy application to server
     runs-on: k8s-runners
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 20
-      - name: Install dependencies
-        run: npm ci
-      - name: Run ESLint
-        run: npm run lint
-
-  playwright:
-    name: "Playwright Tests"
-    runs-on: k8s-runners
-    steps:
-      # https://playwright.dev/docs/ci-intro#setting-up-github-actions
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 20
-      - name: Install dependencies
-        run: npm ci
-      - name: Install Playwright Browsers
-        run: npx playwright install --with-deps
-      - name: Build standalone nextjs server
-        run: npm run build:standalone
-      - name: Set IP for Playwright webServer inside container
+      - name: Add key from variable
         run: |
-          IP=$(hostname -I | awk '{print $1}')
-          echo "CI_CONTAINER_URL=http://$IP:3000" >> $GITHUB_ENV
-      - name: Run end-to-end tests
-        run: DEBUG=pw:webserver npm run test:e2e
-      - name: Upload test results
-        uses: actions/upload-artifact@v3
-        if: always()
-        with:
-          name: playwright-report
-          path: playwright-report/
-          retention-days: 30
-  trivy:
-    name: Trivy Scan
-    runs-on: k8s-runners
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-      - name: Install curl if not installed
-        run: if ! command -v curl &>/dev/null; then sudo apt update && sudo apt install curl -y; fi
-      - name: Get the latest Trivy release version
+          echo "${{ secrets.DEPLOY_KEY }}" > ./key && chmod 600 ./key
+      - name: Install ssh client if not installed
         run: |
-          TRIVY_VERSION=$(curl --silent "https://api.github.com/repos/aquasecurity/trivy/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
-          echo "Latest Trivy Version: ${TRIVY_VERSION}"
-          echo "TRIVY_VERSION=$TRIVY_VERSION" >> $GITHUB_ENV
-      - name: Install the Trivy using install script
+          sudo apt-get update && sudo apt-get install openssh-client
+      - name: Connect to host and update
         run: |
-          mkdir -vp $HOME/.local/bin
-          curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sh -s -- -b $HOME/.local/bin ${{ env.TRIVY_VERSION }}
-      - name: Build local docker image for trivy to test it
-        run: docker build . -t homepage:trivy
-      - name: Trivy scan Image
-        run: |
-          $HOME/.local/bin/trivy image --exit-code 1 --severity HIGH,CRITICAL --no-progress homepage:trivy
+          ssh -o StrictHostKeyChecking=no -i ./key -p ${{ secrets.DEPLOY_PORT }} ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }} 'echo "hello world'
