@@ -34,7 +34,7 @@ jobs:
           echo "${{ secrets.DEPLOY_KEY }}" > ./key && chmod 600 ./key
       - name: Install ssh client if not installed
         run: |
-          sudo apt-get update && sudo apt-get install openssh-client
+          sudo apt-get update && sudo apt-get install openssh-client -y
       - name: Connect to host and update
         run: |
-          ssh -o StrictHostKeyChecking=no -i ./key -p ${{ secrets.DEPLOY_PORT }} ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }} 'echo "hello world'
+          ssh -o StrictHostKeyChecking=no -i ./key -p ${{ secrets.DEPLOY_PORT }} ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }} 'echo "hello world"'
