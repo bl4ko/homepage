@@ -1,0 +1,11 @@
+.env
+README.md
+.gitignore
+.editorconfig
+.DS_Store
+rennovate.json
+docker-compose.yml
+Dockerfile
+.vscode
+.github
+.git

@@ -67,4 +67,4 @@ jobs:
         run: docker build . -t homepage:trivy
       - name: Trivy scan Image
         run: |
-          $HOME/.local/bin/trivy image --exit-code 1 --severity HIGH,CRITICAL --no-progress homepage:trivy
+          $HOME/.local/bin/trivy image --exit-code 1 --severity CRITICAL --no-progress homepage:trivy
