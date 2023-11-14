@@ -4,7 +4,7 @@ import {
   cursorColors,
   cursorSizeS,
   cursorSizeL,
-} from "../src/app/layout";
+} from "@/components/Cursor";
 
 function hexToRgb(hex: string): string {
   var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
@@ -29,8 +29,13 @@ test("Custom cursor changes on mouse events", async ({ page }) => {
   // Get the cursor
   const cursorSelector = await page.getByTestId("cursor");
 
+  // Ensure that the cursor has correct border width and color
+  await expect(cursorSelector).toHaveCSS("border-width", cursorBorderW);
+
   // Expect initial size of the cursor to be 10px
   await expect(cursorSelector).toHaveCSS("height", cursorSizeS);
+
+  // Expect cursor to have
 
   // Move the mouse to the (100, 100) location
   await page.mouse.move(100, 100);

@@ -28,12 +28,6 @@ const jetBrainsMono = JetBrains_Mono({
   weight: ["400"],
 });
 
-// Cursor customization
-export const cursorColors = { dark: "#00FFAD", light: "#000000" };
-export const cursorSizeS = "10px";
-export const cursorSizeL = "40px";
-export const cursorBorderW = "2px";
-
 export default function RootLayout({
   // Layouts must accept a children prop.
   // This will be populated with nested layouts or pages
@@ -55,12 +49,7 @@ export default function RootLayout({
           <ThemeProvider>
             <StarsCanvas />
             <Navbar />
-            <Cursor
-              cursorColors={cursorColors}
-              cursorSizeSmall={cursorSizeS}
-              cursorSizeLarge={cursorSizeL}
-              initialBorderWidth={cursorBorderW}
-            />
+            <Cursor />
             <div className="text-base md:text-lg max-w-6xl pt-14 mx-auto xl:px-16 lg:px-12 md:px-10 xs:px-8 px-4">
               <EarthCanvas />
               <SlideShow>{children}</SlideShow>

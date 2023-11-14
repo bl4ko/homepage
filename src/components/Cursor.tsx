@@ -3,13 +3,21 @@
 import { ThemeContext } from "@/context/ThemeProvider";
 import { useContext, useEffect, useState } from "react";
 
+// Cursor customization
+// These variables are exported so they can be used with
+// playwright tests. Change them to change the cursor
+export const cursorColors = { dark: "#00FFAD", light: "#000000" };
+export const cursorSizeS = "10px";
+export const cursorSizeL = "40px";
+export const cursorBorderW = "2px";
+
 export default function Cursor({
-  cursorColors = { dark: "#00FFAD", light: "#000000" },
-  cursorSizeSmall = "10px",
-  cursorSizeLarge = "40px",
-  initialBorderWidth = "2px",
+  initialCursorColors = cursorColors,
+  cursorSizeSmall = cursorSizeS,
+  cursorSizeLarge = cursorSizeL,
+  initialBorderWidth = cursorBorderW,
 }: {
-  cursorColors?: { dark: string; light: string };
+  initialCursorColors?: { dark: string; light: string };
   cursorSizeSmall?: string;
   cursorSizeLarge?: string;
   initialBorderWidth?: string;
@@ -132,7 +140,7 @@ export default function Cursor({
         link.removeEventListener("mouseout", handleMouseOut);
       });
     };
-  }, [cursorSizeSmall, theme, cursorSizeLarge, cursorColors]);
+  }, [cursorSizeSmall, theme, cursorSizeLarge, initialCursorColors]);
 
   // Effects for mouse presses
   useEffect(() => {
@@ -151,7 +159,7 @@ export default function Cursor({
       document.removeEventListener("mousedown", handleMouseDown);
       document.removeEventListener("mouseup", handleMouseUp);
     };
-  }, [cursorSizeSmall, cursorSizeLarge, theme, cursorColors]);
+  }, [cursorSizeSmall, cursorSizeLarge, theme, initialCursorColors]);
 
   return (
     <div
@@ -162,9 +170,9 @@ export default function Cursor({
         left: `${mousePosition.x}px`,
         height: cursorSize,
         width: cursorSize,
-        background: cursorFill ? cursorColors[theme] : "transparent",
+        background: cursorFill ? initialCursorColors[theme] : "transparent",
         borderWidth: initialBorderWidth,
-        borderColor: cursorColors[theme],
+        borderColor: initialCursorColors[theme],
         borderStyle: "solid",
         borderRadius: "100%",
         transform: "translate(-50%, -50%)",
