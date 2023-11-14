@@ -1,6 +1,7 @@
 import EarthCanvas from "@/components/canvas/Earth";
 import { ThemeProvider } from "@/context/ThemeProvider";
 import SlideShow from "@/components/transitions/SlideShow";
+import { JetBrains_Mono } from "next/font/google";
 
 import Footer from "@/components/footer";
 import Navbar from "@/components/navbar";
@@ -21,6 +22,12 @@ export const metadata: Metadata = {
   icons: "/images/profile_no_background.png",
 };
 
+// Font optimization
+const jetBrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  weight: ["400"],
+});
+
 // Cursor customization
 export const cursorColors = { dark: "#00FFAD", light: "#000000" };
 export const cursorSizeS = "10px";
@@ -36,8 +43,15 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        {/* Font optimization not added yet: https://github.com/vercel/next.js/discussions/42881#discussion-4564506 */}
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap"
+        />
+      </head>
       <body>
-        <main className="relative pb-8 h-full">
+        <main className={`relative pb-8 h-full ${jetBrainsMono.className}`}>
           <ThemeProvider>
             <StarsCanvas />
             <Navbar />
