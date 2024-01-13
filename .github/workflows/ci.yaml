@@ -6,7 +6,7 @@ on:
 jobs:
   eslint:
     name: "Run ESLint"
-    runs-on: k8s-runners
+    runs-on: homepage-runners
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -18,26 +18,27 @@ jobs:
         run: npm run lint
 
   playwright:
-    name: "Playwright Tests"
-    runs-on: k8s-runners
+    name: 'Playwright Tests'
+    runs-on: homepage-runners
+    container:
+      image: mcr.microsoft.com/playwright:v1.40.1
     steps:
-      # https://playwright.dev/docs/ci-intro#setting-up-github-actions
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: 20
       - name: Install dependencies
         run: npm ci
-      - name: Install Playwright Browsers
-        run: npx playwright install --with-deps
-      - name: Build standalone nextjs server
+      - name: Build standalone nextjs
         run: npm run build
       - name: Set IP for Playwright webServer inside container
         run: |
           IP=$(hostname -I | awk '{print $1}')
           echo "CI_CONTAINER_URL=http://$IP:3000" >> $GITHUB_ENV
-      - name: Run end-to-end tests
-        run: DEBUG=pw:webserver npm run test:e2e
+      - name: Run your tests
+        run: DEBUG=pw:webserver npm run test:e2e --debug
+        env:
+          HOME: /root
       - name: Upload test results
         uses: actions/upload-artifact@v3
         if: always()
@@ -45,26 +46,30 @@ jobs:
           name: playwright-report
           path: playwright-report/
           retention-days: 30
-
-  trivy:
-    name: Trivy Scan
-    runs-on: k8s-runners
+  build:
+    name: Build container image
+    runs-on: homepage-runners
+    container:
+      image: gcr.io/kaniko-project/executor:debug
+    permissions: # Permissions for GITHUB_TOKEN
+      contents: read
+      packages: write
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-      - name: Install curl if not installed
-        run: if ! command -v curl &>/dev/null; then sudo apt update && sudo apt install curl -y; fi
-      - name: Get the latest Trivy release version
-        run: |
-          TRIVY_VERSION=$(curl --silent "https://api.github.com/repos/aquasecurity/trivy/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
-          echo "Latest Trivy Version: ${TRIVY_VERSION}"
-          echo "TRIVY_VERSION=$TRIVY_VERSION" >> $GITHUB_ENV
-      - name: Install the Trivy using install script
-        run: |
-          mkdir -vp $HOME/.local/bin
-          curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sh -s -- -b $HOME/.local/bin ${{ env.TRIVY_VERSION }}
-      - name: Build local docker image for trivy to test it
-        run: docker build . -t homepage:trivy
-      - name: Trivy scan Image
-        run: |
-          $HOME/.local/bin/trivy image --exit-code 1 --severity CRITICAL --no-progress homepage:trivy
+        - name: Build and push container with Kaniko to ghcr
+          run: |
+            AUTH=$(echo -n ${{ github.actor }}:${{ secrets.GITHUB_TOKEN }} | base64)
+            echo "{\"auths\": {\"ghcr.io\": {\"auth\": \"${AUTH}\"}}}" > /kaniko/.docker/config.json 
+
+            /kaniko/executor --dockerfile="./Dockerfile" \
+            --context="${{ github.repositoryUrl }}#${{ github.ref }}#${{ github.sha }}" \
+            --destination="ghcr.io/bl4ko/homepage:${{ github.sha }}" \
+            --push-retry 5 \
+            --image-name-with-digest-file /workspace/image-digest.txt
+  scan:
+    runs-on: homepage-runners
+    needs: build
+    container:
+      image: aquasec/trivy:latest
+    steps:
+      - name: Scan image with trivy for vulnerabilities. Fail if there are any critical.
+        run: trivy image --exit-code 1 --severity CRITICAL --no-progress "ghcr.io/bl4ko/homepage:${{ github.sha }}"
