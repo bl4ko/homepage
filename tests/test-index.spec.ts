@@ -1,6 +1,6 @@
 import { test, expect } from "@playwright/test";
 
-test("test", async ({ page }) => {
+test("Test index page", async ({ page }) => {
   await page.goto("/");
   await page.getByLabel("Toggle theme").click();
   await expect(page.locator("html")).toHaveAttribute("data-theme", "light");
