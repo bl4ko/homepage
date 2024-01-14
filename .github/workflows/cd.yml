@@ -19,10 +19,10 @@ jobs:
       - name: Build and push container with Kaniko to ghcr
         run: |
           AUTH=$(echo -n ${{ github.actor }}:${{ secrets.GITHUB_TOKEN }} | base64)
-          echo "{\"auths\": {\"ghcr.io\": {\"auth\": \"${AUTH}\"}}}" > /kaniko/.docker/config.json 
+          echo "{\"auths\": {\"ghcr.io\": {\"auth\": \"${AUTH}\"}}}" > /kaniko/.docker/config.json
 
           /kaniko/executor --dockerfile="./Dockerfile" \
-          --context="${{ github.repositoryUrl }}#${{ github.ref }}#${{ github.sha }}" \
+          --context="${{ github.repositoryUrl }}#${{ github.sha }}" \
           --destination="ghcr.io/bl4ko/homepage:latest" \
           --push-retry 5 \
           --image-name-with-digest-file /workspace/image-digest.txt
