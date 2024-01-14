@@ -35,6 +35,8 @@ jobs:
         run: |
           IP=$(hostname -I | awk '{print $1}')
           echo "CI_CONTAINER_URL=http://$IP:3000" >> $GITHUB_ENV
+      - name: Set playwright CI variable to true
+        run: echo "CI=true" >> $GITHUB_ENV
       - name: Run your tests
         run: DEBUG=pw:webserver npm run test:e2e --debug
         env:
