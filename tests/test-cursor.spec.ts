@@ -16,26 +16,19 @@ function hexToRgb(hex: string): string {
     : "null";
 }
 
-test("Custom cursor changes on mouse events", async ({ page }) => {
+test("Custom cursor moving correctly", async ({ page }) => {
+  // Start at index
   await page.goto("/");
-  await page.waitForLoadState(); // Waits for 'load' state by default.
-
-  // Get current theme
-  const currentTheme = (await page.getAttribute("html", "data-theme")) as
-    | "light"
-    | "dark";
-  expect(currentTheme === "light" || currentTheme === "dark").toBe(true);
 
   // Get the cursor
   const cursorSelector = await page.getByTestId("cursor");
 
-  // Ensure that the cursor has correct border width and color
+  // Ensure that cursor exists
+  expect(cursorSelector).not.toBe(null);
+
+  // Ensure that the cursor has correct border width, and height
   await expect(cursorSelector).toHaveCSS("border-width", cursorBorderW);
-
-  // Expect initial size of the cursor to be 10px
   await expect(cursorSelector).toHaveCSS("height", cursorSizeS);
-
-  // Expect cursor to have
 
   // Move the mouse to the (100, 100) location
   await page.mouse.move(100, 100);
@@ -43,16 +36,24 @@ test("Custom cursor changes on mouse events", async ({ page }) => {
   // Expect the cursor to have coordinates of (100, 100)
   await expect(cursorSelector).toHaveCSS("top", "100px");
   await expect(cursorSelector).toHaveCSS("left", "100px");
+});
 
-  // Find a link and hover over it
-  await page.hover("a");
+test("Custom cursor hover size change on link", async ({ page }) => {
+  // Test at /projects
+  await page.goto("/projects");
 
-  // Ensure that the cursor size increases on the hover and the fill is transparent
-  await expect(cursorSelector).toHaveCSS("height", cursorSizeL);
-  await expect(cursorSelector).toHaveCSS(
-    "background",
-    "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box",
-  );
+  await page.waitForTimeout(1000);
+  // Get current theme
+  const currentTheme = (await page.getAttribute("html", "data-theme")) as
+    | "light"
+    | "dark";
+  expect(currentTheme === "light" || currentTheme === "dark").toBe(true);
+  // Get the cursor
+  const cursorSelector = await page.getByTestId("cursor");
+
+  // Ensure that the cursor has correct border width and height
+  await expect(cursorSelector).toHaveCSS("border-width", cursorBorderW);
+  await expect(cursorSelector).toHaveCSS("height", cursorSizeS);
 
   // Also hover random entry in navbar (blog) and check that the cursor size increases
   await page.getByRole("link", { name: "Projects" }).hover();
@@ -63,6 +64,7 @@ test("Custom cursor changes on mouse events", async ({ page }) => {
   );
 
   // // Move away from the link and ensure that the cursor size and fill return to initial values
+  // // Move away from the link and ensure that the cursor size and fill return to initial values
   await page.mouse.move(10, 10);
   await expect(cursorSelector).toHaveCSS("height", cursorSizeS);
   await expect(cursorSelector).toHaveCSS(
@@ -70,5 +72,30 @@ test("Custom cursor changes on mouse events", async ({ page }) => {
     `${hexToRgb(
       cursorColors[currentTheme],
     )} none repeat scroll 0% 0% / auto padding-box border-box`,
+  );
+});
+
+test("Custom cursor hover size change on <a>", async ({ page }) => {
+  // Start at experience page
+  await page.goto("/experience");
+
+  // Get the cursor
+  const cursorSelector = await page.getByTestId("cursor");
+
+  // Ensure that the cursor has correct border width and color
+  await expect(cursorSelector).toHaveCSS("border-width", cursorBorderW);
+
+  // Expect initial size of the cursor to be 10px
+  await expect(cursorSelector).toHaveCSS("height", cursorSizeS);
+
+  // Find a link and hover over it
+  // Find a link and hover over it
+  await page.hover("a");
+
+  // Ensure that the cursor size increases on the hover and the fill is transparent
+  await expect(cursorSelector).toHaveCSS("height", cursorSizeL);
+  await expect(cursorSelector).toHaveCSS(
+    "background",
+    "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box",
   );
 });
