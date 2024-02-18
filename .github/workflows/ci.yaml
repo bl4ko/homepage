@@ -75,24 +75,7 @@ jobs:
       contents: read
       packages: write
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Get changed files
-        id: changed-files
-        uses: tj-actions/changed-files@v42
-        with:
-          files: |
-            .dockerignore
-            Dockerfile
-            package.json
-            package-lock.json
-            src/**
-            **.js
-            **.ts
-
       - name: Build and push container with Kaniko to ghcr
-        if: steps.changed-files.outputs.any_modified == 'true'
         run: |
           AUTH=$(echo -n ${{ github.actor }}:${{ secrets.GITHUB_TOKEN }} | base64)
           echo "{\"auths\": {\"ghcr.io\": {\"auth\": \"${AUTH}\"}}}" > /kaniko/.docker/config.json
@@ -104,5 +87,4 @@ jobs:
           --image-name-with-digest-file /workspace/image-digest.txt
 
       - name: Scan image with trivy for vulnerabilities. Fail if there are any critical.
-        if: steps.changed-files.outputs.any_modified == 'true'
         run: trivy image --exit-code 1 --severity CRITICAL --no-progress "ghcr.io/bl4ko/homepage:${{ github.sha }}"
