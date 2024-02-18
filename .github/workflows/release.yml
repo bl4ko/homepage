@@ -1,4 +1,4 @@
-name: Update tags and create release
+name: Create Release 🚀
 on:
   push:
     branches: [main]

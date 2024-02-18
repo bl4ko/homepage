@@ -66,8 +66,8 @@ jobs:
         env:
           HOME: /root
 
-  scan_vulnerabilities:
-    name: Build container image
+  build-image:
+    name: Build container image for trivy
     runs-on: homepage-runners
     container:
       image: gcr.io/kaniko-project/executor:debug
@@ -86,5 +86,11 @@ jobs:
           --push-retry 5 \
           --image-name-with-digest-file /workspace/image-digest.txt
 
+  scan:
+    runs-on: homepage-runners
+    needs: build-image
+    container:
+      image: aquasec/trivy:0.49.1
+    steps:
       - name: Scan image with trivy for vulnerabilities. Fail if there are any critical.
         run: trivy image --exit-code 1 --severity CRITICAL --no-progress "ghcr.io/bl4ko/homepage:${{ github.sha }}"
