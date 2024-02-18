@@ -19,7 +19,6 @@
   "packageRules": [
     {
       "matchManagers": ["npm"],
-      "matchUpdateTypes": ["minor", "patch"],
       "automerge": true,
       "automergeStrategy": "rebase",
       "groupName": "npm dependencies"
