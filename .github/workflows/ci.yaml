@@ -38,24 +38,30 @@ jobs:
             **.ts
 
       - uses: actions/setup-node@v4
+        if: steps.changed-files.outputs.any_modified == 'true'
         with:
           node-version: 20
 
       - name: Install dependencies
+        if: steps.changed-files.outputs.any_modified == 'true'
         run: npm ci
 
       - name: Build standalone nextjs
+        if: steps.changed-files.outputs.any_modified == 'true'
         run: npm run build
 
       - name: Set IP for Playwright webServer inside container
+        if: steps.changed-files.outputs.any_modified == 'true'
         run: |
           IP=$(hostname -I | awk '{print $1}')
           echo "CI_CONTAINER_URL=http://$IP:3000" >> $GITHUB_ENV
 
       - name: Set playwright CI variable to true
+        if: steps.changed-files.outputs.any_modified == 'true'
         run: echo "CI=true" >> $GITHUB_ENV
 
       - name: Run your tests
+        if: steps.changed-files.outputs.any_modified == 'true'
         run: DEBUG=pw:webserver npm run test:e2e --debug
         env:
           HOME: /root
