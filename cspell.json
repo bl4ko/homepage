@@ -1,0 +1,21 @@
+// cSpell Settings
+{
+  "language": "en",
+  "dictionaries": [
+    "project-words"
+  ],
+  "dictionaryDefinitions": [
+    {
+      "name": "project-words",
+      "path": "./project-words.txt"
+    }
+  ],
+  "ignorePaths": [
+    ".git/*",
+    ".git/!{COMMIT_EDITMSG,EDITMSG}",
+    ".git/*/**",
+    ".gitignore",
+    "cspell.json"
+  ],
+  "enabled": false
+}
