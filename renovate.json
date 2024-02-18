@@ -31,7 +31,7 @@
     },
     {
       "matchManagers": ["github-actions"],
-      "autoMerge": true,
+      "automerge": true,
       "automergeStrategy": "rebase",
       "groupName": "github actions"
     },
