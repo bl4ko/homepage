@@ -8,8 +8,8 @@ jobs:
     name: "Run ESLint"
     runs-on: homepage-runners
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
+      - uses: actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8 # v4
         with:
           node-version: 20
       - name: Install dependencies
@@ -21,13 +21,13 @@ jobs:
     name: "Playwright Tests"
     runs-on: homepage-runners
     container:
-      image: mcr.microsoft.com/playwright:v1.41.2
+      image: mcr.microsoft.com/playwright:v1.41.2@sha256:bdb4fe25c62ed5de1996096f82b03ec8257583462e5ef88e2cbe58aa44753a9e
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
 
       - name: Get changed files
         id: changed-files
-        uses: tj-actions/changed-files@v42
+        uses: tj-actions/changed-files@3f54ebb830831fc121d3263c1857cfbdc310cdb9 # v42
         with:
           files: |
             package.json
@@ -37,7 +37,7 @@ jobs:
             **.js
             **.ts
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8 # v4
         if: steps.changed-files.outputs.any_modified == 'true'
         with:
           node-version: 20
@@ -70,7 +70,7 @@ jobs:
     name: Build container image for trivy
     runs-on: homepage-runners
     container:
-      image: gcr.io/kaniko-project/executor:debug
+      image: gcr.io/kaniko-project/executor:debug@sha256:777f39ec2695fdb8b3cd6c1b0a8f6c3339f2461d660c1f0434e3b41829ad2db8
     permissions: # Permissions for GITHUB_TOKEN
       contents: read
       packages: write
@@ -90,7 +90,7 @@ jobs:
     runs-on: homepage-runners
     needs: build-image
     container:
-      image: aquasec/trivy:0.49.1
+      image: aquasec/trivy:0.49.1@sha256:91494b87ddc64f62860d52997532643956c24eeee0d0dda317d563c28c8581bc
     steps:
       - name: Scan image with trivy for vulnerabilities. Fail if there are any critical.
         run: trivy image --exit-code 1 --severity CRITICAL --no-progress "ghcr.io/bl4ko/homepage:${{ github.sha }}"
