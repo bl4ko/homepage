@@ -18,31 +18,49 @@ jobs:
         run: npm run lint
 
   playwright:
-    name: 'Playwright Tests'
+    name: "Playwright Tests"
     runs-on: homepage-runners
     container:
       image: mcr.microsoft.com/playwright:v1.41.2
     steps:
       - uses: actions/checkout@v4
+
+      - name: Get changed files
+        id: changed-files
+        uses: tj-actions/changed-files@v42
+        with:
+          files: |
+            package.json
+            package-lock.json
+            src/**
+            tests/**
+            **.js
+            **.ts
+
       - uses: actions/setup-node@v4
         with:
           node-version: 20
+
       - name: Install dependencies
         run: npm ci
+
       - name: Build standalone nextjs
         run: npm run build
+
       - name: Set IP for Playwright webServer inside container
         run: |
           IP=$(hostname -I | awk '{print $1}')
           echo "CI_CONTAINER_URL=http://$IP:3000" >> $GITHUB_ENV
+
       - name: Set playwright CI variable to true
         run: echo "CI=true" >> $GITHUB_ENV
+
       - name: Run your tests
         run: DEBUG=pw:webserver npm run test:e2e --debug
         env:
           HOME: /root
 
-  build:
+  scan_vulnerabilities:
     name: Build container image
     runs-on: homepage-runners
     container:
@@ -51,21 +69,34 @@ jobs:
       contents: read
       packages: write
     steps:
-        - name: Build and push container with Kaniko to ghcr
-          run: |
-            AUTH=$(echo -n ${{ github.actor }}:${{ secrets.GITHUB_TOKEN }} | base64)
-            echo "{\"auths\": {\"ghcr.io\": {\"auth\": \"${AUTH}\"}}}" > /kaniko/.docker/config.json
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-            /kaniko/executor --dockerfile="./Dockerfile" \
-            --context="${{ github.repositoryUrl }}#${{ github.sha }}" \
-            --destination="ghcr.io/bl4ko/homepage:${{ github.sha }}" \
-            --push-retry 5 \
-            --image-name-with-digest-file /workspace/image-digest.txt
-  scan:
-    runs-on: homepage-runners
-    needs: build
-    container:
-      image: aquasec/trivy:latest
-    steps:
+      - name: Get changed files
+        id: changed-files
+        uses: tj-actions/changed-files@v42
+        with:
+          files: |
+            .dockerignore
+            Dockerfile
+            package.json
+            package-lock.json
+            src/**
+            **.js
+            **.ts
+
+      - name: Build and push container with Kaniko to ghcr
+        if: steps.changed-files.outputs.any_modified == 'true'
+        run: |
+          AUTH=$(echo -n ${{ github.actor }}:${{ secrets.GITHUB_TOKEN }} | base64)
+          echo "{\"auths\": {\"ghcr.io\": {\"auth\": \"${AUTH}\"}}}" > /kaniko/.docker/config.json
+
+          /kaniko/executor --dockerfile="./Dockerfile" \
+          --context="${{ github.repositoryUrl }}#${{ github.sha }}" \
+          --destination="ghcr.io/bl4ko/homepage:${{ github.sha }}" \
+          --push-retry 5 \
+          --image-name-with-digest-file /workspace/image-digest.txt
+
       - name: Scan image with trivy for vulnerabilities. Fail if there are any critical.
+        if: steps.changed-files.outputs.any_modified == 'true'
         run: trivy image --exit-code 1 --severity CRITICAL --no-progress "ghcr.io/bl4ko/homepage:${{ github.sha }}"
