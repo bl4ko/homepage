@@ -3,8 +3,7 @@ name: Continous Deployment
 on:
   push:
     tags:
-      - "v[0-9]+.[0-9]+.[0-9]+"
-  workflow_dispatch:
+      - "v*.*.*"
 
 jobs:
   build:
@@ -24,6 +23,7 @@ jobs:
           /kaniko/executor --dockerfile="./Dockerfile" \
           --context="${{ github.repositoryUrl }}#${{ github.sha }}" \
           --destination="ghcr.io/bl4ko/homepage:latest" \
+          --destination="ghcr.io/bl4ko/homepage:${{ github.ref_name }}" \
           --push-retry 5 \
           --image-name-with-digest-file /workspace/image-digest.txt
 
