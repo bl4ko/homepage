@@ -7,6 +7,9 @@
     "helpers:pinGitHubActionDigests",
     ":pinDevDependencies"
   ],
+  "pre-commit": {
+    "enabled": true
+  },
   "regexManagers": [
     {
       "description": "Update semantic-release version used by npx",
