@@ -10,18 +10,13 @@ repos:
     hooks:
       - id: npm-lint
         name: "Lint"
-        entry: npm run lint
+        entry: sh -c 'npm run lint'
         language: system
-        files: '\.(js|jsx|ts|tsx)$'
 
       - id: npm-test-e2e
         name: "End-to-End Test"
-        entry: npm run test:e2e
+        entry: sh -c 'npm run build && npm run test:e2e'
         language: system
-        # You might want to run this only for certain files or directories
-        files: '\.(js|jsx|ts|tsx)$'
-        # types: [typescript]
-        # exclude: ''
 
   - repo: https://github.com/dnephin/pre-commit-golang
     rev: v0.5.1
@@ -36,6 +31,6 @@ repos:
       - id: gitleaks
 
   - repo: https://github.com/streetsidesoftware/cspell-cli
-    rev: v8.3.0
+    rev: v8.4.0
     hooks:
       - id: cspell
