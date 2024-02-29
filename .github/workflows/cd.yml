@@ -10,7 +10,7 @@ jobs:
     name: Build and push latest image
     runs-on: homepage-runners
     container:
-      image: gcr.io/kaniko-project/executor:debug@sha256:777f39ec2695fdb8b3cd6c1b0a8f6c3339f2461d660c1f0434e3b41829ad2db8
+      image: gcr.io/kaniko-project/executor:debug@sha256:355f3483da01b3507ab8d98440a015d90eb9d7d23cd0881281d0622a2dd7cec2
     permissions: # Permissions for GITHUB_TOKEN
       contents: read
       packages: write
