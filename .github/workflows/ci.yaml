@@ -21,7 +21,7 @@ jobs:
     name: "Playwright Tests"
     runs-on: homepage-runners
     container:
-      image: mcr.microsoft.com/playwright:v1.42.0@sha256:215e7d657ab3bc73a505889c6c8c7e19ba034d4a98453ca07dfe36947bea90dd
+      image: mcr.microsoft.com/playwright:v1.42.1@sha256:b2b78a74b04b3cfdf35046c623c49741de35ef67f1b4a21de8e316dbb89fe68e
     steps:
       - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
 
