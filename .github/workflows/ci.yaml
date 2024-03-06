@@ -27,7 +27,7 @@ jobs:
 
       - name: Get changed files
         id: changed-files
-        uses: tj-actions/changed-files@800a2825992141ddde1a8bca8ad394cec34d3188 # v42
+        uses: tj-actions/changed-files@d516645658aa4705b46600cdbf9e6d54f56b973f # v42
         with:
           files: |
             package.json
@@ -70,7 +70,7 @@ jobs:
     name: Build container image for trivy
     runs-on: homepage-runners
     container:
-      image: gcr.io/kaniko-project/executor:debug@sha256:355f3483da01b3507ab8d98440a015d90eb9d7d23cd0881281d0622a2dd7cec2
+      image: gcr.io/kaniko-project/executor:debug@sha256:0818d281f155b9bb1b1f0704e55939b9c440b0155cbbf65b567ca19e19e20223
     permissions: # Permissions for GITHUB_TOKEN
       contents: read
       packages: write
