@@ -59,19 +59,16 @@ test("Custom cursor hover size change on link", async ({ page }) => {
   await page.getByRole("link", { name: "Projects" }).hover();
   await expect(cursorSelector).toHaveCSS("height", cursorSizeL);
   await expect(cursorSelector).toHaveCSS(
-    "background",
-    "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box",
+    "background-color",
+    "rgba(0, 0, 0, 0)",
   );
 
-  // // Move away from the link and ensure that the cursor size and fill return to initial values
-  // // Move away from the link and ensure that the cursor size and fill return to initial values
+  // Move away from the link and ensure that the cursor size and fill return to initial values
   await page.mouse.move(10, 10);
   await expect(cursorSelector).toHaveCSS("height", cursorSizeS);
   await expect(cursorSelector).toHaveCSS(
-    "background",
-    `${hexToRgb(
-      cursorColors[currentTheme],
-    )} none repeat scroll 0% 0% / auto padding-box border-box`,
+    "background-color",
+    `${hexToRgb(cursorColors[currentTheme])}`,
   );
 });
 
@@ -95,7 +92,7 @@ test("Custom cursor hover size change on <a>", async ({ page }) => {
   // Ensure that the cursor size increases on the hover and the fill is transparent
   await expect(cursorSelector).toHaveCSS("height", cursorSizeL);
   await expect(cursorSelector).toHaveCSS(
-    "background",
-    "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box",
+    "background-color",
+    "rgba(0, 0, 0, 0)",
   );
 });
