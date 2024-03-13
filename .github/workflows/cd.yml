@@ -35,7 +35,7 @@ jobs:
       - name: Build and push final image
         uses: docker/build-push-action@af5a7ed5ba88268d5278f7203fb52cd833f66d6e # v5.2.0
         with:
-          platforms: linux/amd64,linux/arm64,linux/386,linux/arm/v6,linux/arm/v7
+          platforms: linux/amd64,linux/arm64
           tags: |
             bl4ko/homepage:latest
             bl4ko/homepage:${{ github.ref_name }}
