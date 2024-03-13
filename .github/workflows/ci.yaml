@@ -6,7 +6,7 @@ on:
 jobs:
   eslint:
     name: "Run ESLint"
-    runs-on: homepage-runners
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
       - uses: actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8 # v4
@@ -19,7 +19,7 @@ jobs:
 
   playwright:
     name: "Playwright Tests"
-    runs-on: homepage-runners
+    runs-on: ubuntu-latest
     container:
       image: mcr.microsoft.com/playwright:v1.42.1@sha256:b2b78a74b04b3cfdf35046c623c49741de35ef67f1b4a21de8e316dbb89fe68e
     steps:
@@ -36,6 +36,9 @@ jobs:
             tests/**
             **.js
             **.ts
+
+      - uses: actions/checkout@v4
+        if: steps.changed-files.outputs.any_modified == 'true'
 
       - uses: actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8 # v4
         if: steps.changed-files.outputs.any_modified == 'true'
@@ -66,31 +69,21 @@ jobs:
         env:
           HOME: /root
 
-  build-image:
-    name: Build container image for trivy
-    runs-on: homepage-runners
-    container:
-      image: gcr.io/kaniko-project/executor:debug@sha256:0818d281f155b9bb1b1f0704e55939b9c440b0155cbbf65b567ca19e19e20223
-    permissions: # Permissions for GITHUB_TOKEN
-      contents: read
-      packages: write
-    steps:
-      - name: Build and push container with Kaniko to ghcr
-        run: |
-          AUTH=$(echo -n ${{ github.actor }}:${{ secrets.GITHUB_TOKEN }} | base64)
-          echo "{\"auths\": {\"ghcr.io\": {\"auth\": \"${AUTH}\"}}}" > /kaniko/.docker/config.json
-
-          /kaniko/executor --dockerfile="./Dockerfile" \
-          --context="${{ github.repositoryUrl }}#${{ github.sha }}" \
-          --destination="ghcr.io/bl4ko/homepage:${{ github.sha }}" \
-          --push-retry 5 \
-          --image-name-with-digest-file /workspace/image-digest.txt
-
   scan:
-    runs-on: homepage-runners
-    needs: build-image
-    container:
-      image: aquasec/trivy:0.49.1@sha256:91494b87ddc64f62860d52997532643956c24eeee0d0dda317d563c28c8581bc
+    name: Scan for vulnerabilities with trivy
+    runs-on: ubuntu-latest
     steps:
-      - name: Scan image with trivy for vulnerabilities. Fail if there are any critical.
-        run: trivy image --exit-code 1 --severity CRITICAL --no-progress "ghcr.io/bl4ko/homepage:${{ github.sha }}"
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Build an image from Dockerfile
+        run: |
+          docker build -t ghcr.io/bl4ko/netbox-ssot:${{ github.sha }} .
+      - name: Run Trivy vulnerability scanner
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: "ghcr.io/bl4ko/netbox-ssot:${{ github.sha }}"
+          format: "table"
+          exit-code: "1"
+          ignore-unfixed: true
+          vuln-type: "os,library"
+          severity: "CRITICAL,HIGH"
