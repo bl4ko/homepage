@@ -37,7 +37,7 @@ jobs:
             **.js
             **.ts
 
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
         if: steps.changed-files.outputs.any_modified == 'true'
 
       - uses: actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8 # v4
@@ -74,7 +74,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@ee0669bd1cc54295c223e0bb666b733df41de1c5 # v2
       - name: Build an image from Dockerfile
         run: |
           docker build -t ghcr.io/bl4ko/netbox-ssot:${{ github.sha }} .
