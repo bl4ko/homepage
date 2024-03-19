@@ -63,7 +63,7 @@ jobs:
         if: steps.changed-files.outputs.any_modified == 'true'
         run: echo "CI=true" >> $GITHUB_ENV
 
-      - name: Run your tests
+      - name: Run tests
         if: steps.changed-files.outputs.any_modified == 'true'
         run: DEBUG=pw:webserver npm run test:e2e --debug
         env:
