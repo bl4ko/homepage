@@ -3,7 +3,7 @@ import { test, expect } from "@playwright/test";
 test("Test index page toggle button", async ({ page }) => {
   await page.goto("/");
   await page.getByLabel("Toggle theme").click();
-  await page.waitForTimeout(1000);
+  await page.waitForTimeout(500);
   await expect(page.locator("html")).toHaveAttribute("data-theme", "light");
   await page.getByRole("img", { name: "Bl4ko" }).click();
 });

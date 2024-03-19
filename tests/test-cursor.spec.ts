@@ -20,6 +20,9 @@ test("Custom cursor moving correctly", async ({ page }) => {
   // Start at index
   await page.goto("/");
 
+  // Add a little bit of delay after page load
+  await page.waitForTimeout(500);
+
   // Get the cursor
   const cursorSelector = await page.getByTestId("cursor");
 
@@ -42,7 +45,9 @@ test("Custom cursor hover size change on link", async ({ page }) => {
   // Test at /projects
   await page.goto("/projects");
 
-  await page.waitForTimeout(1000);
+  // Add a little bit of delay
+  await page.waitForTimeout(500);
+
   // Get current theme
   const currentTheme = (await page.getAttribute("html", "data-theme")) as
     | "light"

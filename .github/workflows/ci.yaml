@@ -20,14 +20,12 @@ jobs:
   playwright:
     name: "Playwright Tests"
     runs-on: ubuntu-latest
-    container:
-      image: mcr.microsoft.com/playwright:v1.42.1@sha256:b2b78a74b04b3cfdf35046c623c49741de35ef67f1b4a21de8e316dbb89fe68e
     steps:
       - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
 
       - name: Get changed files
         id: changed-files
-        uses: tj-actions/changed-files@77af4bed286740ef1a6387dc4e4e4dec39f96054 # v43
+        uses: tj-actions/changed-files@aa08304bd477b800d468db44fe10f6c61f7f7b11 # v42
         with:
           files: |
             package.json
@@ -37,44 +35,40 @@ jobs:
             **.js
             **.ts
 
-      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
-        if: steps.changed-files.outputs.any_modified == 'true'
-
-      - uses: actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8 # v4
+      - uses: actions/setup-node@v4
         if: steps.changed-files.outputs.any_modified == 'true'
         with:
-          node-version: 20
+          node-version: 18
 
       - name: Install dependencies
         if: steps.changed-files.outputs.any_modified == 'true'
         run: npm ci
 
-      - name: Build standalone nextjs
+      - name: Install Playwright Browsers
+        if: steps.changed-files.outputs.any_modified == 'true'
+        run: npx playwright install --with-deps
+
+      - name: Build standalone nextjs server for testing
         if: steps.changed-files.outputs.any_modified == 'true'
         run: npm run build
 
-      - name: Set IP for Playwright webServer inside container
+      - name: Run Playwright tests
         if: steps.changed-files.outputs.any_modified == 'true'
-        run: |
-          IP=$(hostname -I | awk '{print $1}')
-          echo "CI_CONTAINER_URL=http://$IP:3000" >> $GITHUB_ENV
+        run: npm run test:e2e --debug
 
-      - name: Set playwright CI variable to true
+      - uses: actions/upload-artifact@v4
         if: steps.changed-files.outputs.any_modified == 'true'
-        run: echo "CI=true" >> $GITHUB_ENV
-
-      - name: Run tests
-        if: steps.changed-files.outputs.any_modified == 'true'
-        run: DEBUG=pw:webserver npm run test:e2e --debug
-        env:
-          HOME: /root
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 30
 
   scan:
-    name: Scan for vulnerabilities with trivy
+    name: Vulnerability scan
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
+        uses: actions/checkout@v2
       - name: Build an image from Dockerfile
         run: |
           docker build -t ghcr.io/bl4ko/netbox-ssot:${{ github.sha }} .

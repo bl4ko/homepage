@@ -8,10 +8,10 @@ test("Test index page", async ({ page }) => {
   const canvasElement = await page.$("canvas");
   expect(canvasElement).toBeTruthy();
   await expect(page.getByRole("heading", { name: "Bl4ko" })).toContainText(
-    "Bl4ko"
+    "Bl4ko",
   );
   await expect(page.getByRole("heading", { name: "About" })).toContainText(
-    "About"
+    "About",
   );
   await page.getByRole("heading", { name: "Bio" });
   await page.getByRole("heading", { name: "Hobbies2341423" });
@@ -28,7 +28,7 @@ test("Test projects page displays all projects, has canvas and has footer", asyn
   const projectCards = await page.$$(".playwright-card");
   expect(projectCards.length).toBe(projects.length);
   await expect(
-    page.getByText("© 2023 Bl4ko. Copy as much as you want.")
+    page.getByText("© 2023 Bl4ko. Copy as much as you want."),
   ).toBeTruthy();
 });
 
@@ -57,12 +57,12 @@ test("Test theme toggle button", async ({ page }) => {
   await expect(page.locator("html")).toHaveAttribute("data-theme", "dark");
   // Click the button
   await page.getByLabel("Toggle theme").click();
-  await page.waitForTimeout(1000);
+  await page.waitForTimeout(500);
   // Check that the html[data-theme] attribute is set to light
   await expect(page.locator("html")).toHaveAttribute("data-theme", "light");
   // Click the button again
   await page.getByLabel("Toggle theme").click();
-  await page.waitForTimeout(1000);
+  await page.waitForTimeout(500);
   // Check that the html[data-theme] attribute is set to dark
   await expect(page.locator("html")).toHaveAttribute("data-theme", "dark");
 });
