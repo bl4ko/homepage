@@ -35,7 +35,7 @@ jobs:
             **.js
             **.ts
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8 # v4
         if: steps.changed-files.outputs.any_modified == 'true'
         with:
           node-version: 18
@@ -56,7 +56,7 @@ jobs:
         if: steps.changed-files.outputs.any_modified == 'true'
         run: npm run test:e2e --debug
 
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@5d5d22a31266ced268874388b861e4b58bb5c2f3 # v4
         if: steps.changed-files.outputs.any_modified == 'true'
         with:
           name: playwright-report
@@ -68,7 +68,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@ee0669bd1cc54295c223e0bb666b733df41de1c5 # v2
       - name: Build an image from Dockerfile
         run: |
           docker build -t ghcr.io/bl4ko/netbox-ssot:${{ github.sha }} .
