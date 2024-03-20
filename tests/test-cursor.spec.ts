@@ -19,15 +19,15 @@ function hexToRgb(hex: string): string {
 test("Custom cursor moving correctly", async ({ page }) => {
   // Start at index
   await page.goto("/");
-
-  // Add a little bit of delay after page load
-  await page.waitForTimeout(500);
+  await page.waitForURL("/");
 
   // Get the cursor
   const cursorSelector = await page.getByTestId("cursor");
 
   // Ensure that cursor exists
-  expect(cursorSelector).not.toBe(null);
+  await expect(cursorSelector).not.toBe(null);
+  await expect(cursorSelector).toBeAttached();
+  await expect(cursorSelector).toBeVisible();
 
   // Ensure that the cursor has correct border width, and height
   await expect(cursorSelector).toHaveCSS("border-width", cursorBorderW);
@@ -36,23 +36,27 @@ test("Custom cursor moving correctly", async ({ page }) => {
   // Move the mouse to the (100, 100) location
   await page.mouse.move(100, 100);
 
+  // Ensure mouse has moved
+  await expect(cursorSelector).toBeVisible();
+
   // Expect the cursor to have coordinates of (100, 100)
   await expect(cursorSelector).toHaveCSS("top", "100px");
   await expect(cursorSelector).toHaveCSS("left", "100px");
 });
 
 test("Custom cursor hover size change on link", async ({ page }) => {
-  // Test at /projects
-  await page.goto("/projects");
+  await page.goto("/");
 
-  // Add a little bit of delay
-  await page.waitForTimeout(500);
+  const locator = await page.locator("html");
+  await expect(locator).toHaveAttribute("data-theme");
 
-  // Get current theme
-  const currentTheme = (await page.getAttribute("html", "data-theme")) as
+  const currentTheme = (await locator.getAttribute("data-theme")) as
     | "light"
     | "dark";
-  expect(currentTheme === "light" || currentTheme === "dark").toBe(true);
+
+  // expect to be light or dark
+  await expect(currentTheme === "light" || currentTheme === "dark").toBe(true);
+
   // Get the cursor
   const cursorSelector = await page.getByTestId("cursor");
 
@@ -61,7 +65,7 @@ test("Custom cursor hover size change on link", async ({ page }) => {
   await expect(cursorSelector).toHaveCSS("height", cursorSizeS);
 
   // Also hover random entry in navbar (blog) and check that the cursor size increases
-  await page.getByRole("link", { name: "Projects" }).hover();
+  await page.getByRole("link", { name: "Experience" }).hover();
   await expect(cursorSelector).toHaveCSS("height", cursorSizeL);
   await expect(cursorSelector).toHaveCSS(
     "background-color",
@@ -69,7 +73,8 @@ test("Custom cursor hover size change on link", async ({ page }) => {
   );
 
   // Move away from the link and ensure that the cursor size and fill return to initial values
-  await page.mouse.move(10, 10);
+  const headingLocator = await page.getByRole("heading", { name: "Bl4ko" });
+  await headingLocator.hover();
   await expect(cursorSelector).toHaveCSS("height", cursorSizeS);
   await expect(cursorSelector).toHaveCSS(
     "background-color",

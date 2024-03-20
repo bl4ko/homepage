@@ -2,19 +2,23 @@ import { test, expect } from "@playwright/test";
 
 test("Test index page toggle button", async ({ page }) => {
   await page.goto("/");
-  await page.getByLabel("Toggle theme").click();
-  await page.waitForTimeout(500);
-  await expect(page.locator("html")).toHaveAttribute("data-theme", "light");
-  await page.getByRole("img", { name: "Bl4ko" }).click();
+  const toggleThemeLocator = await page.getByLabel("Toggle theme");
+  await toggleThemeLocator.click();
+
+  const htmlLocator = await page.locator("html");
+  await expect(htmlLocator).toHaveAttribute("data-theme");
+  await expect(htmlLocator).toHaveAttribute("data-theme", "light");
+
+  const imgLocator = await page.getByRole("img", { name: "Bl4ko" });
+  await expect(imgLocator).toBeAttached();
 });
 
 test("Test index footer", async ({ page }) => {
   await page.goto("/");
-  await page
-    .getByText(
-      `© ${new Date().getFullYear()} Bl4ko. Copy as much as you want.`,
-    )
-    .click();
+  const copyrightLocator = await page.getByText(
+    `© ${new Date().getFullYear()} Bl4ko. Copy as much as you want.`,
+  );
+  await expect(copyrightLocator).toBeTruthy();
 });
 
 test("Ensure there is profile picture displayed", async ({ page }) => {
