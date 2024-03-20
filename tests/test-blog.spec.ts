@@ -2,6 +2,7 @@ import { test, expect } from "@playwright/test";
 
 test("Should navigate to blog page", async ({ page }) => {
   await page.goto("/");
-  await page.getByRole("link", { name: "Blog" }).click();
+  const linkLocator = await page.getByRole("link", { name: "Blog" });
+  await linkLocator.click();
   await expect(page).toHaveURL("https://blog.bl4ko.com/");
 });
