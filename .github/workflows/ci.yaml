@@ -25,7 +25,7 @@ jobs:
 
       - name: Get changed files
         id: changed-files
-        uses: tj-actions/changed-files@e052d30e1c0bdf27cd806b01ca3b393f47b50c62 # v44
+        uses: tj-actions/changed-files@4c5f5d698fbf2d763d5f13815ac7c2ccbef1ff7f # v44
         with:
           files: |
             package.json
@@ -56,7 +56,7 @@ jobs:
         if: steps.changed-files.outputs.any_modified == 'true'
         run: npm run test:e2e --debug
 
-      - uses: actions/upload-artifact@5d5d22a31266ced268874388b861e4b58bb5c2f3 # v4
+      - uses: actions/upload-artifact@1746f4ab65b179e0ea60a494b83293b640dd5bba # v4
         if: steps.changed-files.outputs.any_modified == 'true'
         with:
           name: playwright-report
