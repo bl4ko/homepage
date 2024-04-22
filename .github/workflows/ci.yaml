@@ -8,7 +8,7 @@ jobs:
     name: "Run ESLint"
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
+      - uses: actions/checkout@1d96c772d19495a3b5c517cd2bc0cb401ea0529f # v4
       - uses: actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8 # v4
         with:
           node-version: 20
@@ -21,7 +21,7 @@ jobs:
     name: "Playwright Tests"
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
+      - uses: actions/checkout@1d96c772d19495a3b5c517cd2bc0cb401ea0529f # v4
 
       - name: Get changed files
         id: changed-files
@@ -56,7 +56,7 @@ jobs:
         if: steps.changed-files.outputs.any_modified == 'true'
         run: npm run test:e2e --debug
 
-      - uses: actions/upload-artifact@1746f4ab65b179e0ea60a494b83293b640dd5bba # v4
+      - uses: actions/upload-artifact@65462800fd760344b1a7b4382951275a0abb4808 # v4
         if: steps.changed-files.outputs.any_modified == 'true'
         with:
           name: playwright-report
@@ -68,7 +68,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
+        uses: actions/checkout@1d96c772d19495a3b5c517cd2bc0cb401ea0529f # v4
       - name: Build an image from Dockerfile
         run: |
           docker build -t ghcr.io/bl4ko/netbox-ssot:${{ github.sha }} .
