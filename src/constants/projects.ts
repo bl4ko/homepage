@@ -15,6 +15,18 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    name: "Netbox-ssot",
+    description: "Microservice that turns netbox to automatic ssot.",
+    tags: [
+      {
+        name: "go",
+        color: "blue",
+      },
+    ],
+    image: "gopher_custom.png",
+    source: "https://github.com/bl4ko/netbox-ssot",
+  },
+  {
     name: "Turtlebot Rescuer",
     description:
       "Programming turtlebot to perform various tasks in real time. These tasks include system setup, autonomous navigation and advanced perception and cognitive capabilities.",
@@ -51,21 +63,5 @@ export const projects: Project[] = [
     ],
     image: "tls_communication.png",
     source: "https://github.com/bl4ko/SSL-TLS-Communication",
-  },
-  {
-    name: "Cloud Native Dashboard",
-    description: "Cloud native dashboard for monitoring deployed applications.",
-    tags: [
-      {
-        name: "python",
-        color: "blue",
-      },
-      {
-        name: "react",
-        color: "yellow",
-      },
-    ],
-    image: "tesseract.png",
-    source: "https://github.com/",
   },
 ];

@@ -29,15 +29,7 @@ export default function Cursor({
   });
   const [cursorSize, setCursorSize] = useState<string>(cursorSizeSmall);
   const [cursorFill, setCursorFill] = useState<boolean>(true);
-
-  // Variable for determening if we are using touch device or not.
   const [isTouchDevice, setIsTouchDevice] = useState<boolean>(false);
-
-  // Function for checking if we are on touch device https://stackoverflow.com/a/71883890.
-  // We check this to disable custom cursor on touch devices.
-  const checkIfIsTouchDevice = () => {
-    return "ontouchstart" in window || navigator.maxTouchPoints > 0;
-  };
 
   // Throttle function to reduce the number of times we update the cursor: #https://jsfiddle.net/jonathansampson/m7G64/
   // eslint-disable-next-line no-unused-vars
@@ -55,12 +47,29 @@ export default function Cursor({
   }
 
   useEffect(() => {
+    // Function for checking if we are on touch device https://stackoverflow.com/a/71883890.
+    // We check this to disable custom cursor on touch devices.
+    const checkIfIsTouchDevice = () => {
+      return "ontouchstart" in window || navigator.maxTouchPoints > 0;
+    };
+    const handleEnvironmentChange = () => {
+      setIsTouchDevice(checkIfIsTouchDevice());
+    };
+
+    window.addEventListener("resize", handleEnvironmentChange);
+    window.addEventListener("orientationchange", handleEnvironmentChange);
+
+    return () => {
+      window.removeEventListener("resize", handleEnvironmentChange);
+      window.removeEventListener("orientationchange", handleEnvironmentChange);
+    };
+  }, []);
+
+  useEffect(() => {
     // If it's a touch device, do not initialize custom cursor events
-    if (checkIfIsTouchDevice()) {
-      setIsTouchDevice(true);
+    if (isTouchDevice) {
       return;
     }
-    setIsTouchDevice(false);
 
     function mouseMoveHandler(event: MouseEvent) {
       const { clientX, clientY } = event;
@@ -161,7 +170,13 @@ export default function Cursor({
         link.removeEventListener("mouseout", handleMouseOut);
       });
     };
-  }, [cursorSizeSmall, theme, cursorSizeLarge, initialCursorColors]);
+  }, [
+    cursorSizeSmall,
+    theme,
+    cursorSizeLarge,
+    initialCursorColors,
+    isTouchDevice,
+  ]);
 
   return isTouchDevice ? (
     <></>
