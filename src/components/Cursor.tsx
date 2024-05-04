@@ -30,6 +30,15 @@ export default function Cursor({
   const [cursorSize, setCursorSize] = useState<string>(cursorSizeSmall);
   const [cursorFill, setCursorFill] = useState<boolean>(true);
 
+  // Variable for determening if we are using touch device or not.
+  const [isTouchDevice, setIsTouchDevice] = useState<boolean>(false);
+
+  // Function for checking if we are on touch device https://stackoverflow.com/a/71883890.
+  // We check this to disable custom cursor on touch devices.
+  const checkIfIsTouchDevice = () => {
+    return "ontouchstart" in window || navigator.maxTouchPoints > 0;
+  };
+
   // Throttle function to reduce the number of times we update the cursor: #https://jsfiddle.net/jonathansampson/m7G64/
   // eslint-disable-next-line no-unused-vars
   function throttle(callback: (event: MouseEvent) => void, limit: number) {
@@ -46,6 +55,13 @@ export default function Cursor({
   }
 
   useEffect(() => {
+    // If it's a touch device, do not initialize custom cursor events
+    if (checkIfIsTouchDevice()) {
+      setIsTouchDevice(true);
+      return;
+    }
+    setIsTouchDevice(false);
+
     function mouseMoveHandler(event: MouseEvent) {
       const { clientX, clientY } = event;
       setMousePosition({ x: clientX, y: clientY });
@@ -88,10 +104,6 @@ export default function Cursor({
               // If the added node contains other nodes, we need to attach to them as well
               const links = element.querySelectorAll("a");
               links.forEach((link) => {
-                // console.debug(
-                //   `Adding eventListeners to new link: `,
-                //   link,
-                // );
                 link.addEventListener("mouseover", handleMouseOver);
                 link.addEventListener("mouseout", handleMouseOut);
               });
@@ -114,10 +126,6 @@ export default function Cursor({
               // Also clean up any nested nodes
               const links = removedElement.querySelectorAll("a");
               links.forEach((link) => {
-                // console.debug(
-                //   `Removing eventListeners from link: `,
-                //   link,
-                // );
                 link.removeEventListener("mouseover", handleMouseOver);
                 link.removeEventListener("mouseout", handleMouseOut);
               });
@@ -132,18 +140,6 @@ export default function Cursor({
       subtree: true,
     });
 
-    return () => {
-      document.removeEventListener("mousemove", throttledMouseMoveHandler);
-      observer.disconnect();
-      startingLinks.forEach((link) => {
-        link.removeEventListener("mouseover", handleMouseOver);
-        link.removeEventListener("mouseout", handleMouseOut);
-      });
-    };
-  }, [cursorSizeSmall, theme, cursorSizeLarge, initialCursorColors]);
-
-  // Effects for mouse presses
-  useEffect(() => {
     const handleMouseDown = () => {
       setCursorSize(cursorSizeLarge);
       setCursorFill(false);
@@ -158,10 +154,18 @@ export default function Cursor({
     return () => {
       document.removeEventListener("mousedown", handleMouseDown);
       document.removeEventListener("mouseup", handleMouseUp);
+      document.removeEventListener("mousemove", throttledMouseMoveHandler);
+      observer.disconnect();
+      startingLinks.forEach((link) => {
+        link.removeEventListener("mouseover", handleMouseOver);
+        link.removeEventListener("mouseout", handleMouseOut);
+      });
     };
-  }, [cursorSizeSmall, cursorSizeLarge, theme, initialCursorColors]);
+  }, [cursorSizeSmall, theme, cursorSizeLarge, initialCursorColors]);
 
-  return (
+  return isTouchDevice ? (
+    <></>
+  ) : (
     <div
       data-testid="cursor"
       style={{
