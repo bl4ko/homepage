@@ -56,7 +56,6 @@ export default function Navbar() {
 
   function toggleMenu() {
     setIsOpen(!isOpen);
-    console.log(isOpen);
   }
 
   return (

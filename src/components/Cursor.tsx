@@ -49,12 +49,15 @@ export default function Cursor({
   useEffect(() => {
     // Function for checking if we are on touch device https://stackoverflow.com/a/71883890.
     // We check this to disable custom cursor on touch devices.
-    const checkIfIsTouchDevice = () => {
+    function checkIfIsTouchDevice() {
       return "ontouchstart" in window || navigator.maxTouchPoints > 0;
-    };
+    }
+
     const handleEnvironmentChange = () => {
       setIsTouchDevice(checkIfIsTouchDevice());
     };
+
+    handleEnvironmentChange();
 
     window.addEventListener("resize", handleEnvironmentChange);
     window.addEventListener("orientationchange", handleEnvironmentChange);
