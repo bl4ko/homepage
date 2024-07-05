@@ -20,11 +20,11 @@ repos:
         require_serial: true #https://pre-commit.com/#hooks-require_serial
 
   - repo: https://github.com/gitleaks/gitleaks
-    rev: v8.18.2
+    rev: v8.18.4
     hooks:
       - id: gitleaks
 
   - repo: https://github.com/streetsidesoftware/cspell-cli
-    rev: v8.8.0
+    rev: v8.10.0
     hooks:
       - id: cspell

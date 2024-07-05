@@ -14,7 +14,7 @@ export const experiences: Experience[] = [
     companyLink: "https://www.src.si/",
     time: "July 2022 - Present",
     address: "Ljubljana, Slovenia",
-    work: "Working on deploying and maintaining cloud infrastructure on our local kubernetes clusters. Fixing network issues, automating tasks using renovate and ansible. Also developed cloud native application using python django, react and postgresql.",
+    work: "Working on deploying and maintaining cloud infrastructure on our local kubernetes clusters. Fixing network issues, automating tasks using renovate and ansible. Also developed two cloud native application using python django, react, postgresql and go.",
   },
   //     {
   //     position: "Software Engineer",
