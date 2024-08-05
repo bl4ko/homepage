@@ -56,7 +56,7 @@ function Details({ experience }: { experience: ExperienceType }) {
         <h3 className="capitalize font-bold text-2xl">
           {experience.position}&nbsp;
           <a
-            className="text-cyan capitalize"
+            className="text-cyan capitalize hover:underline underline-offset-4"
             target="_blank"
             href={experience.companyLink}
           >

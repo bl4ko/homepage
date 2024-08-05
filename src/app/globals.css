@@ -9,7 +9,7 @@
   scrollbar-color: var(--color-green) var(--background-secondary);
 
   /* Disable built in cursor, we use separate component */
-  cursor: none !important;
+  /* cursor: none !important; */
 }
 
 *::-webkit-scrollbar {
@@ -73,36 +73,7 @@ html[data-theme="dark"] {
   --text-tertiary: #cad2e2;
 }
 
-nav {
-  background-color: var(--background-secondary);
-}
-
-body {
-  font-family: monospace;
-  background-color: var(--background-primary);
-  color: var(--text-primary);
-}
-
 a {
   color: var(--color-green);
   text-underline-offset: 3px;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-button {
-  background-color: var(--background-secondary);
-}
-
-.section-title {
-  font-weight: bold;
-  font-size: 22px;
-  text-underline-offset: 6px;
-  margin-top: 0.75rem;
-  margin-bottom: 0.75rem;
-  text-decoration: underline;
-  text-decoration-color: #525252;
-  text-decoration-thickness: 4px;
 }

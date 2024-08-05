@@ -5,7 +5,8 @@ import { JetBrains_Mono } from "next/font/google";
 
 import Footer from "@/components/footer";
 import Navbar from "@/components/navbar";
-import Cursor from "@/components/Cursor";
+// import Cursor from "@/components/Cursor";
+import CommandMenu from "@/components/Cmdk";
 
 import { Metadata } from "next";
 import StarsCanvas from "@/components/canvas/Stars";
@@ -44,17 +45,18 @@ export default function RootLayout({
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap"
         />
       </head>
-      <body>
+      <body className="font-mono bg-primary text-textPrimary">
         <main className={`relative pb-8 h-full ${jetBrainsMono.className}`}>
           <ThemeProvider>
             <StarsCanvas />
             <Navbar />
-            <Cursor />
+            {/* <Cursor /> */}
             <div className="text-base md:text-lg max-w-6xl pt-14 mx-auto xl:px-16 lg:px-12 md:px-10 xs:px-8 px-4">
               <EarthCanvas />
               <SlideShow>{children}</SlideShow>
               <Footer />
             </div>
+            <CommandMenu />
           </ThemeProvider>
         </main>
       </body>

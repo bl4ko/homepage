@@ -38,9 +38,8 @@ function LinkItem({
 
   return (
     <Link
-      className={`${
-        active ? "bg-aqua" : ""
-      } px-2 py-1 text-textPrimary transition-colors duration-200 ${className}`}
+      className={`${active ? "bg-aqua" : ""
+        } px-2 py-1 text-textPrimary transition-colors duration-200 ${className}`}
       href={href}
       {...props}
       onClick={handleClick}
@@ -59,7 +58,7 @@ export default function Navbar() {
   }
 
   return (
-    <nav className="items-center fixed w-full z-10 backdrop-blur md:py-3 sm:py-2">
+    <nav className="items-center fixed w-full z-10 backdrop-blur md:py-3 sm:py-2 bg-secondary">
       <div className="w-full flex justify-between mx-auto items-center px-4 max-w-6xl">
         <div className="hidden sm:flex flex-1 space-x-4 md:mt-0">
           <LinkItem href="/" path={path}>
@@ -90,7 +89,7 @@ export default function Navbar() {
           <div className="ml-1 sm:hidden">
             <button
               onClick={toggleMenu}
-              className="focus:outline-none"
+              className="focus:outline-none bg-secondary"
               aria-label="Options"
             >
               <span className="material-symbols-outlined text-3xl">menu</span>

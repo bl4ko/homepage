@@ -29,7 +29,7 @@ function ProjectCard({ index, project }: ProjectCardProps): JSX.Element {
       className="lg:w-[30%] sm:w-[45%] w-[90%] xs:w-[70%] playwright-card"
     >
       <Tilt className="bg-secondary p-4 rounded-2xl w-full h-full hover">
-        <a href={project.source} className="no-underline">
+        <a href={project.source} className="no-underline hover:unerline">
           <div className="relative w-full h-[200px]">
             <Image
               src={`/images/${project.image}`}

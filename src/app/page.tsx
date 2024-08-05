@@ -18,6 +18,7 @@ function BioYear({ children }: BioSectionProps): JSX.Element {
   return <span className="font-bold mr-4">{children}</span>;
 }
 
+
 export default function Home() {
   return (
     <div>
@@ -47,7 +48,8 @@ export default function Home() {
       </div>
 
       <div>
-        <h3 className="section-title">About</h3>
+        <h3 className="font-bold text-xl underline decoration-gray-600 decoration-[3px] underline-offset-6 mt-3 mb-3
+">About</h3>
         <p className="text-justify indent-5 hyphens-auto">
           I&apos;m a Computer Science student at the University of Ljubljana,
           studying aspects of Artificial Intelligence such as Machine
@@ -70,7 +72,8 @@ export default function Home() {
       </div>
 
       <div>
-        <h3 className="section-title">Bio</h3>
+        <h3 className="font-bold text-xl underline decoration-gray-600 decoration-[3px] underline-offset-6 mt-3 mb-3
+">Bio</h3>
         <BioSection>
           <BioYear>2001</BioYear>
           Born in Slovenia 🇸🇮, Ljubljana.
@@ -96,7 +99,8 @@ export default function Home() {
       </div>
 
       <div>
-        <h3 className="section-title">Hobbies</h3>
+        <h3 className="font-bold text-xl underline decoration-gray-600 decoration-[3px] underline-offset-6 mt-3 mb-3
+">Hobbies</h3>
         <p className="text-justify indent-1 hyphens-auto">
           Bl4ko enjoys sports including cycling, chess, cue sports, tennis,
           boxing and fitness.
