@@ -25,6 +25,6 @@ repos:
       - id: gitleaks
 
   - repo: https://github.com/streetsidesoftware/cspell-cli
-    rev: v8.10.0
+    rev: v8.14.0
     hooks:
       - id: cspell
