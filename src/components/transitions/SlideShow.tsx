@@ -4,12 +4,16 @@ import { AnimatePresence, motion } from "framer-motion";
 import { usePathname } from "next/navigation";
 
 // Unresolved issued, framer motion on exit don't work: https://github.com/vercel/next.js/issues/49279
-// Workaround with frozen router: https://github.com/vercel/next.js/issues/49279#issuecomment-1718177583
+// Workaround with frozen router: https://github.com/vercel/next.js/issues/49279#issuecomment-2461600967
 import { LayoutRouterContext } from "next/dist/shared/lib/app-router-context.shared-runtime";
 
 function FrozenRouter(props: { children: React.ReactNode }) {
   const context = useContext(LayoutRouterContext);
   const frozen = useRef(context).current;
+
+  if (!frozen) {
+    return <>{props.children}</>;
+  }
 
   return (
     <LayoutRouterContext.Provider value={frozen}>
