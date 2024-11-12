@@ -74,6 +74,9 @@ jobs:
           docker build -t ghcr.io/bl4ko/netbox-ssot:${{ github.sha }} .
       - name: Run Trivy vulnerability scanner
         uses: aquasecurity/trivy-action@master
+        env:
+          TRIVY_DB_REPOSITORY: public.ecr.aws/aquasecurity/trivy-db
+          TRIVY_JAVA_DB_REPOSITORY: public.ecr.aws/aquasecurity/trivy-java-db
         with:
           image-ref: "ghcr.io/bl4ko/netbox-ssot:${{ github.sha }}"
           format: "table"

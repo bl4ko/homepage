@@ -10,6 +10,8 @@ import Cursor from "@/components/Cursor";
 import { Metadata } from "next";
 import StarsCanvas from "@/components/canvas/Stars";
 
+import 'material-symbols';
+
 import "./globals.css";
 
 // Meta API for Head element
@@ -37,13 +39,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <head>
-        {/* Font optimization not added yet: https://github.com/vercel/next.js/discussions/42881#discussion-4564506 */}
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap"
-        />
-      </head>
       <body>
         <main className={`relative pb-8 h-full ${jetBrainsMono.className}`}>
           <ThemeProvider>
