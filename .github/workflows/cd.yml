@@ -42,19 +42,3 @@ jobs:
             ghcr.io/bl4ko/homepage:latest
             ghcr.io/bl4ko/homepage:${{ github.ref_name }}
           push: true
-
-  deploy:
-    name: Deploy application to server
-    runs-on: ubuntu-latest
-    needs: build_and_push
-
-    steps:
-      - name: Add key from variable
-        run: |
-          echo "${{ secrets.DEPLOY_KEY }}" > ./key && chmod 600 ./key
-      - name: Install ssh client if not installed
-        run: |
-          sudo apt-get update && sudo apt-get install openssh-client -y
-      - name: Connect to host and update
-        run: |
-          ssh -o StrictHostKeyChecking=no -i ./key -p ${{ secrets.DEPLOY_PORT }} ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }} '~/.local/bin/kubectl rollout restart deployment/portfolio -n portfolio'
