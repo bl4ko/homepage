@@ -1,6 +1,6 @@
 services:
   nginx:
-    image: lscr.io/linuxserver/swag:latest
+    image: lscr.io/linuxserver/swag:latest@sha256:2b2a3a085adc3ef09c22fba1d57b5c4b38f3f9a41861af657a72933eb556b502
     container_name: nginx
     cap_add:
       - NET_ADMIN
@@ -22,7 +22,7 @@ services:
       - next
 
   next:
-    image: bl4ko/homepage:latest
+    image: bl4ko/homepage:latest@sha256:64d4429dd8641438bad89c9d1d3774a307d800388758b041d7dcf0028f5a08c3
     container_name: next
     expose:
       - 3000
