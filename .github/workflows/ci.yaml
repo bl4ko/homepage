@@ -13,7 +13,7 @@ jobs:
         with:
           node-version: 20
       - name: Install dependencies
-        run: npm ci
+        run: npm ci -f
       - name: Run ESLint
         run: npm run lint
 
@@ -42,7 +42,7 @@ jobs:
 
       - name: Install dependencies
         if: steps.changed-files.outputs.any_modified == 'true'
-        run: npm ci
+        run: npm ci -f
 
       - name: Install Playwright Browsers
         if: steps.changed-files.outputs.any_modified == 'true'
