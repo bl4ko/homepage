@@ -2,10 +2,10 @@ import EarthCanvas from "@/components/canvas/Earth";
 import { ThemeProvider } from "@/context/ThemeProvider";
 import SlideShow from "@/components/transitions/SlideShow";
 import { JetBrains_Mono } from "next/font/google";
-
 import Footer from "@/components/footer";
 import Navbar from "@/components/navbar";
 import Cursor from "@/components/Cursor";
+import 'material-symbols';
 
 import { Metadata } from "next";
 import StarsCanvas from "@/components/canvas/Stars";

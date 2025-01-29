@@ -17,9 +17,7 @@ WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
-# Next.js collects completely anonymous telemetry data about general usage.
-# Learn more here: https://nextjs.org/telemetry
-# Uncomment the following line in case you want to disable telemetry during the build.
+# Disable nextjs telemetry
 ENV NEXT_TELEMETRY_DISABLED 1
 
 # If using npm comment out above and use below instead
@@ -29,8 +27,7 @@ RUN npm run build
 FROM base AS runner
 WORKDIR /app
 
-# ENV NODE_ENV production
-# Uncomment the following line in case you want to disable telemetry during runtime.
+# Disable nextjs telemetry
 ENV NEXT_TELEMETRY_DISABLED 1
 
 RUN addgroup --system --gid 1001 nodejs

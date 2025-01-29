@@ -10,16 +10,16 @@
     "test:e2e": "DEBUG=pw:webserver,pw:api playwright test --reporter=line"
   },
   "dependencies": {
-    "@react-three/drei": "^9.88.7",
-    "@react-three/fiber": "^8.15.8",
+    "@react-three/drei": "^9.0.1",
+    "@react-three/fiber": "^9.0.0-alpha.8",
     "framer-motion": "^11.0.0",
-    "material-symbols": "^0.26.0",
-    "next": "^14.0.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "material-symbols": "^0.27.2",
+    "next": "^15.1.6",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
     "react-parallax-tilt": "^1.7.172",
-    "sharp": "^0.33.0-alpha.9",
-    "three": "^0.170.0",
+    "sharp": "^0.33.5",
+    "three": "^0.166.0",
     "typescript": "^5.2.2"
   },
   "devDependencies": {
