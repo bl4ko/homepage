@@ -9,7 +9,7 @@ RUN apk add --no-cache libc6-compat
 
 # Install dependencies based on the preferred package manager
 COPY package.json  package-lock.json ./
-RUN npm ci -f --loglevel verbose
+RUN npm ci -f
 
 # Rebuild the source code only when needed
 FROM base AS builder

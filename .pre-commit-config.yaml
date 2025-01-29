@@ -15,7 +15,7 @@ repos:
 
       - id: npm-test-e2e
         name: "End-to-End Test"
-        entry: bash -c 'npm run test:e2e'
+        entry: bash -c 'npm run build && npm run test:e2e'
         language: system
         require_serial: true #https://pre-commit.com/#hooks-require_serial
 
