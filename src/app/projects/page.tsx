@@ -32,6 +32,7 @@ function ProjectCard({ index, project }: ProjectCardProps): JSX.Element {
         <a href={project.source} className="no-underline">
           <div className="relative w-full h-[200px]">
             <Image
+              unoptimized
               src={`/images/${project.image}`}
               alt={project.name}
               fill={true}
@@ -43,6 +44,7 @@ function ProjectCard({ index, project }: ProjectCardProps): JSX.Element {
           <div className="absolute inset-0 flex justify-end hover">
             <div className="fixed w-16 h-16 rounded-full flex justify-center items-center">
               <Image
+                unoptimized
                 src="/images/github.png"
                 alt="github"
                 className="object-cover w-1/2 h-1/2 static"

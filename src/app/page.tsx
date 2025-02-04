@@ -37,6 +37,7 @@ export default function Home() {
         <div className="shrink-0 mt-3 md:ml-6 text-center">
           <div className="border-white border-opacity-100 border-2 w-24 h-24 rounded-full overflow-hidden inline-block">
             <Image
+              unoptimized
               src="/images/profile.png"
               alt="Bl4ko"
               width={100}
