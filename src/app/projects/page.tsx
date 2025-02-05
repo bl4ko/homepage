@@ -12,7 +12,8 @@ const colorClasses: ColorClassesType = {
   purple: "text-purple",
   yellow: "text-yellow",
   red: "text-red",
-  black: "text-black"
+  black: "text-black",
+  aqua: "text-aqua",
 };
 
 interface ProjectCardProps {

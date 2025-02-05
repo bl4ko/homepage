@@ -65,7 +65,7 @@ test("Custom cursor hover size change on link", async ({ page }) => {
   await expect(cursorSelector).toHaveCSS("height", cursorSizeS);
 
   // Also hover random entry in navbar (blog) and check that the cursor size increases
-  await page.getByRole("link", { name: "Experience" }).hover();
+  await page.getByRole("link", { name: "Experience" }).first().hover();
   await expect(cursorSelector).toHaveCSS("height", cursorSizeL);
   await expect(cursorSelector).toHaveCSS(
     "background-color",
@@ -84,7 +84,7 @@ test("Custom cursor hover size change on link", async ({ page }) => {
 
 test("Custom cursor hover size change on <a>", async ({ page }) => {
   // Start at experience page
-  await page.goto("/experience");
+  await page.goto("/");
 
   // Get the cursor
   const cursorSelector = await page.getByTestId("cursor");

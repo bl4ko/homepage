@@ -5,7 +5,7 @@ test("Test index page", async ({ page }) => {
   await page.goto("/");
   await page.waitForURL("/");
   await page.goto("/projects");
-  await page.getByRole("link", { name: "Home" }).click();
+  await page.getByRole("link", { name: "Home" }).first().click();
   await page.waitForSelector("canvas");
   const canvasElement = await page.$("canvas");
   expect(canvasElement).toBeTruthy();
@@ -15,9 +15,6 @@ test("Test index page", async ({ page }) => {
   await expect(page.getByRole("heading", { name: "About" })).toContainText(
     "About",
   );
-  await page.getByRole("heading", { name: "Bio" });
-  await page.getByRole("heading", { name: "Hobbies2341423" });
-  await page.getByText("© 2023 Bl4ko. Copy as much as you want.");
 });
 
 test("Test projects page displays all projects, has canvas and has footer", async ({
@@ -46,8 +43,7 @@ test("Code link redirects to github", async ({ page }) => {
 test("Test experience page", async ({ page }) => {
   await page.goto("/");
   await page.getByRole("link", { name: "Experience" }).click();
-  await page.getByRole("heading", { name: "Experience" });
-  const linkLocator = await page.getByRole("link", { name: "@SRC D.O.O" });
+  const linkLocator = await page.getByRole("link", { name: "@SRC D.O.O" }).first();
   const popupPromise = page.waitForEvent("popup");
   await linkLocator.click();
   const newPage = await popupPromise;

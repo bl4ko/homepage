@@ -4,18 +4,21 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { IotIcon } from "@/components/icons";
 
 interface BioSectionProps {
   children: React.ReactNode;
 }
 
 function BioSection({ children }: BioSectionProps): JSX.Element {
-  return <div className="pl-20 indent-[-3.5rem]">{children}</div>;
+  return <div className="flex flex-row mx-2 lg:mx-3">{children}</div>;
+}
+
+function BioText({ children }: BioSectionProps): JSX.Element {
+  return <span>{children}</span>;
 }
 
 function BioYear({ children }: BioSectionProps): JSX.Element {
-  return <span className="font-bold mr-4">{children}</span>;
+  return <span className="font-bold mr-4 lg:mr-5">{children}</span>;
 }
 
 export default function Home() {
@@ -49,51 +52,54 @@ export default function Home() {
       <div>
         <h3 className="section-title">About</h3>
         <p className="text-justify indent-5 hyphens-auto">
-          I&apos;m a Computer Science student at the University of Ljubljana,
-          studying aspects of Artificial Intelligence such as Machine
-          Perception, Intelligent Systems, and Data Mining. Concurrently,
-          I&apos;m gaining real-world experience in Cloud Engineering,
-          Automation, and DevOps.
+          I&apos;m a DevOps engineer from Ljubljana, Slovenia, with a Bachelor’s degree in Artificial Intelligence from the University of Ljubljana, Faculty of Computer and Information Science. My expertise lies in Cloud Engineering, Automation, and Software Architecture, where I continuously refine my skills through hands-on projects and real-world applications.
         </p>
-        <p className="text-justify indent-5 hyphens-auto mt-6">
-          In addition to my academic and professional pursuits, I spend time on
-          IoT projects, automating and improving home processes. This hands-on
-          engagement broadens my understanding of the current tech landscape.
-        </p>
+        <p className="text-justify indent-5 hyphens-auto mt-6">Beyond my professional role, I&apos;m deeply passionate about IoT—automating and optimizing home processes to enhance efficiency and convenience. These projects keep me at the forefront of emerging technologies and broaden my technical perspective.</p>
 
-        <p className="text-justify indent-5 hyphens-auto mt-6">
-          On a personal level, I maintain physical health through sports like
-          tennis, cycling, and fitness training. For mental fitness, I enjoy
-          strategic games like chess, which aid in refining my problem-solving
-          skills.
-        </p>
+        <p className="text-justify indent-5 hyphens-auto mt-6">Outside of tech, I stay active with tennis, cycling, and fitness training, balancing physical well-being with strategic mental exercises like chess, which sharpens my problem-solving skills.</p>
       </div>
 
       <div>
         <h3 className="section-title">Bio</h3>
+
         <BioSection>
           <BioYear>2001</BioYear>
-          Born in Slovenia 🇸🇮, Ljubljana.
+          <BioText>Born in Ljubljana, Slovenia 🇸🇮.</BioText>
         </BioSection>
+
         <BioSection>
           <BioYear>2016</BioYear>
-          Runner up in the Slovenian National U16 Tennis Championship.
+          <BioText>Achieved runner-up in the Slovenian National U16 Tennis Championship.</BioText>
         </BioSection>
+
         <BioSection>
           <BioYear>2022</BioYear>
-          Started working as a cloud engineer at{" "}
-          <Link href="https://src.si/" target="_blank">
-            SRC
-          </Link>
-          .
+          <BioText>Began my career as a <b>DevOps engineer</b> at
+            <Link href="https://src.si/" target="_blank"> SRC</Link>.
+          </BioText>
         </BioSection>
+
         <BioSection>
           <BioYear>2023</BioYear>
-          Completed the Bachelor&apos;s degree in Artificial Intelligence from
-          the University of Ljubljana Faculty of Computer and Information
-          Science.
+          <BioText>Graduated with a <b>Bachelor’s degree in Artificial Intelligence</b>
+            from the University of Ljubljana, Faculty of Computer and Information Science.</BioText>
+        </BioSection>
+
+        <BioSection>
+          <BioYear>2024</BioYear>
+          <BioText>
+            Earned two Red Hat certifications: <b>RHCSA and Red Hat Specialist in Containers.</b>
+            <br />
+            Spoke at <b>two Slovenian cloud-native conferences</b>.
+          </BioText>
+        </BioSection>
+
+        <BioSection>
+          <BioYear>2025</BioYear>
+          <BioText>Achieved <b>Red Hat Certified System Engineer (RHCE)</b> certification.</BioText>
         </BioSection>
       </div>
+
 
       <div>
         <h3 className="section-title">Hobbies</h3>

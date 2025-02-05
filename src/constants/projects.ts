@@ -1,4 +1,4 @@
-export type Color = "blue" | "green" | "red" | "yellow" | "purple" | "black";
+export type Color = "blue" | "green" | "red" | "yellow" | "purple" | "black" | "aqua";
 
 export type Tag = {
   name: string;
@@ -20,7 +20,7 @@ export const projects: Project[] = [
     tags: [
       {
         name: "go",
-        color: "blue",
+        color: "aqua",
       },
     ],
     image: "gopher_custom.png",
@@ -58,27 +58,22 @@ export const projects: Project[] = [
       },
       {
         name: "nextjs",
-        color: "black",
+        color: "purple",
       },
     ],
-    image: "tls_communication.png",
+    image: "real_estate_ninja.png",
     source: "",
   },
   {
-    name: "RealEstate ninja",
-    description:
-      "RealEstate ninja is a web application that allows users to search for real estate properties in Slovenia and comparing their prices.",
+    name: "Certstream-go",
+    description: "Go client for connecting to CertStream",
     tags: [
       {
-        name: "python",
-        color: "blue",
-      },
-      {
-        name: "nextjs",
-        color: "black",
+        name: "go",
+        color: "aqua",
       },
     ],
-    image: "tls_communication.png",
-    source: "",
+    image: "certstream.png",
+    source: "https://github.com/bl4ko/certstream-go",
   },
 ];
