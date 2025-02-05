@@ -6,7 +6,7 @@
 /* Firefox */
 * {
   scrollbar-width: thin;
-  scrollbar-color: var(--color-green) var(--background-secondary);
+  scrollbar-color: var(--color-white) var(--background-secondary);
 
   /* Disable built in cursor, we use separate component */
   cursor: none !important;

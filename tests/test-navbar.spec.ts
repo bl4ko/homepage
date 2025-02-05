@@ -37,7 +37,6 @@ test("Test projects page displays all projects, has canvas and has footer", asyn
 test("Code link redirects to github", async ({ page }) => {
   await page.goto("/");
   const githubLinkLocator = await page.getByRole("link", { name: "Code" });
-  // https://playwright.dev/docs/pages#handling-popups
   const popupPromise = page.waitForEvent("popup");
   await githubLinkLocator.click();
   const newPage = await popupPromise;

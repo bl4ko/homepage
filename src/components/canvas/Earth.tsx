@@ -18,7 +18,7 @@ function Earth() {
 
 export default function EarthCanvas() {
   return (
-    <div className="h-80">
+    <div className="h-[180px] md:h-[180px] lg:h-[250px]">
       <Canvas
         shadows
         frameloop="always"
@@ -39,7 +39,6 @@ export default function EarthCanvas() {
             minPolarAngle={Math.PI / 2}
           />
           <Earth />
-
           <Preload all />
         </Suspense>
       </Canvas>

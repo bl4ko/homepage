@@ -23,26 +23,26 @@
     {
       "matchManagers": ["npm"],
       "automerge": true,
-      "automergeStrategy": "rebase",
+      "automergeStrategy": "squash",
       "groupName": "npm dependencies"
     },
     {
       "matchManagers": ["dockerfile"],
       "automerge": true,
-      "automergeStrategy": "rebase",
+      "automergeStrategy": "squash",
       "groupName": "dockerfile dependencies"
     },
     {
       "matchManagers": ["github-actions"],
       "automerge": true,
-      "automergeStrategy": "rebase",
+      "automergeStrategy": "squash",
       "groupName": "github actions"
     },
     {
       "matchManagers": ["regex"],
       "groupName": "semantic-release",
       "automerge": true,
-      "automergeStrategy": "rebase"
+      "automergeStrategy": "squash"
     }
   ],
   "lockFileMaintenance": {

@@ -13,12 +13,14 @@ function LiIcon({ reference }: { reference: any }) {
   return (
     <figure className="absolute left-0 stroke-cyan">
       <svg className="-rotate-90" width="75" height="75" viewBox="0 0 100 100">
+        {/* Outside circle */}
         <circle
           cx="75"
           cy="50"
           r="20"
           className="stroke-cyan stroke-1 fill-none"
         />
+        {/* Middle circle */}
         <motion.circle
           cx="75"
           cy="50"
@@ -28,6 +30,7 @@ function LiIcon({ reference }: { reference: any }) {
             pathLength: scrollYProgress,
           }}
         />
+        {/* Inner circle */}
         <circle
           cx="75"
           cy="50"
@@ -55,6 +58,7 @@ function Details({ experience }: { experience: ExperienceType }) {
       >
         <h3 className="capitalize font-bold text-2xl">
           {experience.position}&nbsp;
+          { experience.companyLink ?
           <a
             className="text-cyan capitalize"
             target="_blank"
@@ -62,6 +66,10 @@ function Details({ experience }: { experience: ExperienceType }) {
           >
             @{experience.company}
           </a>
+          :<span className="text-cyan capitalize">@{experience.company}
+
+          </span>
+          }
         </h3>
         <span className="capitalize font-medium text-gray">
           {experience.time} | {experience.address}
@@ -86,11 +94,11 @@ export default function Experience(): JSX.Element {
       <div className="w-[75%] mx-auto relative">
         <motion.div
           style={{ scaleY: scrollYProgress }}
-          className="absolute left-9 top-0 w-[4px] h-full bg-cyan origin-top shadow-3xl"
+          className="absolute left-9 top-1 w-[4px] h-full bg-cyan origin-top shadow-3xl"
         />
         <ul
           ref={ref}
-          className="w-full flex flex-col items-start justify-between ml-4"
+          className="w-full flex flex-col items-start justify-between ml-6 sm:ml-4 md:ml-2 lg:ml-0"
         >
           {experiences.map((experience: ExperienceType, index: number) => (
             <Details key={`experience-${index}`} experience={experience} />

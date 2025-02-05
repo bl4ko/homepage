@@ -29,8 +29,7 @@ export default function Home() {
         <div className="flex-grow">
           <h2 className="text-4xl font-bold">Bl4ko</h2>
           <div className="flex items-center">
-            <p>IoT enthusiast</p>
-            <IotIcon />
+            <p> IoT enthusiast</p>
           </div>
         </div>
 

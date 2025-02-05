@@ -9,35 +9,27 @@ export type Experience = {
 
 export const experiences: Experience[] = [
   {
-    position: "DevOps Engineer",
+    position: "Junior DevOps Engineer",
     company: "SRC D.O.O",
     companyLink: "https://www.src.si/",
-    time: "July 2022 - Present",
+    time: "July 2022 - August 2024",
     address: "Ljubljana, Slovenia",
     work: "Working on deploying and maintaining cloud infrastructure on our local kubernetes clusters. Fixing network issues, automating tasks using renovate and ansible. Also developed two cloud native application using python django, react, postgresql and go.",
   },
-  //     {
-  //     position: "Software Engineer",
-  //     company: "Google",
-  //     companyLink: "https://www.google.com/",
-  //     time: "June 2021 - Present",
-  //     address: "Mountain View, CA",
-  //     work: [
-  //         "Developed and maintained web applications using React.js and other related technologies.",
-  //         "Collaborated with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-  //         "Implemented responsive design and ensured cross-browser compatibility.",
-  //     ]
-  // },
-  //     {
-  //     position: "Software Engineer",
-  //     company: "Google",
-  //     companyLink: "https://www.google.com/",
-  //     time: "June 2021 - Present",
-  //     address: "Mountain View, CA",
-  //     work: [
-  //         "Developed and maintained web applications using React.js and other related technologies.",
-  //         "Collaborated with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-  //         "Implemented responsive design and ensured cross-browser compatibility.",
-  //     ]
-  // },
+  {
+    position: "Software Architect",
+    company: "Self Employed",
+    time: "October 2024 - Present",
+    companyLink: "",
+    address: "Ljubljana Slovenia",
+    work: "Implemented real estate web application for a real estate agency. Also working on automating tasks for e-casinos",
+  },
+  {
+    position: "DevOps Engineer",
+    company: "SRC D.O.O",
+    companyLink: "https://www.src.si/",
+    time: "September 2024 - Present",
+    address: "Ljubljana, Slovenia",
+    work: "Working on deploying and maintaining cloud infrastructure on our local kubernetes clusters. Fixing network issues, automating tasks using renovate and ansible. Also developed two cloud native application using python django, react, postgresql and go.",
+  },
 ];

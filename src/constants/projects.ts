@@ -1,4 +1,4 @@
-export type Color = "blue" | "green" | "red" | "yellow" | "purple";
+export type Color = "blue" | "green" | "red" | "yellow" | "purple" | "black";
 
 export type Tag = {
   name: string;
@@ -48,20 +48,37 @@ export const projects: Project[] = [
     source: "https://github.com/bl4ko/ROS",
   },
   {
-    name: "Simple chat app",
+    name: "RealEstate ninja",
     description:
-      "Simple server-client tls communication app in python using custom messages protocol. App is able to send public and private messages, between peers.",
+      "RealEstate ninja is a web application that allows users to search for real estate properties in Slovenia and comparing their prices.",
     tags: [
       {
         name: "python",
         color: "blue",
       },
       {
-        name: "bash",
-        color: "green",
+        name: "nextjs",
+        color: "black",
       },
     ],
     image: "tls_communication.png",
-    source: "https://github.com/bl4ko/SSL-TLS-Communication",
+    source: "",
+  },
+  {
+    name: "RealEstate ninja",
+    description:
+      "RealEstate ninja is a web application that allows users to search for real estate properties in Slovenia and comparing their prices.",
+    tags: [
+      {
+        name: "python",
+        color: "blue",
+      },
+      {
+        name: "nextjs",
+        color: "black",
+      },
+    ],
+    image: "tls_communication.png",
+    source: "",
   },
 ];

@@ -12,6 +12,7 @@ const colorClasses: ColorClassesType = {
   purple: "text-purple",
   yellow: "text-yellow",
   red: "text-red",
+  black: "text-black"
 };
 
 interface ProjectCardProps {
@@ -43,6 +44,7 @@ function ProjectCard({ index, project }: ProjectCardProps): JSX.Element {
 
           <div className="absolute inset-0 flex justify-end hover">
             <div className="fixed w-16 h-16 rounded-full flex justify-center items-center">
+              { project.source !== "" ?
               <Image
                 unoptimized
                 src="/images/github.png"
@@ -51,6 +53,8 @@ function ProjectCard({ index, project }: ProjectCardProps): JSX.Element {
                 fill={true}
                 sizes="5vw"
               />
+              : <></>
+            }
             </div>
           </div>
           <div className="mt-5">
@@ -83,13 +87,10 @@ export default function Projects(): JSX.Element {
         Projects
       </h1>
       <div className="w-full flex">
-        Following projects showcases my skills and experience through real-world
-        examples of my work. Each project is briefly described with links to
-        code repositories. I have made projects in various fields like Web
-        Development, Machine Learning and dev ops.
+        Here you can find some projects, that I have implemented in the past.
       </div>
 
-      <div className="mt-10 flex flex-wrap gap-7 justify-around">
+      <div className="mt-10 flex flex-wrap gap-7 justify-between">
         {projects.map((project, index) => (
           <ProjectCard
             key={`project-${index}`}
