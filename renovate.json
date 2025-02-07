@@ -10,8 +10,9 @@
   "pre-commit": {
     "enabled": true
   },
-  "regexManagers": [
+  "customManagers": [
     {
+      "customType": "regex",
       "description": "Update semantic-release version used by npx",
       "fileMatch": ["^\\.github/workflows/[^/]+\\.ya?ml$"],
       "matchStrings": ["\\srun: npx semantic-release@(?<currentValue>.*?)\\s"],
@@ -39,7 +40,7 @@
       "groupName": "github actions"
     },
     {
-      "matchManagers": ["regex"],
+      "matchManagers": ["custom.regex"],
       "groupName": "semantic-release",
       "automerge": true,
       "automergeStrategy": "squash"
