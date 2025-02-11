@@ -10,7 +10,7 @@ export default function Footer() {
       transition={{ duration: 1, mode: "easeInOut" }}
     >
       <div className="text-center opacity-[0.4] text-sm mt-5">
-        © {new Date().getFullYear()} Bl4ko. Copy as much as you want.
+        &copy; {new Date().getFullYear()} bl4ko, Gašper Oblak. All rights reserved.
       </div>
     </motion.footer>
   );

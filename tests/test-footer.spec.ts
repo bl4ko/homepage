@@ -9,6 +9,6 @@ test("Footer is on the index page", async ({ page }) => {
   // Check if the footer's text content is in the DOM
   const footer = await page.textContent("footer");
   await expect(footer).toContain(
-    `© ${currentYear} Bl4ko. Copy as much as you want.`,
+    `${currentYear} bl4ko, Gašper Oblak. All rights reserved.`,
   );
 });

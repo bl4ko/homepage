@@ -13,7 +13,7 @@ test("Test index page theme toggle button", async ({ page }) => {
 test("Test index footer", async ({ page }) => {
   await page.goto("/");
   const copyrightLocator = await page.getByText(
-    `© ${new Date().getFullYear()} Bl4ko. Copy as much as you want.`,
+    `bl4ko, Gašper Oblak. All rights reserved.`,
   );
   await expect(copyrightLocator).toBeVisible();
 });

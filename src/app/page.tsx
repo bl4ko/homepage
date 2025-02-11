@@ -4,6 +4,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import SocialIcon from "@/components/social-icons";
 
 interface BioSectionProps {
   children: React.ReactNode;
@@ -25,14 +26,14 @@ export default function Home() {
   return (
     <div>
       <div className="my-4 rounded-xl p-3 text-center bg-secondary bg-opacity-50 backdrop-blur-md">
-        Hello, I&apos;m a tech enthusiast from Slovenia
+        Hello, I&apos;m a DevOps Engineer from Slovenia
       </div>
 
       <div className="md:flex items-center">
         <div className="flex-grow">
-          <h2 className="text-4xl font-bold">Bl4ko</h2>
+          <h2 className="text-2xl font-bold">Bl4ko, Gašper Oblak</h2>
           <div className="flex items-center">
-            <p> IoT enthusiast</p>
+            <p>Freelance DevOps Engineer & Cloud Consultant</p>
           </div>
         </div>
 
@@ -91,6 +92,8 @@ export default function Home() {
             Earned two Red Hat certifications: <b>RHCSA and Red Hat Specialist in Containers.</b>
             <br />
             Spoke at <b>two Slovenian cloud-native conferences</b>.
+            <br />
+            Started freelancing as a <b>DevOps engineer and Cloud consultant</b>.
           </BioText>
         </BioSection>
 
@@ -100,13 +103,27 @@ export default function Home() {
         </BioSection>
       </div>
 
-
       <div>
         <h3 className="section-title">Hobbies</h3>
         <p className="text-justify indent-1 hyphens-auto">
           Bl4ko enjoys sports including cycling, chess, cue sports, tennis,
           boxing and fitness.
         </p>
+      </div>
+
+      <div>
+        <h3 className="section-title">Contact</h3>
+        <div className="flex-row flex">
+          <div className="mx-2 my-2">
+          <SocialIcon kind="github" href="https://github.com/bl4ko" size={30} />
+          </div>
+          <div className="mx-2 my-2">
+          <SocialIcon kind="linkedin" href="https://www.linkedin.com/in/ga%C5%A1per-oblak-b3779b2ba/" size={30} />
+          </div>
+          <div className="mx-2 my-2">
+          <SocialIcon kind="mail" href="mailto:gasperoblak@bl4ko.com" size={30} />
+          </div>
+        </div>
       </div>
     </div>
   );
