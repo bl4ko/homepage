@@ -22,28 +22,19 @@
   ],
   "packageRules": [
     {
-      "matchManagers": ["npm"],
-      "automerge": true,
-      "automergeStrategy": "squash",
-      "groupName": "npm dependencies"
-    },
-    {
       "matchManagers": ["dockerfile"],
       "automerge": true,
-      "automergeStrategy": "squash",
       "groupName": "dockerfile dependencies"
     },
     {
       "matchManagers": ["github-actions"],
       "automerge": true,
-      "automergeStrategy": "squash",
       "groupName": "github actions"
     },
     {
       "matchManagers": ["custom.regex"],
       "groupName": "semantic-release",
-      "automerge": true,
-      "automergeStrategy": "squash"
+      "automerge": true
     }
   ],
   "lockFileMaintenance": {
