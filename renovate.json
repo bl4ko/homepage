@@ -22,9 +22,12 @@
   ],
   "packageRules": [
     {
-      "matchManagers": ["dockerfile"],
-      "automerge": true,
-      "groupName": "dockerfile dependencies"
+      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
+      "automerge": true
+    },
+    {
+      "matchDepTypes": ["devDependencies"],
+      "automerge": true
     },
     {
       "matchManagers": ["github-actions"],
@@ -39,8 +42,8 @@
   ],
   "lockFileMaintenance": {
     "enabled": true,
-    "automerge": true,
-    "automergeStrategy": "rebase"
+    "automerge": true
   },
+  "platformAutomerge": true,
   "timezone": "Europe/Ljubljana"
 }
