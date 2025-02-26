@@ -19,7 +19,7 @@
     "react-dom": "^19.0.0",
     "react-parallax-tilt": "^1.7.172",
     "sharp": "^0.33.5",
-    "three": "^0.166.0",
+    "three": "^0.173.0",
     "typescript": "^5.2.2"
   },
   "devDependencies": {
@@ -27,7 +27,7 @@
     "@types/node": "20.17.19",
     "@types/react": "18.3.18",
     "@types/react-dom": "18.3.5",
-    "@types/three": "0.170.0",
+    "@types/three": "0.173.0",
     "autoprefixer": "10.4.20",
     "eslint": "9.21.0",
     "eslint-config-next": "15.1.7",
