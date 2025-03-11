@@ -1,6 +1,6 @@
 services:
   nginx:
-    image: lscr.io/linuxserver/swag:latest@sha256:7155bde98915efc5963cd18060aefae5cacc4631f3ba64c343b6a827476d704b
+    image: lscr.io/linuxserver/swag:latest@sha256:8d0e02d9690f5acb4616fba162c0fe1670d6a70da007d004bfd79ada8bf97a06
     container_name: nginx
     cap_add:
       - NET_ADMIN
