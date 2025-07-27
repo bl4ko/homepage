@@ -1,8 +1,8 @@
 name: Spellcheck Action
+permissions:
+  contents: read
 on:
   push:
 jobs:
-  permissions:
-    contents: read
   spellcheck:
     uses: bl4ko/shared-actions/.github/workflows/spellcheck.yml@main

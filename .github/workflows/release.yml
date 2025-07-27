@@ -1,11 +1,11 @@
 name: Create Release 🚀
+permissions:
+  contents: read
 on:
   push:
     branches: [main]
   workflow_dispatch:
 jobs:
-  permissions:
-    contents: read
   release:
     uses: bl4ko/shared-actions/.github/workflows/release.yml@main
     secrets:
