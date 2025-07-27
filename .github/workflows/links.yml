@@ -1,4 +1,7 @@
 name: Links
+permissions:
+  contents: read
+  pull-requests: write
 
 on:
   repository_dispatch:

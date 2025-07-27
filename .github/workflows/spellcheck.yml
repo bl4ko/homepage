@@ -1,4 +1,6 @@
 name: Spellcheck Action
+permissions:
+  contents: read
 on:
   push:
 
