@@ -22,7 +22,7 @@ services:
       - next
 
   next:
-    image: bl4ko/homepage:latest@sha256:97357a557135dd9cd1966b20a23531e309b1fbec0dbad049a183af6b317cc942
+    image: bl4ko/homepage:latest@sha256:3e5a980070c3e283daffb74d3273a0f77fd98df87127366752371212f1b76cfe
     container_name: next
     expose:
       - 3000
