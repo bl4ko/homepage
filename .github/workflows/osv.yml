@@ -1,13 +1,10 @@
 name: OSV-Scanner PR Scan
-
-# Change "main" to your default branch if you use a different name, i.e. "master"
 on:
   pull_request:
     branches: [main]
   merge_group:
     branches: [main]
   workflow_dispatch:
-
 permissions:
   # Required to upload SARIF file to CodeQL. See: https://github.com/github/codeql-action/issues/2117
   actions: read
@@ -15,7 +12,6 @@ permissions:
   security-events: write
   # Only need to read contents
   contents: read
-
 jobs:
   scan-pr:
-    uses: "google/osv-scanner-action/.github/workflows/osv-scanner-reusable.yml@v1.9.2"
+    uses: "bl4ko/shared-actions/.github/workflows/osv.yml@main"

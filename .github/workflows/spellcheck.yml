@@ -1,10 +1,8 @@
 name: Spellcheck Action
 on:
   push:
-
 jobs:
+  permissions:
+    contents: read
   spellcheck:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
-      - uses: streetsidesoftware/cspell-action@ef95dc49d631fc2a9e9ea089ae2b2127b7c4588e # v6
+    uses: bl4ko/shared-actions/.github/workflows/spellcheck.yml@main
