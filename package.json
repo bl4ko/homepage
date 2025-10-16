@@ -7,7 +7,8 @@
     "start": "node .next/standalone/server.js 0.0.0.0:3000",
     "build": "next build && cp -r public .next/standalone/public && cp -r .next/static .next/standalone/.next/static",
     "lint": "next lint",
-    "test:e2e": "DEBUG=pw:webserver,pw:api playwright test --reporter=line"
+    "test:e2e": "playwright test --reporter=line",
+    "test:e2e:debug": "DEBUG=pw:webserver,pw:api playwright test --debug"
   },
   "dependencies": {
     "@react-three/drei": "^10.0.0",
