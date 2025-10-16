@@ -4,7 +4,7 @@ import SlideShow from "@/components/transitions/SlideShow";
 import { JetBrains_Mono } from "next/font/google";
 import Footer from "@/components/footer";
 import Navbar from "@/components/navbar";
-import Cursor from "@/components/Cursor";
+// import Cursor from "@/components/Cursor";
 import 'material-symbols';
 
 import { Metadata } from "next";
@@ -44,7 +44,7 @@ export default function RootLayout({
           <ThemeProvider>
             <StarsCanvas />
             <Navbar />
-            <Cursor />
+            {/* <Cursor /> */}
             <div className="text-base md:text-lg max-w-6xl pt-14 mx-auto xl:px-16 lg:px-12 md:px-10 xs:px-8 px-4">
               <EarthCanvas />
               <SlideShow>{children}</SlideShow>

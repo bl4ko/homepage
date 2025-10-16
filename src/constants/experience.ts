@@ -32,4 +32,12 @@ export const experiences: Experience[] = [
     address: "Ljubljana, Slovenia",
     work: "Working on deploying and maintaining cloud infrastructure on our local kubernetes clusters. Fixing network issues, automating tasks using renovate and ansible. Also developed two cloud native application using python django, react, postgresql and go.",
   },
+  {
+    position: "Senior DevOps Engineer",
+    company: "CyberGrid GMBH",
+    companyLink: "https://www.cyber-grid.com/",
+    time: "March 2025 - Present",
+    address: "Ljubljana, Slovenia",
+    work: "Working on deploying, scaling and maintaining multitenant cloud infrastructure on AWS using gitops approaches.",
+  },
 ];
