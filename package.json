@@ -14,7 +14,7 @@
     "@react-three/drei": "^10.0.0",
     "@react-three/fiber": "^9.0.4",
     "framer-motion": "^11.0.0",
-    "material-symbols": "^0.36.0",
+    "material-symbols": "^0.37.0",
     "next": "^15.1.6",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
