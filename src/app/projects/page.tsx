@@ -3,6 +3,7 @@ import Tilt from "react-parallax-tilt";
 import { projects, Project, Color } from "@/constants";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { JSX } from "react";
 
 type ColorClassesType = Record<Color, string>;
 

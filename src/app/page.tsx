@@ -5,6 +5,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import SocialIcon from "@/components/social-icons";
+import { JSX } from "react";
 
 interface BioSectionProps {
   children: React.ReactNode;

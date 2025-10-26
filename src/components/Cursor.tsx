@@ -2,6 +2,7 @@
 
 import { ThemeContext } from "@/context/ThemeProvider";
 import { useContext, useEffect, useState } from "react";
+import { JSX } from "react";
 
 // Cursor customization
 // These variables are exported so they can be used with

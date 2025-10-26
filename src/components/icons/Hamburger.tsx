@@ -1,3 +1,5 @@
+import { JSX } from "react";
+
 interface HamburgerIconProps {
     height?: string;
     width?: string;

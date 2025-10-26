@@ -20,7 +20,7 @@ const randomInSphere = (numPoints: number, radius: number) => {
 };
 
 const Stars = (props: any) => {
-  const ref = useRef<THREE.Points>();
+  const ref = useRef<THREE.Points>(null);
   const [sphere] = useState(() => randomInSphere(5000, 1.2));
 
   useFrame((state, delta) => {

@@ -2,7 +2,7 @@
 
 import { motion, useScroll } from "framer-motion";
 import { Experience as ExperienceType, experiences } from "@/constants";
-import { useRef } from "react";
+import { useRef, JSX } from "react";
 
 function LiIcon({ reference }: { reference: any }) {
   const { scrollYProgress } = useScroll({

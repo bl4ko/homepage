@@ -1,3 +1,5 @@
+/* eslint-disable react-hooks/refs */
+
 "use client";
 import { useRef, useContext } from "react";
 import { AnimatePresence, motion } from "framer-motion";
