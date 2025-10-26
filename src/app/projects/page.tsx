@@ -61,7 +61,7 @@ function ProjectCard({ index, project }: ProjectCardProps): JSX.Element {
           </div>
           <div className="mt-5">
             <h3 className="font-bold text-[20px]">{project.name}</h3>
-            <p className="mt-2 text-textSecondary text-[12px]">
+            <p className="mt-2 text-text-secondary text-[12px]">
               {project.description}
             </p>
           </div>

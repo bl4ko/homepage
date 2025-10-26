@@ -11,7 +11,7 @@ export default function NotFound(): JSX.Element {
       <hr className="my-6" />
       <div className="my-6 text-center">
         <NextLink href="/" passHref>
-          <button className="bg-aqua hover:bg-teal-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+          <button className="bg-aqua hover:bg-teal-600 text-white font-bold py-2 px-4 rounded-sm focus:outline-hidden focus:shadow-outline">
             Return to homepage
           </button>
         </NextLink>

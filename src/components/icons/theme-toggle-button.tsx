@@ -19,7 +19,7 @@ export default function ThemeToggleButton() {
       >
         <button
           aria-label="Toggle theme"
-          className={`rounded p-2 focus:outline-none focus:ring-2 focus:ring-offset-2 ${
+          className={`rounded p-2 focus:outline-hidden focus:ring-2 focus:ring-offset-2 ${
             theme === "light"
               ? "bg-purple hover:bg-[#9333ea]"
               : "bg-yellow hover:bg-orange-400"

@@ -31,7 +31,7 @@ export default function Home() {
       </div>
 
       <div className="md:flex items-center">
-        <div className="flex-grow">
+        <div className="grow">
           <h2 className="text-2xl font-bold">Bl4ko, Gašper Oblak</h2>
           <div className="flex items-center">
             <p>Freelance DevOps Engineer & Cloud Consultant</p>
