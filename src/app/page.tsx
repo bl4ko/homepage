@@ -75,8 +75,8 @@ export default function Home() {
 
         <BioSection>
           <BioYear>2022</BioYear>
-          <BioText>Began my career as a <b>DevOps engineer</b> at
-            <Link href="https://src.si/" target="_blank"> SRC</Link>.
+          <BioText>Began my career as a <b>DevOps engineer</b> at&nbsp;
+            <Link href="https://src.si/" target="_blank">SRC</Link>.
           </BioText>
         </BioSection>
 
@@ -99,7 +99,7 @@ export default function Home() {
 
         <BioSection>
           <BioYear>2025</BioYear>
-          <BioText>Achieved <b>Red Hat Certified System Engineer (RHCE)</b> certification.</BioText>
+          <BioText>Earned two new certifications: <b>Red Hat Certified System Engineer (RHCE)</b> and <b>Certified Kubernetes administrator (CKA) certification</b>.</BioText>
         </BioSection>
       </div>
 

@@ -9,7 +9,7 @@
   scrollbar-color: var(--color-white) var(--background-secondary);
 
   /* Disable built in cursor, we use separate component */
-  cursor: none !important;
+  /* cursor: none !important; */
 }
 
 *::-webkit-scrollbar {

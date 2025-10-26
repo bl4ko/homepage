@@ -28,7 +28,7 @@ export const experiences: Experience[] = [
     position: "DevOps Engineer",
     company: "SRC D.O.O",
     companyLink: "https://www.src.si/",
-    time: "September 2024 - Present",
+    time: "September 2024 - March 2025",
     address: "Ljubljana, Slovenia",
     work: "Working on deploying and maintaining cloud infrastructure on our local kubernetes clusters. Fixing network issues, automating tasks using renovate and ansible. Also developed two cloud native application using python django, react, postgresql and go.",
   },
