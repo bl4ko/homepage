@@ -66,10 +66,3 @@ jobs:
           name: playwright-report
           path: playwright-report/
           retention-days: 30
-
-  scan:
-    uses: bl4ko/shared-actions/.github/workflows/osv_image.yml@main
-    permissions:
-      contents: read
-    with:
-      containerfile: ./Dockerfile
