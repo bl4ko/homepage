@@ -68,25 +68,8 @@ jobs:
           retention-days: 30
 
   scan:
-    name: Vulnerability scan
-    runs-on: ubuntu-latest
+    uses: bl4ko/shared-actions/.github/workflows/osv_image.yml@main
     permissions:
       contents: read
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
-      - name: Build an image from Dockerfile
-        run: |
-          docker build -t ghcr.io/bl4ko/netbox-ssot:${{ github.sha }} .
-      - name: Run Trivy vulnerability scanner
-        uses: aquasecurity/trivy-action@master
-        env:
-          TRIVY_DB_REPOSITORY: public.ecr.aws/aquasecurity/trivy-db
-          TRIVY_JAVA_DB_REPOSITORY: public.ecr.aws/aquasecurity/trivy-java-db
-        with:
-          image-ref: "ghcr.io/bl4ko/netbox-ssot:${{ github.sha }}"
-          format: "table"
-          exit-code: "1"
-          ignore-unfixed: true
-          vuln-type: "os,library"
-          severity: "CRITICAL,HIGH"
+    with:
+      containerfile: ./Dockerfile
