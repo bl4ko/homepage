@@ -16,8 +16,8 @@
     "framer-motion": "^11.0.0",
     "material-symbols": "^0.40.0",
     "next": "16.1.2",
-    "react": "19.2.3",
-    "react-dom": "19.2.3",
+    "react": "19.2.4",
+    "react-dom": "19.2.4",
     "react-parallax-tilt": "^1.7.172",
     "sharp": "^0.34.0",
     "three": "^0.182.0",
@@ -27,7 +27,7 @@
     "@playwright/test": "1.58.0",
     "@tailwindcss/postcss": "4.1.18",
     "@types/node": "22.19.7",
-    "@types/react": "19.2.8",
+    "@types/react": "19.2.10",
     "@types/react-dom": "19.2.3",
     "@types/three": "0.182.0",
     "eslint": "9.39.2",
@@ -37,7 +37,7 @@
     "tailwindcss": "4.1.18"
   },
   "overrides": {
-    "@types/react": "19.2.8",
+    "@types/react": "19.2.10",
     "@types/react-dom": "19.2.3"
   }
 }
