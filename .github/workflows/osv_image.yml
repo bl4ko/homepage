@@ -10,5 +10,6 @@ jobs:
     uses: bl4ko/shared-actions/.github/workflows/osv_image.yml@main
     permissions:
       contents: read
+      packages: write
     with:
       containerfile: ./Dockerfile
