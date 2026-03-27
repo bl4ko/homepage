@@ -9,6 +9,6 @@ on:
 
 jobs:
   linkChecker:
-    uses: bl4ko/shared-actions/.github/workflows/links.yml@da22f11edd90350b65a5152b5a88703bb7a7c2be # main
+    uses: bl4ko/shared-actions/.github/workflows/links.yml@37e2500100b0b94ba2135342e1d9f6f2054a6019 # main
     secrets:
       SVC_TOKEN: ${{ secrets.SVC_TOKEN }}
