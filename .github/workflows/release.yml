@@ -7,6 +7,6 @@ on:
   workflow_dispatch:
 jobs:
   release:
-    uses: bl4ko/shared-actions/.github/workflows/release.yml@754867d593ffd69259b840561ad847396300760d # main
+    uses: bl4ko/shared-actions/.github/workflows/release.yml@323418cdea5ec4024f9ebf1ce7bbf3ae97c85ae1 # main
     secrets:
       SVC_TOKEN: ${{ secrets.SVC_TOKEN }}
