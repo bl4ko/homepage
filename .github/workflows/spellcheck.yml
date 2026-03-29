@@ -5,4 +5,4 @@ on:
   push:
 jobs:
   spellcheck:
-    uses: bl4ko/shared-actions/.github/workflows/spellcheck.yml@754867d593ffd69259b840561ad847396300760d # main
+    uses: bl4ko/shared-actions/.github/workflows/spellcheck.yml@323418cdea5ec4024f9ebf1ce7bbf3ae97c85ae1 # main
