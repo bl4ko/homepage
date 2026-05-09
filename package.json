@@ -20,7 +20,7 @@
     "react-dom": "19.2.6",
     "react-parallax-tilt": "^1.7.172",
     "sharp": "^0.34.0",
-    "three": "^0.183.0",
+    "three": "^0.184.0",
     "typescript": "^5.2.2"
   },
   "devDependencies": {
@@ -29,7 +29,7 @@
     "@types/node": "24.12.2",
     "@types/react": "19.2.14",
     "@types/react-dom": "19.2.3",
-    "@types/three": "0.183.1",
+    "@types/three": "0.184.0",
     "eslint": "9.39.4",
     "eslint-config-next": "16.2.5",
     "postcss": "8.5.14",
