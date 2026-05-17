@@ -16,10 +16,10 @@ import "./globals.css";
 
 // Meta API for Head element
 export const metadata: Metadata = {
-  title: "Bl4ko",
-  description: "Bl4ko's homepage",
-  authors: [{ name: "bl4ko" }],
-  keywords: "Bl4ko, Bl4ko's homepage",
+  title: "Gašper Oblak | DevOps Engineer",
+  description: "DevOps Engineer specializing in Kubernetes, Terraform, and cloud-native infrastructure. Available for remote contract work.",
+  authors: [{ name: "Gašper Oblak" }],
+  keywords: "DevOps Engineer, Kubernetes, Terraform, ArgoCD, DevOps, Freelance, Contract",
   robots: "index, follow",
   icons: "/images/profile_no_background.png",
 };
