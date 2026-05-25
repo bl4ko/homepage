@@ -14,4 +14,4 @@ permissions:
   contents: read
 jobs:
   scan-pr:
-    uses: "bl4ko/shared-actions/.github/workflows/osv.yml@fa5af959090e6888216217e4ca4e857202da4483" # main
+    uses: "bl4ko/shared-actions/.github/workflows/osv.yml@30f6cc6717156d3142fc28b364e0b9e066b829c7" # main
