@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 jobs:
   osv_scan_image:
-    uses: bl4ko/shared-actions/.github/workflows/osv_image.yml@28af2e285603accc4cdf28b78d2ab1bb37023c68 # main
+    uses: bl4ko/shared-actions/.github/workflows/osv_image.yml@13f5640a576b905fae708372cd5c2130c9f7f500 # main
     permissions:
       contents: read
       packages: write
