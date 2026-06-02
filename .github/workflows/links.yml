@@ -9,7 +9,7 @@ on:
 
 jobs:
   linkChecker:
-    uses: bl4ko/shared-actions/.github/workflows/links.yml@bb57ee3d3a12b94dda15103b8327f33f1cdd92e1 # main
+    uses: bl4ko/shared-actions/.github/workflows/links.yml@b8a2e22768ddf95ab86159c95f965055103be533 # main
     secrets:
       APP_ID: ${{ secrets.APP_ID }}
       APP_PRIVATE_KEY: ${{ secrets.APP_PRIVATE_KEY }}
