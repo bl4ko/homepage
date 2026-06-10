@@ -54,7 +54,7 @@ function Details({
   return (
     <li
       ref={ref}
-      className="my-8 first:mt-0 last:mb-0 w-[60%] mx-auto flex flex-col items-center justify-between"
+      className="my-8 first:mt-0 last:mb-0 w-full pl-16 sm:pl-0 sm:w-[60%] sm:mx-auto flex flex-col items-start sm:items-center justify-between"
     >
       <LiIcon reference={ref} />
       <motion.div
@@ -77,7 +77,7 @@ function Details({
           delay: 0.25 * index,
         }}
       >
-        <h3 className="capitalize font-bold text-2xl">
+        <h3 className="capitalize font-bold text-xl sm:text-2xl">
           {experience.position}&nbsp;
           { experience.companyLink ?
           <a
