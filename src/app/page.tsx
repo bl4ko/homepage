@@ -22,20 +22,15 @@ function BioYear({ children }: BioSectionProps): JSX.Element {
 export default function Home() {
   return (
     <div>
-      <div className="my-4 rounded-xl p-3 text-center bg-secondary bg-opacity-50 backdrop-blur-md">
-        DevOps Engineer specializing in Kubernetes, Infrastructure as Code, and Cloud-Native Architecture
-      </div>
-
-      <div className="md:flex items-center">
+      <div className="my-6 md:flex items-center bg-secondary/50 rounded-xl p-5 border border-green/10">
         <div className="grow">
           <h2 className="text-2xl font-bold">Gašper Oblak</h2>
-          <div className="flex items-center">
-            <p>DevOps Engineer | Available for Contract</p>
-          </div>
+          <p className="text-green font-bold mt-1">DevOps Engineer</p>
+          <p className="text-sm text-text-secondary mt-1">Kubernetes &middot; Infrastructure as Code &middot; Cloud-Native Architecture</p>
         </div>
 
         <div className="shrink-0 mt-3 md:ml-6 text-center">
-          <div className="border-white border-opacity-100 border-2 w-24 h-24 rounded-full overflow-hidden inline-block">
+          <div className="border-green/30 border-2 w-24 h-24 rounded-full overflow-hidden inline-block">
             <Image
               unoptimized
               src="/images/profile.png"
@@ -47,35 +42,52 @@ export default function Home() {
         </div>
       </div>
 
-      <div>
+      <div className="bg-secondary/50 rounded-xl p-5 border border-green/10 mt-4">
         <h3 className="section-title">About</h3>
         <p className="text-justify indent-5 hyphens-auto">
-          I design and operate production Kubernetes platforms for companies that need reliable, secure infrastructure. My work spans the full stack: Terraform provisioning, GitOps delivery with ArgoCD, observability (Prometheus, Grafana, Loki), and security hardening (NetworkPolicy, Vault, CrowdSec).
+          I design and operate production Kubernetes platforms for companies that need reliable, secure infrastructure. My work spans the full stack: Terraform provisioning, GitOps delivery with ArgoCD, observability (Prometheus, Grafana, Loki), and security hardening (Vault, CrowdSec, Falco).
         </p>
         <p className="text-justify indent-5 hyphens-auto mt-6">
           4+ years running multi-node clusters in production. CKA, RHCE, and RHCSA certified. I ship infrastructure that scales, stays observable, and passes security audits.
         </p>
       </div>
 
-      <div>
+      <div className="bg-secondary/50 rounded-xl p-5 border border-green/10 mt-4">
         <h3 className="section-title">Services</h3>
-        <ul className="list-disc ml-6 space-y-2">
-          <li><b>Kubernetes Platform Engineering</b> — cluster architecture, multi-tenancy, upgrades, and Day 2 operations</li>
-          <li><b>Infrastructure as Code</b> — Terraform, Ansible, reproducible environments from dev to production</li>
-          <li><b>GitOps & CI/CD Pipelines</b> — ArgoCD, GitHub Actions, automated delivery with rollback</li>
-          <li><b>Observability & Monitoring</b> — Prometheus, Grafana, Mimir, Loki, Tempo, alerting that matters</li>
-          <li><b>Security Hardening & Compliance</b> — NetworkPolicy, Vault secrets, CrowdSec IDS, Kyverno policies</li>
-        </ul>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div className="bg-secondary/50 rounded-lg p-4 border border-green/10">
+            <p className="font-bold text-green text-sm">Kubernetes Platform Engineering</p>
+            <p className="text-text-secondary text-sm mt-1">Cluster architecture, multi-tenancy, Day 2 operations</p>
+          </div>
+          <div className="bg-secondary/50 rounded-lg p-4 border border-green/10">
+            <p className="font-bold text-green text-sm">Infrastructure as Code</p>
+            <p className="text-text-secondary text-sm mt-1">Terraform, CloudFormation, Ansible</p>
+          </div>
+          <div className="bg-secondary/50 rounded-lg p-4 border border-green/10">
+            <p className="font-bold text-green text-sm">GitOps & CI/CD Pipelines</p>
+            <p className="text-text-secondary text-sm mt-1">ArgoCD, GitHub Actions, automated delivery with rollback</p>
+          </div>
+          <div className="bg-secondary/50 rounded-lg p-4 border border-green/10">
+            <p className="font-bold text-green text-sm">Observability & Monitoring</p>
+            <p className="text-text-secondary text-sm mt-1">Prometheus, Grafana, Mimir, Loki, Tempo, alerting that matters</p>
+          </div>
+          <div className="bg-secondary/50 rounded-lg p-4 border border-green/10">
+            <p className="font-bold text-green text-sm">Security Hardening & Compliance</p>
+            <p className="text-text-secondary text-sm mt-1">Vault secrets management, CrowdSec IDS, Falco runtime security, Wazuh SIEM, Kyverno policies</p>
+          </div>
+          <div className="bg-secondary/50 rounded-lg p-4 border border-green/10">
+            <p className="font-bold text-green text-sm">Cloud Architecture</p>
+            <p className="text-text-secondary text-sm mt-1">AWS, multi-tenant platform design, cost optimization, migration planning</p>
+          </div>
+        </div>
       </div>
 
-      <div>
+      <div className="bg-secondary/50 rounded-xl p-5 border border-green/10 mt-4">
         <h3 className="section-title">Bio</h3>
 
         <BioSection>
           <BioYear>2022</BioYear>
-          <BioText>Started as a <b>DevOps Engineer</b> at&nbsp;
-            <Link href="https://src.si/" target="_blank">SRC</Link>, building and maintaining production Kubernetes clusters.
-          </BioText>
+          <BioText>Started as a <b>DevOps Engineer</b> at <Link href="https://src.si/" target="_blank">SRC</Link>, building and maintaining production Kubernetes clusters.</BioText>
         </BioSection>
 
         <BioSection>
@@ -90,7 +102,7 @@ export default function Home() {
             <br />
             Spoke at <b>two cloud-native conferences</b>.
             <br />
-            Started independent consulting as a <b>DevOps Engineer</b>.
+            Started freelance consulting as a <b>DevOps Engineer</b>.
           </BioText>
         </BioSection>
 
@@ -100,10 +112,16 @@ export default function Home() {
         </BioSection>
       </div>
 
-      <div>
+      <div className="bg-secondary/50 rounded-xl p-5 border border-green/10 mt-4">
         <h3 className="section-title">Contact</h3>
-        <p className="mb-3 text-text-secondary">Available for remote contract work — US-friendly timezone (CET/UTC+1)</p>
-        <div className="flex-row flex">
+        <p className="mb-4 text-text-secondary">Available for remote contract work.</p>
+        <a
+          href="mailto:gasperoblak@bl4ko.com"
+          className="inline-block bg-green text-black font-bold px-6 py-3 rounded-lg no-underline hover:opacity-90 transition-opacity duration-200"
+        >
+          Get in Touch
+        </a>
+        <div className="flex-row flex mt-4">
           <div className="mx-2 my-2">
             <SocialIcon kind="github" href="https://github.com/bl4ko" size={30} />
           </div>

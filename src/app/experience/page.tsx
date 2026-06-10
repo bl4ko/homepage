@@ -18,14 +18,14 @@ function LiIcon({ reference }: { reference: any }) {
           cx="75"
           cy="50"
           r="20"
-          className="stroke-cyan stroke-1 fill-none"
+          className="stroke-cyan stroke-[3px] fill-none"
         />
         {/* Middle circle */}
         <motion.circle
           cx="75"
           cy="50"
           r="20"
-          className="stroke-[5px] fill-black"
+          className="stroke-[5px] fill-primary"
           style={{
             pathLength: scrollYProgress,
           }}
