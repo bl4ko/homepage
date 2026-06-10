@@ -5,6 +5,7 @@
 import { Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Preload, useGLTF } from "@react-three/drei";
+import { useReducedMotion } from "framer-motion";
 
 import CanvasLoader from "../CanvasLoader";
 
@@ -17,13 +18,14 @@ function Earth() {
 }
 
 export default function EarthCanvas() {
+  const reducedMotion = useReducedMotion();
+
   return (
     <div className="h-[180px] md:h-[180px] lg:h-[250px]">
       <Canvas
         shadows
-        frameloop="always"
+        frameloop={reducedMotion ? "demand" : "always"}
         dpr={[1, 2]}
-        gl={{ preserveDrawingBuffer: true }}
         camera={{
           fov: 45,
           near: 0.1,
@@ -33,7 +35,7 @@ export default function EarthCanvas() {
       >
         <Suspense fallback={<CanvasLoader />}>
           <OrbitControls
-            autoRotate
+            autoRotate={!reducedMotion}
             autoRotateSpeed={0.75}
             enableZoom={false}
             maxPolarAngle={Math.PI / 2}

@@ -1,5 +1,5 @@
 import { test, expect } from "@playwright/test";
-import { projects } from "../src/constants";
+import { projects, contributions } from "../src/constants";
 
 test("Test index page", async ({ page }) => {
   await page.goto("/");
@@ -9,9 +9,9 @@ test("Test index page", async ({ page }) => {
   await page.waitForSelector("canvas");
   const canvasElement = await page.$("canvas");
   expect(canvasElement).toBeTruthy();
-  await expect(page.getByRole("heading", { name: "Bl4ko" })).toContainText(
-    "Bl4ko",
-  );
+  await expect(
+    page.getByRole("heading", { name: "Gašper Oblak" }),
+  ).toContainText("Gašper Oblak");
   await expect(page.getByRole("heading", { name: "About" })).toContainText(
     "About",
   );
@@ -25,10 +25,10 @@ test("Test projects page displays all projects, has canvas and has footer", asyn
   await page.getByRole("heading", { name: "Projects" });
   await page.waitForSelector(".playwright-card");
   const projectCards = await page.$$(".playwright-card");
-  await expect(projectCards.length).toBe(projects.length);
-  await expect(
-    page.getByText("© 2024 Bl4ko. Copy as much as you want."),
-  ).toBeTruthy();
+  await expect(projectCards.length).toBe(
+    projects.length + contributions.length,
+  );
+  await expect(page.getByText("All rights reserved.")).toBeVisible();
 });
 
 test("Code link redirects to github", async ({ page }) => {

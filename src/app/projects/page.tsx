@@ -48,7 +48,7 @@ function ProjectCard({ project, index }: { project: UnifiedProject; index: numbe
       transition={{ delay: 0.1 * index, type: "spring", duration: 5 }}
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
-      className="bg-secondary p-5 rounded-2xl border border-green/10 no-underline hover:border-green/30 transition-colors duration-200 flex flex-col"
+      className="playwright-card bg-secondary p-5 rounded-2xl border border-green/10 no-underline hover:border-green/30 transition-colors duration-200 flex flex-col"
     >
       <div className="flex items-center justify-between mb-3">
         <h3 className="font-bold text-green">{project.name}</h3>

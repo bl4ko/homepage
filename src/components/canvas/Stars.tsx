@@ -3,6 +3,7 @@
 import { useState, useRef, Suspense } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Points, PointMaterial, Preload } from "@react-three/drei";
+import { useReducedMotion } from "framer-motion";
 import * as THREE from "three";
 
 const randomInSphere = (numPoints: number, radius: number) => {
@@ -22,10 +23,10 @@ const randomInSphere = (numPoints: number, radius: number) => {
 const Stars = (props: any) => {
   const ref = useRef<THREE.Points>(null);
   const [sphere] = useState(() => randomInSphere(5000, 1.2));
+  const reducedMotion = useReducedMotion();
 
-  useFrame((state, delta) => {
-    if (ref.current) {
-      // ref.current.rotation.x += delta / 10;
+  useFrame((_state, delta) => {
+    if (ref.current && !reducedMotion) {
       ref.current.rotation.y += delta / 30;
     }
   });
