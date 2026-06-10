@@ -82,9 +82,15 @@ export default function Projects(): JSX.Element {
 
   return (
     <>
-      <div className="text-center my-5">
-        <h1 className="text-3xl font-bold text-green">Projects</h1>
-        <p className="text-text-secondary mt-2">Tools I&apos;ve built and open source projects I&apos;ve contributed to.</p>
+      <div className="text-center my-6">
+        <p className="text-xs font-bold uppercase tracking-[0.25em] text-text-secondary">
+          Open Source
+        </p>
+        <h1 className="text-3xl font-bold text-green mt-1">Projects</h1>
+        <p className="text-text-secondary text-sm mt-2 max-w-md mx-auto">
+          Tools I&apos;ve built and projects I&apos;ve contributed to.
+        </p>
+        <div className="w-10 h-[2px] bg-green/40 rounded-full mx-auto mt-4" />
       </div>
 
       <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">

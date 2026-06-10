@@ -34,8 +34,10 @@ function LinkItem({
   return (
     <Link
       className={`${
-        active ? "bg-aqua rounded-full" : ""
-      } px-3 py-2 text-text-primary transition-colors duration-200 ${className}`}
+        active
+          ? "bg-cyan/15 text-cyan font-bold rounded-full"
+          : "text-text-primary"
+      } px-3 py-2 ${className}`}
       href={href}
       {...props}
       onClick={handleClick}

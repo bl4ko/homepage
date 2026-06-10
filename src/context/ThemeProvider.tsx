@@ -12,9 +12,7 @@ function getInitialTheme(): Theme {
   if (stored === "dark" || stored === "light") {
     return stored;
   }
-  return window.matchMedia("(prefers-color-scheme: light)").matches
-    ? "light"
-    : "dark";
+  return "dark";
 }
 
 export const ThemeContext = createContext<{

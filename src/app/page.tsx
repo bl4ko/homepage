@@ -34,7 +34,7 @@ const services = [
   },
   {
     title: "Observability & Monitoring",
-    description: "Prometheus, Grafana, Mimir, Loki, Tempo, alerting that matters",
+    description: "LGTM stack, Prometheus, VM stack, Uptime Kuma",
   },
   {
     title: "Security Hardening & Compliance",
@@ -56,12 +56,6 @@ export default function Home() {
           <p className="text-green font-bold mt-1">DevOps Engineer</p>
           <p className="text-sm text-text-secondary mt-1">Kubernetes &middot; Infrastructure as Code &middot; Cloud-Native Architecture</p>
           <p className="text-sm text-text-secondary mt-1">Available for remote contract work.</p>
-          <a
-            href="mailto:gasperoblak@bl4ko.com"
-            className="inline-block bg-green text-black font-bold px-5 py-2.5 rounded-lg no-underline hover:opacity-90 transition-opacity duration-200 mt-3 text-sm"
-          >
-            Get in Touch
-          </a>
         </div>
 
         <div className="shrink-0 mt-3 md:ml-6 text-center">
@@ -133,11 +127,11 @@ export default function Home() {
         <p className="mb-4 text-text-secondary">Available for remote contract work.</p>
         <a
           href="mailto:gasperoblak@bl4ko.com"
-          className="inline-block bg-green text-black font-bold px-6 py-3 rounded-lg no-underline hover:opacity-90 transition-opacity duration-200"
+          className="inline-block bg-green text-black font-bold px-7 py-3 rounded-full no-underline shadow-[0_4px_20px_-6px_var(--color-green)] hover:shadow-[0_6px_28px_-6px_var(--color-green)] hover:-translate-y-0.5 transition-all duration-200"
         >
           Get in Touch
         </a>
-        <div className="flex-row flex mt-4">
+        <div className="flex-row flex mt-5 gap-1">
           <div className="mx-1 my-1">
             <SocialIcon kind="github" href="https://github.com/bl4ko" size={30} />
           </div>

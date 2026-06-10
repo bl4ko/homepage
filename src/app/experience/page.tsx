@@ -42,7 +42,13 @@ function LiIcon({ reference }: { reference: any }) {
   );
 }
 
-function Details({ experience }: { experience: ExperienceType }) {
+function Details({
+  experience,
+  index,
+}: {
+  experience: ExperienceType;
+  index: number;
+}) {
   const ref = useRef(null);
 
   return (
@@ -52,9 +58,24 @@ function Details({ experience }: { experience: ExperienceType }) {
     >
       <LiIcon reference={ref} />
       <motion.div
-        initial={{ y: 50 }}
-        whileInView={{ y: 0 }}
-        transition={{ duration: 1, type: "spring" }}
+        initial={{ y: 40, opacity: 0 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        viewport={{ once: true }}
+        exit={{
+          y: 40,
+          opacity: 0,
+          transition: {
+            duration: 0.45,
+            ease: "easeIn",
+            delay: 0.15 * index,
+          },
+        }}
+        transition={{
+          type: "spring",
+          stiffness: 45,
+          damping: 18,
+          delay: 0.25 * index,
+        }}
       >
         <h3 className="capitalize font-bold text-2xl">
           {experience.position}&nbsp;
@@ -101,7 +122,11 @@ export default function Experience(): JSX.Element {
           className="w-full flex flex-col items-start justify-between ml-6 sm:ml-4 md:ml-2 lg:ml-0"
         >
           {experiences.map((experience: ExperienceType, index: number) => (
-            <Details key={`experience-${index}`} experience={experience} />
+            <Details
+              key={`experience-${index}`}
+              experience={experience}
+              index={index}
+            />
           ))}
         </ul>
       </div>

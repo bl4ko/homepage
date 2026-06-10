@@ -14,15 +14,15 @@ export const experiences: Experience[] = [
     companyLink: "https://www.src.si/",
     time: "July 2022 - March 2025",
     address: "Ljubljana, Slovenia",
-    work: "Built and maintained on-premise Kubernetes clusters serving production workloads. Automated infrastructure with Ansible and Renovate. Developed two cloud-native applications (Django/React/Go) from architecture to deployment. Resolved complex networking issues across multi-cluster environments.",
+    work: "Built and maintained on-premise Kubernetes clusters serving production workloads. Automated infrastructure with Ansible and AWX. Developed and deployed multiple cloud-native applications.",
   },
   {
     position: "Fullstack Engineer",
     company: "Freelance",
     time: "October 2024 - Present",
-    companyLink: "",
+    companyLink: "https://about.bl4ko.com",
     address: "Ljubljana, Slovenia",
-    work: "Delivering end-to-end infrastructure and application solutions for clients in real esatate and gambling industries.",
+    work: "Delivering end-to-end infrastructure and application solutions for clients in real estate and gambling industries.",
   },
   {
     position: "Senior DevOps Engineer",
