@@ -20,7 +20,9 @@ test("Test index footer", async ({ page }) => {
 
 test("Ensure there is profile picture displayed", async ({ page }) => {
   await page.goto("/");
-  await expect(await page.getByRole("img", { name: "Bl4ko" })).toBeVisible();
+  await expect(
+    await page.getByRole("img", { name: "Gašper Oblak" }),
+  ).toBeVisible();
 });
 
 test("Ensure that the index page contains all headings", async ({ page }) => {
@@ -30,6 +32,9 @@ test("Ensure that the index page contains all headings", async ({ page }) => {
   ).toBeVisible();
   await expect(await page.getByRole("heading", { name: "Bio" })).toBeVisible();
   await expect(
-    await page.getByRole("heading", { name: "Hobbies" }),
+    await page.getByRole("heading", { name: "Services" }),
+  ).toBeVisible();
+  await expect(
+    await page.getByRole("heading", { name: "Contact" }),
   ).toBeVisible();
 });

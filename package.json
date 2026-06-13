@@ -15,9 +15,9 @@
     "@react-three/fiber": "^9.0.4",
     "framer-motion": "^11.0.0",
     "material-symbols": "^0.44.0",
-    "next": "16.2.6",
-    "react": "19.2.6",
-    "react-dom": "19.2.6",
+    "next": "16.2.9",
+    "react": "19.2.7",
+    "react-dom": "19.2.7",
     "react-parallax-tilt": "^1.7.172",
     "sharp": "^0.34.0",
     "three": "^0.184.0",
@@ -26,18 +26,19 @@
   "devDependencies": {
     "@playwright/test": "1.60.0",
     "@tailwindcss/postcss": "4.3.0",
-    "@types/node": "24.12.4",
-    "@types/react": "19.2.14",
+    "@types/node": "24.13.1",
+    "@types/react": "19.2.17",
     "@types/react-dom": "19.2.3",
     "@types/three": "0.184.1",
     "eslint": "9.39.4",
-    "eslint-config-next": "16.2.6",
-    "postcss": "8.5.14",
-    "prettier": "3.8.3",
+    "eslint-config-next": "16.2.9",
+    "postcss": "8.5.15",
+    "prettier": "3.8.4",
     "tailwindcss": "4.3.0"
   },
   "overrides": {
-    "@types/react": "19.2.14",
-    "@types/react-dom": "19.2.3"
+    "@types/react": "19.2.17",
+    "@types/react-dom": "19.2.3",
+    "postcss": "8.5.15"
   }
 }

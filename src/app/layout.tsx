@@ -4,24 +4,64 @@ import SlideShow from "@/components/transitions/SlideShow";
 import { JetBrains_Mono } from "next/font/google";
 import Footer from "@/components/footer";
 import Navbar from "@/components/navbar";
-// import Cursor from "@/components/Cursor";
-import 'material-symbols';
 
 import { Metadata } from "next";
 import StarsCanvas from "@/components/canvas/Stars";
 
-import 'material-symbols';
-
 import "./globals.css";
 
-// Meta API for Head element
 export const metadata: Metadata = {
-  title: "Bl4ko",
-  description: "Bl4ko's homepage",
-  authors: [{ name: "bl4ko" }],
-  keywords: "Bl4ko, Bl4ko's homepage",
+  metadataBase: new URL("https://bl4ko.com"),
+  title: "Gašper Oblak | DevOps Engineer",
+  description:
+    "DevOps Engineer specializing in Kubernetes, Terraform, and cloud-native infrastructure. Available for remote contract work.",
+  authors: [{ name: "Gašper Oblak" }],
+  keywords: "DevOps Engineer, Kubernetes, Terraform, ArgoCD, DevOps, Freelance, Contract",
   robots: "index, follow",
-  icons: "/images/profile_no_background.png",
+  alternates: { canonical: "/" },
+  openGraph: {
+    title: "Gašper Oblak | DevOps Engineer",
+    description:
+      "DevOps Engineer specializing in Kubernetes, Terraform, and cloud-native infrastructure. Available for remote contract work.",
+    url: "https://bl4ko.com",
+    siteName: "Gašper Oblak",
+    type: "website",
+    images: [{ url: "/images/profile.png", width: 1024, height: 1024, alt: "Gašper Oblak" }],
+  },
+  twitter: {
+    card: "summary",
+    title: "Gašper Oblak | DevOps Engineer",
+    description:
+      "DevOps Engineer specializing in Kubernetes, Terraform, and cloud-native infrastructure.",
+    images: ["/images/profile.png"],
+  },
+};
+
+// Set data-theme before first paint to avoid a flash of unstyled background.
+const themeInitScript = `
+(function () {
+  try {
+    var stored = localStorage.getItem("theme");
+    var theme = stored === "light" || stored === "dark" ? stored : "dark";
+    document.documentElement.setAttribute("data-theme", theme);
+  } catch (e) {
+    document.documentElement.setAttribute("data-theme", "dark");
+  }
+})();
+`;
+
+const personJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Gašper Oblak",
+  jobTitle: "DevOps Engineer",
+  url: "https://bl4ko.com",
+  email: "mailto:gasperoblak@bl4ko.com",
+  sameAs: [
+    "https://github.com/bl4ko",
+    "https://www.linkedin.com/in/ga%C5%A1per-oblak-b3779b2ba/",
+  ],
+  knowsAbout: ["Kubernetes", "Terraform", "ArgoCD", "DevOps", "Cloud-Native Architecture"],
 };
 
 // Font optimization
@@ -38,20 +78,27 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body>
-        <main className={`relative pb-8 h-full ${jetBrainsMono.className}`}>
-          <ThemeProvider>
-            <StarsCanvas />
-            <Navbar />
-            {/* <Cursor /> */}
+    // suppressHydrationWarning: themeInitScript sets data-theme before hydration
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+        />
+      </head>
+      <body className={jetBrainsMono.className}>
+        <ThemeProvider>
+          <StarsCanvas />
+          <Navbar />
+          <main className="relative pb-8 h-full">
             <div className="text-base md:text-lg max-w-6xl pt-14 mx-auto xl:px-16 lg:px-12 md:px-10 xs:px-8 px-4">
               <EarthCanvas />
               <SlideShow>{children}</SlideShow>
               <Footer />
             </div>
-          </ThemeProvider>
-        </main>
+          </main>
+        </ThemeProvider>
       </body>
     </html>
   );
