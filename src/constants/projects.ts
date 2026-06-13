@@ -13,6 +13,55 @@ export type Project = {
   source: string;
 };
 
+export type Contribution = {
+  name: string;
+  description: string;
+  url: string;
+};
+
+export const contributions: Contribution[] = [
+  {
+    name: "CloudPirates Helm Charts",
+    description: "Community-driven Helm charts for Kubernetes — Redis, RabbitMQ, Keycloak, and more.",
+    url: "https://github.com/CloudPirates-io/helm-charts",
+  },
+  {
+    name: "Kubescape Helm Charts",
+    description: "Official Helm charts for deploying Kubescape security platform on Kubernetes.",
+    url: "https://github.com/kubescape/helm-charts",
+  },
+  {
+    name: "go-proxmox",
+    description: "Go client library for the Proxmox VE API.",
+    url: "https://github.com/luthermonson/go-proxmox",
+  },
+  {
+    name: "NetBox Helm Chart",
+    description: "Official Helm chart for deploying NetBox on Kubernetes.",
+    url: "https://github.com/netbox-community/netbox-chart",
+  },
+  {
+    name: "NetBox Device Type Library",
+    description: "Community-sourced library of device type definitions for NetBox.",
+    url: "https://github.com/netbox-community/devicetype-library",
+  },
+  {
+    name: "Renovate Operator",
+    description: "Kubernetes operator for running Renovate dependency updates as CronJobs.",
+    url: "https://github.com/mogenius/renovate-operator",
+  },
+  {
+    name: "media-stack",
+    description: "Docker Compose media server stack with VPN integration.",
+    url: "https://github.com/navilg/media-stack",
+  },
+  {
+    name: "certstream-go",
+    description: "Go client for real-time certificate transparency log streaming.",
+    url: "https://github.com/SRC-doo/certstream-go",
+  },
+];
+
 export const projects: Project[] = [
   {
     name: "Netbox-ssot",

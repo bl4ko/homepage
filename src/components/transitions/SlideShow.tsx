@@ -39,8 +39,13 @@ export default function SlideShow({ children }: { children: React.ReactNode }) {
         key={path}
         initial={{ opacity: 0, x: 0, y: 45 }}
         animate={{ opacity: 1, x: 0, y: 0 }}
-        exit={{ opacity: 0, x: 0, y: 45 }}
-        transition={{ duration: 1, type: "easeInOut" }}
+        exit={{
+          opacity: 0,
+          x: 0,
+          y: 45,
+          transition: { duration: 0.6, type: "tween", ease: "easeIn" },
+        }}
+        transition={{ duration: 1, type: "tween", ease: "easeOut" }}
       >
         <FrozenRouter>{children}</FrozenRouter>
       </motion.article>

@@ -1,8 +1,6 @@
 "use client";
-import Tilt from "react-parallax-tilt";
-import { projects, Project, Color } from "@/constants";
+import { projects, Project, Color, contributions, Contribution } from "@/constants";
 import { motion } from "framer-motion";
-import Image from "next/image";
 import { JSX } from "react";
 
 type ColorClassesType = Record<Color, string>;
@@ -17,87 +15,90 @@ const colorClasses: ColorClassesType = {
   aqua: "text-aqua",
 };
 
-interface ProjectCardProps {
-  key: string;
-  index: number;
-  project: Project;
+type UnifiedProject = {
+  name: string;
+  description: string;
+  url: string;
+  role: "Author" | "Contributor";
+  tags?: { name: string; color: Color }[];
+};
+
+function getAllProjects(): UnifiedProject[] {
+  const authored: UnifiedProject[] = projects.map((p: Project) => ({
+    name: p.name,
+    description: p.description,
+    url: p.source,
+    role: "Author",
+    tags: p.tags,
+  }));
+  const contributed: UnifiedProject[] = contributions.map((c: Contribution) => ({
+    name: c.name,
+    description: c.description,
+    url: c.url,
+    role: "Contributor",
+  }));
+  return [...authored, ...contributed];
 }
 
-function ProjectCard({ index, project }: ProjectCardProps): JSX.Element {
+function ProjectCard({ project, index }: { project: UnifiedProject; index: number }): JSX.Element {
   return (
-    <motion.div
-      transition={{ delay: 1 + 1 * index, type: "spring", duration: 1 }}
-      initial={{ opacity: 0, x: 0, y: 100 }}
-      animate={{ x: 0, opacity: 1, y: 0 }}
-      className="lg:w-[30%] sm:w-[45%] w-[90%] xs:w-[70%] playwright-card"
+    <motion.a
+      href={project.url || undefined}
+      target={project.url ? "_blank" : undefined}
+      transition={{ delay: 0.1 * index, type: "spring", duration: 5 }}
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      className="playwright-card bg-secondary p-5 rounded-2xl border border-green/10 no-underline hover:border-green/30 transition-colors duration-200 flex flex-col"
     >
-      <Tilt className="bg-secondary p-4 rounded-2xl w-full h-full hover">
-        <a href={project.source} className="no-underline">
-          <div className="relative w-full h-[200px]">
-            <Image
-              unoptimized
-              src={`/images/${project.image}`}
-              alt={project.name}
-              fill={true}
-              sizes="(max-width: 640px) 70vw, (max-width: 1024px) 45vw, 30vw"
-              className="w-full h-full object-contain rounded-2xl"
-            />
-          </div>
-
-          <div className="absolute inset-0 flex justify-end hover">
-            <div className="fixed w-16 h-16 rounded-full flex justify-center items-center">
-              { project.source !== "" ?
-              <Image
-                unoptimized
-                src="/images/github.png"
-                alt="github"
-                className="object-cover w-1/2 h-1/2 static"
-                fill={true}
-                sizes="5vw"
-              />
-              : <></>
-            }
-            </div>
-          </div>
-          <div className="mt-5">
-            <h3 className="font-bold text-[20px]">{project.name}</h3>
-            <p className="mt-2 text-text-secondary text-[12px]">
-              {project.description}
-            </p>
-          </div>
-
-          <div className="flex flex-wrap mt-4 gap-2">
-            {project.tags.map((tag, index) => (
-              <p
-                key={`${tag.name}-${index}`}
-                className={`text-[14px] ${colorClasses[tag.color]}`}
-              >
-                #{tag.name}
-              </p>
-            ))}
-          </div>
-        </a>
-      </Tilt>
-    </motion.div>
+      <div className="flex items-center justify-between mb-3">
+        <h3 className="font-bold text-green">{project.name}</h3>
+        <span className={`text-xs px-2 py-0.5 rounded-full ${
+          project.role === "Author"
+            ? "bg-green/15 text-green"
+            : "bg-cyan/15 text-cyan"
+        }`}>
+          {project.role}
+        </span>
+      </div>
+      <p className="text-text-secondary text-sm flex-grow">{project.description}</p>
+      {project.tags && project.tags.length > 0 && (
+        <div className="flex flex-wrap mt-3 gap-2">
+          {project.tags.map((tag, i) => (
+            <span
+              key={`${tag.name}-${i}`}
+              className={`text-xs ${colorClasses[tag.color]}`}
+            >
+              #{tag.name}
+            </span>
+          ))}
+        </div>
+      )}
+    </motion.a>
   );
 }
 
 export default function Projects(): JSX.Element {
+  const allProjects = getAllProjects();
+
   return (
     <>
-      <h1 className="text-3xl underline text-center my-5 capitalize text-yellow">
-        Projects
-      </h1>
-      <div className="w-full flex">
-        Here you can find some projects, that I have implemented in the past.
+      <div className="text-center my-6">
+        <p className="text-xs font-bold uppercase tracking-[0.25em] text-text-secondary">
+          Open Source
+        </p>
+        <h1 className="text-3xl font-bold text-green mt-1">Projects</h1>
+        <p className="text-text-secondary text-sm mt-2 max-w-md mx-auto">
+          Tools I&apos;ve built and projects I&apos;ve contributed to.
+        </p>
+        <div className="w-10 h-[2px] bg-green/40 rounded-full mx-auto mt-4" />
       </div>
 
-      <div className="mt-10 flex flex-wrap gap-7 justify-between">
-        {projects.map((project, index) => (
+      <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {allProjects.map((project, index) => (
           <ProjectCard
             key={`project-${index}`}
-            index={index}
             project={project}
+            index={index}
           />
         ))}
       </div>

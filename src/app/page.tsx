@@ -1,7 +1,3 @@
-/**
- * This is the index page of the website.
- */
-
 import Link from "next/link";
 import Image from "next/image";
 import SocialIcon from "@/components/social-icons";
@@ -23,27 +19,50 @@ function BioYear({ children }: BioSectionProps): JSX.Element {
   return <span className="font-bold mr-4 lg:mr-5">{children}</span>;
 }
 
+const services = [
+  {
+    title: "Kubernetes Platform Engineering",
+    description: "Cluster architecture, multi-tenancy, Day 2 operations",
+  },
+  {
+    title: "Infrastructure as Code",
+    description: "Terraform, CloudFormation, Ansible",
+  },
+  {
+    title: "GitOps & CI/CD Pipelines",
+    description: "ArgoCD, GitHub Actions, automated delivery with rollback",
+  },
+  {
+    title: "Observability & Monitoring",
+    description: "LGTM stack, Prometheus, VM stack, Uptime Kuma",
+  },
+  {
+    title: "Security Hardening & Compliance",
+    description:
+      "Vault secrets management, CrowdSec IDS, Falco runtime security, Wazuh SIEM, Kyverno policies",
+  },
+  {
+    title: "Cloud Architecture",
+    description: "AWS, multi-tenant platform design, cost optimization, migration planning",
+  },
+];
+
 export default function Home() {
   return (
     <div>
-      <div className="my-4 rounded-xl p-3 text-center bg-secondary bg-opacity-50 backdrop-blur-md">
-        Hello, I&apos;m a DevOps Engineer from Slovenia
-      </div>
-
-      <div className="md:flex items-center">
+      <div className="my-6 md:flex items-center bg-secondary/50 rounded-xl p-5 border border-green/10">
         <div className="grow">
-          <h2 className="text-2xl font-bold">Bl4ko, Gašper Oblak</h2>
-          <div className="flex items-center">
-            <p>Freelance DevOps Engineer & Cloud Consultant</p>
-          </div>
+          <h1 className="text-2xl font-bold">Gašper Oblak</h1>
+          <p className="text-green font-bold mt-1">DevOps Engineer</p>
+          <p className="text-sm text-text-secondary mt-1">Kubernetes &middot; Infrastructure as Code &middot; Cloud-Native Architecture</p>
+          <p className="text-sm text-text-secondary mt-1">Available for remote contract work.</p>
         </div>
 
         <div className="shrink-0 mt-3 md:ml-6 text-center">
-          <div className="border-white border-opacity-100 border-2 w-24 h-24 rounded-full overflow-hidden inline-block">
+          <div className="border-green/30 border-2 w-24 h-24 rounded-full overflow-hidden inline-block">
             <Image
-              unoptimized
               src="/images/profile.png"
-              alt="Bl4ko"
+              alt="Gašper Oblak"
               width={100}
               height={100}
             />
@@ -51,78 +70,76 @@ export default function Home() {
         </div>
       </div>
 
-      <div>
-        <h3 className="section-title">About</h3>
-        <p className="text-justify indent-5 hyphens-auto">
-          I&apos;m a DevOps engineer from Ljubljana, Slovenia, with a Bachelor’s degree in Artificial Intelligence from the University of Ljubljana, Faculty of Computer and Information Science. My expertise lies in Cloud Engineering, Automation, and Software Architecture, where I continuously refine my skills through hands-on projects and real-world applications.
+      <div className="bg-secondary/50 rounded-xl p-5 border border-green/10 mt-4">
+        <h2 className="section-title">About</h2>
+        <p>
+          I design and operate production Kubernetes platforms for companies that need reliable, secure infrastructure. My work spans the full stack: Terraform provisioning, GitOps delivery with ArgoCD, observability (Prometheus, Grafana, Loki), and security hardening (Vault, CrowdSec, Falco).
         </p>
-        <p className="text-justify indent-5 hyphens-auto mt-6">Beyond my professional role, I&apos;m deeply passionate about IoT—automating and optimizing home processes to enhance efficiency and convenience. These projects keep me at the forefront of emerging technologies and broaden my technical perspective.</p>
-
-        <p className="text-justify indent-5 hyphens-auto mt-6">Outside of tech, I stay active with tennis, cycling, and fitness training, balancing physical well-being with strategic mental exercises like chess, which sharpens my problem-solving skills.</p>
+        <p className="mt-6">
+          4+ years running multi-node clusters in production. CKA, RHCE, and RHCSA certified. I ship infrastructure that scales, stays observable, and passes security audits.
+        </p>
       </div>
 
-      <div>
-        <h3 className="section-title">Bio</h3>
+      <div className="bg-secondary/50 rounded-xl p-5 border border-green/10 mt-4">
+        <h2 className="section-title">Services</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          {services.map((service) => (
+            <div key={service.title} className="bg-secondary/50 rounded-lg p-4 border border-green/10">
+              <p className="font-bold text-green text-sm">{service.title}</p>
+              <p className="text-text-secondary text-sm mt-1">{service.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
 
-        <BioSection>
-          <BioYear>2001</BioYear>
-          <BioText>Born in Ljubljana, Slovenia 🇸🇮.</BioText>
-        </BioSection>
-
-        <BioSection>
-          <BioYear>2016</BioYear>
-          <BioText>Achieved runner-up in the Slovenian National U16 Tennis Championship.</BioText>
-        </BioSection>
+      <div className="bg-secondary/50 rounded-xl p-5 border border-green/10 mt-4">
+        <h2 className="section-title">Bio</h2>
 
         <BioSection>
           <BioYear>2022</BioYear>
-          <BioText>Began my career as a <b>DevOps engineer</b> at&nbsp;
-            <Link href="https://src.si/" target="_blank">SRC</Link>.
-          </BioText>
+          <BioText>Started as a <strong>DevOps Engineer</strong> at <Link href="https://src.si/" target="_blank">SRC</Link>, building and maintaining production Kubernetes clusters.</BioText>
         </BioSection>
 
         <BioSection>
           <BioYear>2023</BioYear>
-          <BioText>Graduated with a <b>Bachelor’s degree in Artificial Intelligence</b>
-            from the University of Ljubljana, Faculty of Computer and Information Science.</BioText>
+          <BioText>Graduated with a <strong>Bachelor&apos;s in Artificial Intelligence</strong> from the University of Ljubljana.</BioText>
         </BioSection>
 
         <BioSection>
           <BioYear>2024</BioYear>
           <BioText>
-            Earned two Red Hat certifications: <b>RHCSA and Red Hat Specialist in Containers.</b>
+            Earned <strong>RHCSA</strong> and <strong>Red Hat Specialist in Containers</strong> certifications.
             <br />
-            Spoke at <b>two Slovenian cloud-native conferences</b>.
+            Spoke at <strong>two cloud-native conferences</strong>.
             <br />
-            Started freelancing as a <b>DevOps engineer and Cloud consultant</b>.
+            Started freelance consulting as a <strong>DevOps Engineer</strong>.
           </BioText>
         </BioSection>
 
         <BioSection>
           <BioYear>2025</BioYear>
-          <BioText>Earned two new certifications: <b>Red Hat Certified System Engineer (RHCE)</b> and <b>Certified Kubernetes administrator (CKA) certification</b>.</BioText>
+          <BioText>Earned <strong>RHCE</strong> and <strong>Certified Kubernetes Administrator (CKA)</strong>. Joined <Link href="https://www.cyber-grid.com/" target="_blank">CyberGrid</Link> as Senior DevOps Engineer, architecting multi-tenant AWS infrastructure.</BioText>
         </BioSection>
       </div>
 
-      <div>
-        <h3 className="section-title">Hobbies</h3>
-        <p className="text-justify indent-1 hyphens-auto">
-          Bl4ko enjoys sports including cycling, chess, cue sports, tennis,
-          boxing and fitness.
-        </p>
-      </div>
-
-      <div>
-        <h3 className="section-title">Contact</h3>
-        <div className="flex-row flex">
-          <div className="mx-2 my-2">
-          <SocialIcon kind="github" href="https://github.com/bl4ko" size={30} />
+      <div className="bg-secondary/50 rounded-xl p-5 border border-green/10 mt-4">
+        <h2 className="section-title">Contact</h2>
+        <p className="mb-4 text-text-secondary">Available for remote contract work.</p>
+        <a
+          href="mailto:gasperoblak@bl4ko.com"
+          className="inline-block bg-green text-black font-bold px-7 py-3 rounded-full no-underline shadow-[0_4px_20px_-6px_var(--color-green)] hover:shadow-[0_6px_28px_-6px_var(--color-green)] hover:-translate-y-0.5 transition-all duration-200"
+        >
+          Get in Touch
+        </a>
+        <div className="flex-row flex mt-5 gap-1">
+          <div className="mx-1 my-1">
+            <SocialIcon kind="github" href="https://github.com/bl4ko" size={30} />
           </div>
-          <div className="mx-2 my-2">
-          <SocialIcon kind="linkedin" href="https://www.linkedin.com/in/ga%C5%A1per-oblak-b3779b2ba/" size={30} />
+          <div className="mx-1 my-1">
+            <SocialIcon kind="linkedin" href="https://www.linkedin.com/in/ga%C5%A1per-oblak-b3779b2ba/" size={30} />
           </div>
-          <div className="mx-2 my-2">
-          <SocialIcon kind="mail" href="mailto:gasperoblak@bl4ko.com" size={30} />
+          <div className="mx-1 my-1">
+            <SocialIcon kind="mail" href="mailto:gasperoblak@bl4ko.com" size={30} />
           </div>
         </div>
       </div>

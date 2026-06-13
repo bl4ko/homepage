@@ -2,14 +2,9 @@
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import Link from "next/link";
-import { GithubIcon } from "./icons";
+import { GithubIcon, HamburgerIcon } from "./icons";
 import ThemeToggleButton from "./icons/theme-toggle-button";
-import { motion } from "framer-motion";
-
-const mobileMenuVariants = {
-  open: { opacity: 1, x: 0 },
-  closed: { opacity: 0, x: "100%" },
-};
+import { AnimatePresence, motion } from "framer-motion";
 
 interface LinkItemProps {
   href: string;
@@ -39,8 +34,10 @@ function LinkItem({
   return (
     <Link
       className={`${
-        active ? "bg-aqua" : ""
-      } px-2 py-1 text-text-primary transition-colors duration-200 ${className}`}
+        active
+          ? "bg-cyan/15 text-cyan font-bold rounded-full"
+          : "text-text-primary"
+      } px-3 py-2 ${className}`}
       href={href}
       {...props}
       onClick={handleClick}
@@ -90,65 +87,70 @@ export default function Navbar() {
           <div className="ml-1 sm:hidden">
             <button
               onClick={toggleMenu}
-              className="focus:outline-hidden"
-              aria-label="Options"
+              className="focus:outline-hidden p-1 text-text-primary"
+              aria-label={isOpen ? "Close menu" : "Open menu"}
+              aria-expanded={isOpen}
             >
-              <span className="material-symbols-outlined text-3xl">menu</span>
+              <HamburgerIcon width="32" height="32" />
             </button>
-            <motion.div
-              initial="closed"
-              animate={isOpen ? "open" : "closed"}
-              variants={mobileMenuVariants}
-              transition={{ duration: 0.5 }}
-              className="absolute right-0 mt-2 w-48 bg-tertiary rounded-md shadow-lg mr-1 border-2 text-sm"
-            >
-              <ul>
-                <li className="px-4 py-2">
-                  <LinkItem href="/" path={path} toggleMenu={toggleMenu}>
-                    Home
-                  </LinkItem>
-                </li>
-                <li className="px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-700">
-                  <LinkItem
-                    href="/projects"
-                    path={path}
-                    toggleMenu={toggleMenu}
-                  >
-                    Projects
-                  </LinkItem>
-                </li>
-                <li className="px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-700">
-                  <LinkItem
-                    href="/experience"
-                    path={path}
-                    toggleMenu={toggleMenu}
-                  >
-                    Experience
-                  </LinkItem>
-                </li>
-                <li className="px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-700">
-                  <LinkItem
-                    href="https://blog.bl4ko.com"
-                    path={path}
-                    toggleMenu={toggleMenu}
-                  >
-                    Blog
-                  </LinkItem>
-                </li>
-                <li className="px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-700">
-                  <LinkItem
-                    target="_blank"
-                    href="https://github.com/bl4ko/homepage"
-                    path={path}
-                    className="inline-flex items-center gap-1 pl-1"
-                    toggleMenu={toggleMenu}
-                  >
-                    <GithubIcon />
-                    Code
-                  </LinkItem>
-                </li>
-              </ul>
-            </motion.div>
+            <AnimatePresence>
+              {isOpen && (
+                <motion.div
+                  initial={{ opacity: 0, x: "100%" }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: "100%" }}
+                  transition={{ duration: 0.25, ease: "easeOut" }}
+                  className="absolute right-0 mt-2 w-48 bg-tertiary rounded-md shadow-lg mr-1 border-2 text-sm"
+                >
+                  <ul>
+                    <li className="px-4 py-2">
+                      <LinkItem href="/" path={path} toggleMenu={toggleMenu}>
+                        Home
+                      </LinkItem>
+                    </li>
+                    <li className="px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-700">
+                      <LinkItem
+                        href="/projects"
+                        path={path}
+                        toggleMenu={toggleMenu}
+                      >
+                        Projects
+                      </LinkItem>
+                    </li>
+                    <li className="px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-700">
+                      <LinkItem
+                        href="/experience"
+                        path={path}
+                        toggleMenu={toggleMenu}
+                      >
+                        Experience
+                      </LinkItem>
+                    </li>
+                    <li className="px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-700">
+                      <LinkItem
+                        href="https://blog.bl4ko.com"
+                        path={path}
+                        toggleMenu={toggleMenu}
+                      >
+                        Blog
+                      </LinkItem>
+                    </li>
+                    <li className="px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-700">
+                      <LinkItem
+                        target="_blank"
+                        href="https://github.com/bl4ko/homepage"
+                        path={path}
+                        className="inline-flex items-center gap-1 pl-1"
+                        toggleMenu={toggleMenu}
+                      >
+                        <GithubIcon />
+                        Code
+                      </LinkItem>
+                    </li>
+                  </ul>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
         </div>
       </div>
