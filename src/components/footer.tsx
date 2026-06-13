@@ -7,7 +7,7 @@ export default function Footer() {
       initial={{ opacity: 0, x: 0, y: 45 }}
       animate={{ opacity: 1, x: 0, y: 0 }}
       exit={{ opacity: 0, x: 0, y: 45 }}
-      transition={{ duration: 1, mode: "easeInOut" }}
+      transition={{ duration: 1, type: "tween", ease: "easeOut" }}
     >
       <div className="text-center opacity-[0.4] text-sm mt-5">
         &copy; {new Date().getFullYear()} bl4ko, Gašper Oblak. All rights reserved.

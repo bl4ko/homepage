@@ -24,7 +24,7 @@
 /* Firefox */
 * {
   scrollbar-width: thin;
-  scrollbar-color: var(--color-white) var(--background-secondary);
+  scrollbar-color: var(--color-green) var(--background-secondary);
 
   /* Disable built in cursor, we use separate component */
   /* cursor: none !important; */
@@ -55,22 +55,26 @@
   height: 100%;
 }
 
+/*
+  Light theme keeps the same hues as dark but darkened so every accent
+  reaches WCAG AA (>= 4.5:1) against the light backgrounds.
+*/
 html[data-theme="light"] {
-  --color-green: #9fef00;
-  --color-gray: #4b4b4b;
+  --color-green: #4d7c0f;
+  --color-gray: #475263;
   --color-black: #ffffff;
-  --color-blue: #0086ff;
-  --color-yellow: #ffaf00;
-  --color-red: #ff3e3e;
-  --color-purple: #9f00ff;
-  --color-aqua: #2ee7b6;
-  --color-cyan: #00cfc1;
-  --background-primary: #ffffff;
-  --background-secondary: #f0f0f0;
-  --background-tertiary: #e6e6e6;
+  --color-blue: #1d63d8;
+  --color-yellow: #b45309;
+  --color-red: #d92638;
+  --color-purple: #7e22ce;
+  --color-aqua: #047857;
+  --color-cyan: #0e7490;
+  --background-primary: #f8f9fb;
+  --background-secondary: #eef1f5;
+  --background-tertiary: #e3e7ed;
   --text-primary: #141d2b;
-  --text-secondary: #4b4b4b;
-  --text-tertiary: #9f9f9f;
+  --text-secondary: #475263;
+  --text-tertiary: #6b7280;
 }
 
 html[data-theme="dark"] {
@@ -116,11 +120,10 @@ button {
 
 .section-title {
   font-weight: bold;
-  font-size: 22px;
-  text-underline-offset: 6px;
-  margin-top: 0.75rem;
-  margin-bottom: 0.75rem;
-  text-decoration: underline;
-  text-decoration-color: #525252;
-  text-decoration-thickness: 4px;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-top: 0.25rem;
+  margin-bottom: 1rem;
+  color: var(--text-secondary);
 }

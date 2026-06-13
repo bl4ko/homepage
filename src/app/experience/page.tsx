@@ -18,14 +18,14 @@ function LiIcon({ reference }: { reference: any }) {
           cx="75"
           cy="50"
           r="20"
-          className="stroke-cyan stroke-1 fill-none"
+          className="stroke-cyan stroke-[3px] fill-none"
         />
         {/* Middle circle */}
         <motion.circle
           cx="75"
           cy="50"
           r="20"
-          className="stroke-[5px] fill-black"
+          className="stroke-[5px] fill-primary"
           style={{
             pathLength: scrollYProgress,
           }}
@@ -42,21 +42,42 @@ function LiIcon({ reference }: { reference: any }) {
   );
 }
 
-function Details({ experience }: { experience: ExperienceType }) {
+function Details({
+  experience,
+  index,
+}: {
+  experience: ExperienceType;
+  index: number;
+}) {
   const ref = useRef(null);
 
   return (
     <li
       ref={ref}
-      className="my-8 first:mt-0 last:mb-0 w-[60%] mx-auto flex flex-col items-center justify-between"
+      className="my-8 first:mt-0 last:mb-0 w-full pl-16 sm:pl-0 sm:w-[60%] sm:mx-auto flex flex-col items-start sm:items-center justify-between"
     >
       <LiIcon reference={ref} />
       <motion.div
-        initial={{ y: 50 }}
-        whileInView={{ y: 0 }}
-        transition={{ duration: 1, type: "spring" }}
+        initial={{ y: 40, opacity: 0 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        viewport={{ once: true }}
+        exit={{
+          y: 40,
+          opacity: 0,
+          transition: {
+            duration: 0.45,
+            ease: "easeIn",
+            delay: 0.15 * index,
+          },
+        }}
+        transition={{
+          type: "spring",
+          stiffness: 45,
+          damping: 18,
+          delay: 0.25 * index,
+        }}
       >
-        <h3 className="capitalize font-bold text-2xl">
+        <h3 className="capitalize font-bold text-xl sm:text-2xl">
           {experience.position}&nbsp;
           { experience.companyLink ?
           <a
@@ -101,7 +122,11 @@ export default function Experience(): JSX.Element {
           className="w-full flex flex-col items-start justify-between ml-6 sm:ml-4 md:ml-2 lg:ml-0"
         >
           {experiences.map((experience: ExperienceType, index: number) => (
-            <Details key={`experience-${index}`} experience={experience} />
+            <Details
+              key={`experience-${index}`}
+              experience={experience}
+              index={index}
+            />
           ))}
         </ul>
       </div>
