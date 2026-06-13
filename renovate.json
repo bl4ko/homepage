@@ -56,6 +56,17 @@
       ],
       "groupName": "semantic-release",
       "automerge": true
+    },
+    {
+      "description": "Hold eslint v10: eslint-config-next still bundles a babel eslint-parser without addGlobals and eslint-plugin-react <=7.37.5 uses the removed context.getFilename(). Revisit once eslint-config-next ships eslint 10 support.",
+      "matchPackageNames": [
+        "eslint",
+        "@eslint/js"
+      ],
+      "matchUpdateTypes": [
+        "major"
+      ],
+      "enabled": false
     }
   ],
   "lockFileMaintenance": {
