@@ -1,5 +1,8 @@
 FROM node:24.16.0-alpine3.24@sha256:fb71d01345f11b708a3553c66e7c74074f2d506400ea81973343d915cb64eef0 AS base
 
+# Pull in patched alpine packages (base digest lags security fixes, e.g. openssl)
+RUN apk --no-cache upgrade
+
 # Install dependencies only when needed
 FROM base AS deps
 WORKDIR /app
