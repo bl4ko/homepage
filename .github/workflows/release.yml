@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 jobs:
   release:
-    uses: bl4ko/shared-actions/.github/workflows/release.yml@a10d3ecae730917078f33d0e0a438bec5893c4c4 # main
+    uses: bl4ko/shared-actions/.github/workflows/release.yml@536ff587dbff31557af9a98c16339d5c27b84205 # main
     secrets:
       APP_ID: ${{ secrets.APP_ID }}
       APP_PRIVATE_KEY: ${{ secrets.APP_PRIVATE_KEY }}
