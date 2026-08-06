@@ -14,10 +14,11 @@ jobs:
       - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7
         with:
           node-version: 24
+      - run: corepack enable && corepack prepare pnpm@11.20.0 --activate
       - name: Install dependencies
-        run: npm ci
+        run: pnpm install --frozen-lockfile --ignore-scripts
       - name: Run ESLint
-        run: npm run lint
+        run: pnpm lint
 
   playwright:
     name: "Playwright Tests"
@@ -33,7 +34,7 @@ jobs:
         with:
           files: |
             package.json
-            package-lock.json
+            pnpm-lock.yaml
             src/**
             tests/**
             **.js
@@ -44,21 +45,24 @@ jobs:
         with:
           node-version: 24
 
+      - if: steps.changed-files.outputs.any_modified == 'true'
+        run: corepack enable && corepack prepare pnpm@11.20.0 --activate
+
       - name: Install dependencies
         if: steps.changed-files.outputs.any_modified == 'true'
-        run: npm ci
+        run: pnpm install --frozen-lockfile --ignore-scripts
 
       - name: Install Playwright Browsers
         if: steps.changed-files.outputs.any_modified == 'true'
-        run: npx playwright install --with-deps
+        run: pnpm exec playwright install --with-deps
 
       - name: Build standalone nextjs server for testing
         if: steps.changed-files.outputs.any_modified == 'true'
-        run: npm run build
+        run: pnpm build
 
       - name: Run Playwright tests
         if: steps.changed-files.outputs.any_modified == 'true'
-        run: npm run test:e2e --debug
+        run: pnpm test:e2e --debug
 
       - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
         if: steps.changed-files.outputs.any_modified == 'true'
