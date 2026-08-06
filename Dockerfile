@@ -11,8 +11,8 @@ WORKDIR /app
 RUN apk add --no-cache libc6-compat
 
 # Install dependencies based on the preferred package manager
-COPY package.json  package-lock.json ./
-RUN npm ci
+COPY package.json pnpm-lock.yaml ./
+RUN corepack enable && corepack prepare pnpm@11.20.0 --activate && pnpm install --frozen-lockfile --ignore-scripts
 
 # Rebuild the source code only when needed
 FROM base AS builder
@@ -23,8 +23,7 @@ COPY . .
 # Disable nextjs telemetry
 ENV NEXT_TELEMETRY_DISABLED=1
 
-# If using npm comment out above and use below instead
-RUN npm run build
+RUN pnpm build
 
 # Production image, copy all the files and run next
 FROM base AS runner

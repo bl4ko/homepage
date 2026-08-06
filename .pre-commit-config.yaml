@@ -8,14 +8,14 @@ repos:
 
   - repo: local
     hooks:
-      - id: npm-lint
+      - id: pnpm-lint
         name: "Lint"
-        entry: sh -c 'npm run lint'
+        entry: sh -c 'pnpm lint'
         language: system
 
-      - id: npm-test-e2e
+      - id: pnpm-test-e2e
         name: "End-to-End Test"
-        entry: bash -c 'npm run build && npm run test:e2e'
+        entry: bash -c 'pnpm build && pnpm test:e2e'
         language: system
         require_serial: true #https://pre-commit.com/#hooks-require_serial
 
