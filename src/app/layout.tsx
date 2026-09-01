@@ -12,17 +12,17 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://bl4ko.com"),
-  title: "Gašper Oblak | DevOps Engineer",
+  title: "Gašper Oblak | Platform & Site Reliability Engineer",
   description:
-    "DevOps Engineer specializing in Kubernetes, Terraform, and cloud-native infrastructure. Available for remote contract work.",
+    "Platform and site reliability engineer specializing in Kubernetes, agent infrastructure, Terraform, observability, and cloud-native security.",
   authors: [{ name: "Gašper Oblak" }],
-  keywords: "DevOps Engineer, Kubernetes, Terraform, ArgoCD, DevOps, Freelance, Contract",
+  keywords: "Platform Engineer, Site Reliability Engineer, Agent Infrastructure, Kubernetes, Terraform, Argo CD, Observability",
   robots: "index, follow",
   alternates: { canonical: "/" },
   openGraph: {
-    title: "Gašper Oblak | DevOps Engineer",
+    title: "Gašper Oblak | Platform & Site Reliability Engineer",
     description:
-      "DevOps Engineer specializing in Kubernetes, Terraform, and cloud-native infrastructure. Available for remote contract work.",
+      "Platform and site reliability engineer specializing in Kubernetes, agent infrastructure, Terraform, observability, and cloud-native security.",
     url: "https://bl4ko.com",
     siteName: "Gašper Oblak",
     type: "website",
@@ -30,9 +30,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary",
-    title: "Gašper Oblak | DevOps Engineer",
+    title: "Gašper Oblak | Platform & Site Reliability Engineer",
     description:
-      "DevOps Engineer specializing in Kubernetes, Terraform, and cloud-native infrastructure.",
+      "Kubernetes, agent infrastructure, Terraform, observability, and cloud-native security.",
     images: ["/images/profile.png"],
   },
 };
@@ -54,14 +54,14 @@ const personJsonLd = {
   "@context": "https://schema.org",
   "@type": "Person",
   name: "Gašper Oblak",
-  jobTitle: "DevOps Engineer",
+  jobTitle: "Platform and Site Reliability Engineer",
   url: "https://bl4ko.com",
   email: "mailto:gasperoblak@bl4ko.com",
   sameAs: [
     "https://github.com/bl4ko",
     "https://www.linkedin.com/in/ga%C5%A1per-oblak-b3779b2ba/",
   ],
-  knowsAbout: ["Kubernetes", "Terraform", "ArgoCD", "DevOps", "Cloud-Native Architecture"],
+  knowsAbout: ["Kubernetes", "Agent Infrastructure", "Terraform", "Argo CD", "Site Reliability Engineering", "Observability", "Cloud-Native Security"],
 };
 
 // Font optimization

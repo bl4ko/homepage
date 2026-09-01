@@ -19,31 +19,30 @@ function BioYear({ children }: BioSectionProps): JSX.Element {
   return <span className="font-bold mr-4 lg:mr-5">{children}</span>;
 }
 
-const services = [
+const focusAreas = [
   {
-    title: "Kubernetes Platform Engineering",
-    description: "Cluster architecture, multi-tenancy, Day 2 operations",
+    title: "Agent Infrastructure",
+    description: "Reliable execution, least-privilege tools, approval-bounded remediation",
   },
   {
-    title: "Infrastructure as Code",
-    description: "Terraform, CloudFormation, Ansible",
+    title: "Kubernetes Platforms",
+    description: "Multi-tenant clusters, capacity planning, Day 2 operations",
   },
   {
-    title: "GitOps & CI/CD Pipelines",
-    description: "ArgoCD, GitHub Actions, automated delivery with rollback",
+    title: "Reliability & Incident Response",
+    description: "Failure analysis, alerting, recovery, and permanent fixes",
   },
   {
-    title: "Observability & Monitoring",
-    description: "LGTM stack, Prometheus, VM stack, Uptime Kuma",
+    title: "Observability",
+    description: "OpenTelemetry, Prometheus, Grafana, Loki, Mimir, Tempo",
   },
   {
-    title: "Security Hardening & Compliance",
-    description:
-      "Vault secrets management, CrowdSec IDS, Falco runtime security, Wazuh SIEM, Kyverno policies",
+    title: "Security & Isolation",
+    description: "Vault, RBAC, NetworkPolicy, Kyverno, Falco, audit logging",
   },
   {
-    title: "Cloud Architecture",
-    description: "AWS, multi-tenant platform design, cost optimization, migration planning",
+    title: "Infrastructure as Code & GitOps",
+    description: "Terraform, Ansible, Argo CD, Helm, GitHub Actions",
   },
 ];
 
@@ -53,9 +52,9 @@ export default function Home() {
       <div className="my-6 md:flex items-center bg-secondary/50 rounded-xl p-5 border border-green/10">
         <div className="grow">
           <h1 className="text-2xl font-bold">Gašper Oblak</h1>
-          <p className="text-green font-bold mt-1">DevOps Engineer</p>
-          <p className="text-sm text-text-secondary mt-1">Kubernetes &middot; Infrastructure as Code &middot; Cloud-Native Architecture</p>
-          <p className="text-sm text-text-secondary mt-1">Available for remote contract work.</p>
+          <p className="text-green font-bold mt-1">Platform &amp; Site Reliability Engineer</p>
+          <p className="text-sm text-text-secondary mt-1">Kubernetes &middot; Agent Infrastructure &middot; Terraform &middot; Observability</p>
+          <p className="text-sm text-text-secondary mt-1">Building reliable infrastructure for cloud-native and AI agent workloads.</p>
         </div>
 
         <div className="shrink-0 mt-3 md:ml-6 text-center">
@@ -73,20 +72,20 @@ export default function Home() {
       <div className="bg-secondary/50 rounded-xl p-5 border border-green/10 mt-4">
         <h2 className="section-title">About</h2>
         <p>
-          I design and operate production Kubernetes platforms for companies that need reliable, secure infrastructure. My work spans the full stack: Terraform provisioning, GitOps delivery with ArgoCD, observability (Prometheus, Grafana, Loki), and security hardening (Vault, CrowdSec, Falco).
+          I design and operate production Kubernetes platforms across AWS and on-premises environments. My work spans Terraform provisioning, GitOps delivery with Argo CD, observability with Prometheus, Grafana, Loki, and OpenTelemetry, and security controls around workload and tenant boundaries.
         </p>
         <p className="mt-6">
-          4+ years running multi-node clusters in production. CKA, RHCE, and RHCSA certified. I ship infrastructure that scales, stays observable, and passes security audits.
+          My current focus is infrastructure for autonomous agents: reliable execution, least-privilege tooling, approval boundaries, and safe remediation. I have 4+ years of production experience and hold CKA, CKS, KCSA, RHCE, and RHCSA certifications.
         </p>
       </div>
 
       <div className="bg-secondary/50 rounded-xl p-5 border border-green/10 mt-4">
-        <h2 className="section-title">Services</h2>
+        <h2 className="section-title">Focus</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-          {services.map((service) => (
-            <div key={service.title} className="bg-secondary/50 rounded-lg p-4 border border-green/10">
-              <p className="font-bold text-green text-sm">{service.title}</p>
-              <p className="text-text-secondary text-sm mt-1">{service.description}</p>
+          {focusAreas.map((area) => (
+            <div key={area.title} className="bg-secondary/50 rounded-lg p-4 border border-green/10">
+              <p className="font-bold text-green text-sm">{area.title}</p>
+              <p className="text-text-secondary text-sm mt-1">{area.description}</p>
             </div>
           ))}
         </div>
@@ -120,11 +119,16 @@ export default function Home() {
           <BioYear>2025</BioYear>
           <BioText>Earned <strong>RHCE</strong> and <strong>Certified Kubernetes Administrator (CKA)</strong>. Joined <Link href="https://www.cyber-grid.com/" target="_blank">CyberGrid</Link> as Senior DevOps Engineer, architecting multi-tenant AWS infrastructure.</BioText>
         </BioSection>
+
+        <BioSection>
+          <BioYear>2026</BioYear>
+          <BioText>Earned <strong>CKS</strong> and <strong>KCSA</strong>. Built Kubernetes-hosted agents for continuous incident investigation, infrastructure audits, and policy-controlled remediation.</BioText>
+        </BioSection>
       </div>
 
       <div className="bg-secondary/50 rounded-xl p-5 border border-green/10 mt-4">
         <h2 className="section-title">Contact</h2>
-        <p className="mb-4 text-text-secondary">Available for remote contract work.</p>
+        <p className="mb-4 text-text-secondary">Open to remote Platform, SRE, and Agent Infrastructure roles in Europe.</p>
         <a
           href="mailto:gasperoblak@bl4ko.com"
           className="inline-block bg-green text-black font-bold px-7 py-3 rounded-full no-underline shadow-[0_4px_20px_-6px_var(--color-green)] hover:shadow-[0_6px_28px_-6px_var(--color-green)] hover:-translate-y-0.5 transition-all duration-200"
