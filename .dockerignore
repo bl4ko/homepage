@@ -9,3 +9,5 @@ Dockerfile
 .vscode
 .github
 .git
+node_modules
+.next
