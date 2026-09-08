@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useScroll } from "framer-motion";
+import { motion, useScroll } from "motion/react";
 import { Experience as ExperienceType, experiences } from "@/constants";
 import { useRef, JSX } from "react";
 

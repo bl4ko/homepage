@@ -4,7 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { GithubIcon, HamburgerIcon } from "./icons";
 import ThemeToggleButton from "./icons/theme-toggle-button";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion } from "motion/react";
 
 interface LinkItemProps {
   href: string;
