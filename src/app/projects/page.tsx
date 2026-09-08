@@ -1,6 +1,6 @@
 "use client";
 import { projects, Project, Color, contributions, Contribution } from "@/constants";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { JSX } from "react";
 
 type ColorClassesType = Record<Color, string>;

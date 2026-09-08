@@ -1,5 +1,5 @@
 "use client";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion } from "motion/react";
 import { SunIcon, MoonIcon } from "@/components/icons"; // Import your custom icons
 import { useContext } from "react";
 import { ThemeContext } from "@/context/ThemeProvider";
