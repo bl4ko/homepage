@@ -32,7 +32,7 @@ test("Ensure that the index page contains all headings", async ({ page }) => {
   ).toBeVisible();
   await expect(await page.getByRole("heading", { name: "Bio" })).toBeVisible();
   await expect(
-    await page.getByRole("heading", { name: "Services" }),
+    await page.getByRole("heading", { name: "Focus" }),
   ).toBeVisible();
   await expect(
     await page.getByRole("heading", { name: "Contact" }),
