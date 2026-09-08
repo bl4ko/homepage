@@ -5,7 +5,7 @@
 import { Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Preload, useGLTF } from "@react-three/drei";
-import { useReducedMotion } from "framer-motion";
+import { useReducedMotion } from "motion/react";
 
 import CanvasLoader from "../CanvasLoader";
 

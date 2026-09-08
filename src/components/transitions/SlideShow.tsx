@@ -2,7 +2,7 @@
 
 "use client";
 import { useRef, useContext } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion } from "motion/react";
 import { usePathname } from "next/navigation";
 
 // Unresolved issued, framer motion on exit don't work: https://github.com/vercel/next.js/issues/49279
