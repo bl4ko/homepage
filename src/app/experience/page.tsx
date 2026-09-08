@@ -8,7 +8,6 @@ function LiIcon({ reference }: { reference: any }) {
   const { scrollYProgress } = useScroll({
     target: reference,
     offset: ["start end", "end end"],
-    layoutEffect: false,
   });
   return (
     <figure className="absolute left-0 stroke-cyan">
