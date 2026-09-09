@@ -25,8 +25,8 @@ importers:
         specifier: ^9.0.4
         version: 9.7.0(@types/react@19.2.18)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(three@0.185.1)
       material-symbols:
-        specifier: ^0.45.0
-        version: 0.45.8
+        specifier: ^0.47.0
+        version: 0.47.1
       motion:
         specifier: ^13.0.0
         version: 13.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
@@ -1746,8 +1746,8 @@ packages:
   magic-string@0.30.21:
     resolution: {integrity: sha512-vd2F4YUyEXKGcLHoq+TEyCjxueSeHnFxyyjNp80yg0XV4vUhnDer/lvvlqM/arB5bXQN5K2/3oinyCRyx8T2CQ==}
 
-  material-symbols@0.45.8:
-    resolution: {integrity: sha512-1kpL3jl+/f6W34fmENPYMyftCmBNXUannoZ8XzlMsuEEFlIxesX+Z6ZCj2qSJGxzqwJ5yE/3x1XzVPsycieG2g==}
+  material-symbols@0.47.1:
+    resolution: {integrity: sha512-hBP/5D41W+3FatmX4axc7+ZEMzFV4KdPFf5enfOug2IFZOVgRtrLUNwbb88249OK6r5B7h+pKtklk+EJ3Q5fRQ==}
 
   math-intrinsics@1.1.0:
     resolution: {integrity: sha512-/IXtbwEk5HTPyEwyKX6hGkYXxM9nbj64B+ilVJnC/R6B0pH5G4V3b0pVbL7DBj4tkhBAppbQUlf6F6Xl9LHu1g==}
@@ -4106,7 +4106,7 @@ snapshots:
     dependencies:
       '@jridgewell/sourcemap-codec': 1.5.5
 
-  material-symbols@0.45.8: {}
+  material-symbols@0.47.1: {}
 
   math-intrinsics@1.1.0: {}
 
