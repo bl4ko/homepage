@@ -21,7 +21,7 @@
     "react-dom": "19.2.8",
     "react-parallax-tilt": "^1.7.172",
     "sharp": "^0.35.0",
-    "three": "^0.185.0",
+    "three": "^0.186.0",
     "typescript": "^6.0.0"
   },
   "devDependencies": {
