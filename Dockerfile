@@ -1,4 +1,4 @@
-FROM node:24.20.0-alpine3.23@sha256:0388af2af070cd4736a1567cfed02469ba117848845b4165d87a333edb53d2ca AS base
+FROM node:24.21.0-alpine3.23@sha256:159fe64649038c30f8cc1ec4be3af3a6e93e3648678c31294e2c5058dbeb99f3 AS base
 
 # Pull in patched alpine packages (base digest lags security fixes, e.g. openssl)
 RUN apk --no-cache upgrade
