@@ -1,7 +1,7 @@
 {
   "name": "portfolio",
   "version": "0.1.0",
-  "packageManager": "pnpm@12.4.2",
+  "packageManager": "pnpm@12.5.1",
   "private": false,
   "scripts": {
     "dev": "next dev",
@@ -27,14 +27,14 @@
   "devDependencies": {
     "@playwright/test": "1.63.0",
     "@tailwindcss/postcss": "4.3.3",
-    "@types/node": "24.13.5",
+    "@types/node": "24.13.6",
     "@types/react": "19.3.0",
     "@types/react-dom": "19.3.0",
     "@types/three": "0.186.0",
     "eslint": "9.39.5",
     "eslint-config-next": "16.3.5",
     "postcss": "8.5.28",
-    "prettier": "3.9.7",
+    "prettier": "3.9.8",
     "tailwindcss": "4.3.3"
   },
   "overrides": {
