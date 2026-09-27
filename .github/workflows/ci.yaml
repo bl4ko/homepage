@@ -25,6 +25,7 @@ jobs:
 
   playwright:
     name: "Playwright Tests"
+    timeout-minutes: 10
     runs-on: ubuntu-latest
     permissions:
       contents: read
