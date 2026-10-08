@@ -168,7 +168,7 @@ overrides:
   browserslist@<=4.28.6: 4.29.3
   fflate@>=0.6.0 <0.6.11: 0.8.3
   js-yaml@>=4.0.0 <4.3.1: 5.4.2
-  nanoid@<3.3.18: 6.0.1
+  nanoid@<3.3.18: 6.0.2
   postcss@<8.5.23: 8.5.28
   sharp@<0.35.0: 0.35.4
 
@@ -1966,8 +1966,8 @@ packages:
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
     hasBin: true
 
-  nanoid@6.0.1:
-    resolution: {integrity: sha512-3wVS3i51pE2pi1k5FFL/95BGfVS0kSsvDVuGXHOtxox/TywUmtgq+3qiTOTbs9J7KfHaXPiN171k/A6dBnaXFw==}
+  nanoid@6.0.2:
+    resolution: {integrity: sha512-hIvVOb9Qr1p/9CNNLOe0OlWvgx/ziTsVwKN/GDSsuArN2K0wDiafP3s0SWmsm7o2BdnyS8Z9Z64NFBUbn6ziBg==}
     engines: {node: ^22 || ^24 || >=26}
     hasBin: true
 
@@ -4328,7 +4328,7 @@ snapshots:
 
   nanoid@3.3.19: {}
 
-  nanoid@6.0.1: {}
+  nanoid@6.0.2: {}
 
   napi-postinstall@0.3.4: {}
 
@@ -4461,7 +4461,7 @@ snapshots:
 
   postcss@8.5.23:
     dependencies:
-      nanoid: 6.0.1
+      nanoid: 6.0.2
       picocolors: 1.1.1
       source-map-js: 1.2.2
 
