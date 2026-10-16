@@ -39,7 +39,7 @@ const services = [
   {
     title: "Security Hardening & Compliance",
     description:
-      "Vault secrets management, CrowdSec IDS, Falco runtime security, Wazuh SIEM, Kyverno policies",
+      "Vault secrets management, CrowdSec IDS, Tetragon runtime security, Wazuh SIEM, Kyverno policies",
   },
   {
     title: "Cloud Architecture",
@@ -73,7 +73,7 @@ export default function Home() {
       <div className="bg-secondary/50 rounded-xl p-5 border border-green/10 mt-4">
         <h2 className="section-title">About</h2>
         <p>
-          I design and operate production Kubernetes platforms for companies that need reliable, secure infrastructure. My work spans the full stack: Terraform provisioning, GitOps delivery with ArgoCD, observability (Prometheus, Grafana, Loki), and security hardening (Vault, CrowdSec, Falco).
+          I design and operate production Kubernetes platforms for companies that need reliable, secure infrastructure. My work spans the full stack: Terraform provisioning, GitOps delivery with ArgoCD, observability (Prometheus, Grafana, Loki), and security hardening (Vault, CrowdSec, Tetragon).
         </p>
         <p className="mt-6">
           4+ years running multi-node clusters in production. CKA, RHCE, and RHCSA certified. I ship infrastructure that scales, stays observable, and passes security audits.
