@@ -32,6 +32,8 @@ WORKDIR /app
 # Disable nextjs telemetry
 ENV NEXT_TELEMETRY_DISABLED=1
 
+RUN rm -rf /usr/local/lib/node_modules/npm /usr/local/lib/node_modules/corepack /usr/local/bin/npm /usr/local/bin/npx /usr/local/bin/corepack
+
 RUN addgroup --system --gid 10001 nodejs
 RUN adduser --system --uid 10001 nextjs
 
