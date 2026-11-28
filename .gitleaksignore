@@ -1,0 +1,20 @@
+# Old gitleaks rows in history. Commit cba5011 (2023-05-22) added a local swag
+# config directory. The docker/ directory is not in the tree now.
+# dns-conf/*.ini: swag sample files with placeholder values.
+# keys/cert.key: key of the swag self-signed default certificate (CN=*, O=Linuxserver.io).
+cba50117adbf5dbeb1b3f045b145c2fc01cfffac:docker/swag/dns-conf/aliyun.ini:generic-api-key:6
+cba50117adbf5dbeb1b3f045b145c2fc01cfffac:docker/swag/dns-conf/cloudflare.ini:cloudflare-api-key:6
+cba50117adbf5dbeb1b3f045b145c2fc01cfffac:docker/swag/dns-conf/cloudflare.ini:cloudflare-api-key:9
+cba50117adbf5dbeb1b3f045b145c2fc01cfffac:docker/swag/dns-conf/digitalocean.ini:generic-api-key:3
+cba50117adbf5dbeb1b3f045b145c2fc01cfffac:docker/swag/dns-conf/dnsmadeeasy.ini:generic-api-key:3
+cba50117adbf5dbeb1b3f045b145c2fc01cfffac:docker/swag/dns-conf/dnsmadeeasy.ini:generic-api-key:4
+cba50117adbf5dbeb1b3f045b145c2fc01cfffac:docker/swag/dns-conf/domeneshop.ini:generic-api-key:3
+cba50117adbf5dbeb1b3f045b145c2fc01cfffac:docker/swag/dns-conf/domeneshop.ini:generic-api-key:4
+cba50117adbf5dbeb1b3f045b145c2fc01cfffac:docker/swag/dns-conf/godaddy.ini:generic-api-key:3
+cba50117adbf5dbeb1b3f045b145c2fc01cfffac:docker/swag/dns-conf/godaddy.ini:generic-api-key:4
+cba50117adbf5dbeb1b3f045b145c2fc01cfffac:docker/swag/dns-conf/hetzner.ini:generic-api-key:3
+cba50117adbf5dbeb1b3f045b145c2fc01cfffac:docker/swag/dns-conf/luadns.ini:generic-api-key:4
+cba50117adbf5dbeb1b3f045b145c2fc01cfffac:docker/swag/dns-conf/netcup.ini:generic-api-key:4
+cba50117adbf5dbeb1b3f045b145c2fc01cfffac:docker/swag/dns-conf/netcup.ini:generic-api-key:5
+cba50117adbf5dbeb1b3f045b145c2fc01cfffac:docker/swag/dns-conf/rfc2136.ini:generic-api-key:8
+cba50117adbf5dbeb1b3f045b145c2fc01cfffac:docker/swag/keys/cert.key:private-key:1
